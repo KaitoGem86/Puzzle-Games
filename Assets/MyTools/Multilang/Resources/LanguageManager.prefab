@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3061248391995714411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3061248391995714410}
+  - component: {fileID: 3061248391995714325}
+  m_Layer: 0
+  m_Name: LanguageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3061248391995714410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3061248391995714411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3061248391995714325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3061248391995714411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0aa5712b8dda443845edaa560305cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  docID: 1BIY-IagBGTUSjspTUuU3Bt-BpEEUKl8fVzzR5de2mSk
+  sheetID: 1903064696
+  asset: {fileID: 4900000, guid: 68fc6bf7b1ccefe40b1eb599f1e07a99, type: 3}
+  langs:
+  - name: English
+    lang_code: EN
+    font: {fileID: 12800000, guid: 86f564b1d514776499edc091132d7d0f, type: 3}
+    tm_font: {fileID: 11400000, guid: a32f581afbdb4d7428ce4c50259646ef, type: 2}
+  - name: "Ti\xEA\u0301ng Vi\xEA\u0323t"
+    lang_code: VI
+    font: {fileID: 12800000, guid: 86f564b1d514776499edc091132d7d0f, type: 3}
+    tm_font: {fileID: 11400000, guid: a32f581afbdb4d7428ce4c50259646ef, type: 2}
+  - name: Japan
+    lang_code: JP
+    font: {fileID: 12800000, guid: a3e1237d75446174c8cec661b4b449cc, type: 3}
+    tm_font: {fileID: 11400000, guid: a32f581afbdb4d7428ce4c50259646ef, type: 2}
+  default_code: EN
+  crr_lang_code: 
+  df_data: 
