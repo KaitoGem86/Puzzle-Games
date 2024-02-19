@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Game/01 SCENES/Loading.unity
     guid: 943bc10bbd9c49649adc3c04421186da
   - enabled: 1
-    path: Assets/Game/01 SCENES/Game.unity
-    guid: 8f0ec652e0f2f724f8960c50be0b535d
+    path: Assets/Game/Game-Ball-Sort-Quest/01. SCENES/Game.unity
+    guid: 5cb40e19f49b2e0468d3d7faeee40ee0
   m_configObjects: {}

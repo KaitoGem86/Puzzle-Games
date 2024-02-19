@@ -1,14 +1,14 @@
-﻿//using Firebase;
-//using Firebase.Analytics;
-//using System;
-//using System.Collections;
-//using System.Collections.Generic;
-//using Firebase.Extensions;
-//using Firebase.RemoteConfig;
-//using UnityEngine;
+﻿using Firebase;
+using Firebase.Analytics;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Firebase.Extensions;
+using Firebase.RemoteConfig;
+using UnityEngine;
 
-//public class FirebaseManager : SingletonMonoBehaviour<FirebaseManager>
-//{
+public class FirebaseManager : SingletonMonoBehaviour<FirebaseManager>
+{
 //    private const string TAG = "[FIREBASE]";
 //    public FirebaseApp app;   
 //    public bool isOk = false;
@@ -103,4 +103,4 @@
 //    {
         
 //    }
-//}
+}
