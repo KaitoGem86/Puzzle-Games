@@ -1,8 +1,7 @@
+using DG.Tweening;
 using PopupSystem;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 namespace BallSortQuest
 {
@@ -18,7 +17,7 @@ namespace BallSortQuest
             base.Show();
             _secondGroupButton.SetActive(false);
             _firstGroupButton.SetActive(true);
-            ActiveStar(3);
+            ActiveStar(3, 0.5f);
         }
 
         public void Close()
@@ -37,10 +36,25 @@ namespace BallSortQuest
             _secondGroupButton.SetActive(true);
         }
 
-        private void ActiveStar(int star){
-            for (int i = 0; i < _stars.Length; i++)
+        private void ActiveStar(int star, float delay = 0){
+            var seq = DOTween.Sequence();
+            foreach (var item in _stars)
+            {
+                item.SetActive(false);
+                item.transform.localScale = Vector3.zero;
+            }
+            _stars[0].SetActive(true);
+            seq.Append(_stars[0].transform.DOScale(Vector3.one * 0.75f, 0.5f)
+                .SetDelay(delay)
+                .SetEase(Ease.OutBack)
+            );
+            for (int i = 1; i < _stars.Length; i++)
             {
                 _stars[i].SetActive(i < star);
+                seq.Append(_stars[i].transform.DOScale(Vector3.one * 0.75f, 0.5f)
+                    .SetDelay(i*0.3f)
+                    .SetEase(Ease.OutBack)
+                );
             }
         }
     }
