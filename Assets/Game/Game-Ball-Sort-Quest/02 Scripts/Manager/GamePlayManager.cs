@@ -266,6 +266,10 @@ namespace BallSortQuest
                 {
                     //   Debug.Log(newTube.name);
                     newTube.GetLastBall().StartMove(newTube, false, newTube.Balls.Count - 1);
+                    // foreach (var ball in newTube.GetCanMoveBalls())
+                    // {
+                    //     ball.StartMove(newTube, false, newTube.Balls.Count - 1);
+                    // }
                     _hodingTube = null;
                 }
                 else

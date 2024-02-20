@@ -12,7 +12,8 @@ namespace BallSortQuest
 #else
      private static string path = Path.Combine(Application.persistentDataPath, "UserData.txt");
 #endif
-        public static UserData UserData = new UserData();
+        private static UserData _userData;
+        //public static UserData UserData = new UserData();
 
         private void Start()
         {
@@ -51,6 +52,19 @@ namespace BallSortQuest
             {
                 File.WriteAllText(path, saveData);
                 Debug.LogError("Save");
+            }
+        }
+
+        public static UserData UserData{
+            get {
+                if (_userData == null)
+                {
+                    LoadUserData();
+                }
+                return _userData;
+            }
+            set{
+                _userData = value;
             }
         }
     }

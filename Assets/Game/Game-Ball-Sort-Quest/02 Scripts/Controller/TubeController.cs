@@ -179,6 +179,27 @@ namespace BallSortQuest
             return null;
         }
 
+        public List<BallController> GetCanMoveBalls(){
+            if (isTubeEmty()) return null;
+            int id = Balls[Balls.Count - 1].Id;
+            List<BallController> canMoveBalls = new List<BallController>();
+            for (int i = Balls.Count - 1; i >= 0; i--)
+            {
+                if (i > 0)
+                {
+                    if (Balls[i].Id == id)
+                    {
+                        canMoveBalls.Add(Balls[i]);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            return canMoveBalls;
+        }
+
         public bool isDone()
         {
             if (_slot < data.Slot) return false;

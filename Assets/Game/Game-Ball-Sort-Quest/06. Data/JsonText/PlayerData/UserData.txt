@@ -1,1 +1,1 @@
-{"HighestLevel":0,"BoosterRevokeNumber":5,"BoosterAddNumber":0}
+{"HighestLevel":0,"BoosterRevokeNumber":0,"BoosterAddNumber":0}
