@@ -6,7 +6,7 @@ namespace BallSortQuest
 {
     public class DataManager : SingletonMonoBehaviour<DataManager>
     {
-        public LevelDataSO LevelDataSO;
+        public LevelDataSO  LevelDataSO;
         public BallDataSO BallDataSO;
 
         private void OnApplicationPause(bool pause)

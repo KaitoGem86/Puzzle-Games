@@ -873,6 +873,7 @@ MonoBehaviour:
   transparentAmount: 0.85
   prefabs:
   - {fileID: 5365205842673966896, guid: bf135826e27a14b0fb1de59a4f4dcea7, type: 3}
+  - {fileID: 1305623092249353684, guid: 7391ac480685fe740a199031e1c7dfae, type: 3}
   transparent: {fileID: 7659179651087851638}
   parent: {fileID: 7548558703387335186}
   hasPopupShowing: 0
@@ -934,7 +935,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 3
   m_TargetDisplay: 0

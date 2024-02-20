@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace BallSortQuest
 {
@@ -20,8 +21,11 @@ namespace BallSortQuest
         #region Method
         public void UpdateHighestLevel()
         {
-            if (HighestLevel < DataManager.Instance.LevelDataSO.getListLevel() - 1)
+            if (HighestLevel < DataManager.Instance.LevelDataSO.getListLevel() - 1){
                 this.HighestLevel++;
+                UnityEngine.Debug.Log($"Highest Level: {this.HighestLevel}");
+            }
+                
         }
 
         public void UpdateValueBooster(TypeBooster type, int value)

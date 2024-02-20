@@ -198,6 +198,7 @@ namespace PopupSystem
 
         void AnimateShow () {
 	        if (animator != null && showAnimationClip != null) {
+				Debug.Log("Show Animation");
 		        float showAnimationDuration = GetAnimationClipDuration(showAnimationClip);
 		        StartCoroutine(RunMethod(showAnimationDuration, OnShowFinish));
 		        animator.Play(showAnimationClip.name);

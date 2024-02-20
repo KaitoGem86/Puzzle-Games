@@ -2184,6 +2184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 587268061}
   - component: {fileID: 587268062}
+  - component: {fileID: 587268063}
   m_Layer: 5
   m_Name: Button Add
   m_TagString: Untagged
@@ -2251,9 +2252,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: OpenAdditionalCup
+      - m_Target: {fileID: 587268063}
+        m_TargetAssemblyTypeName: BallSortQuest.BoosterAddTube, Assembly-CSharp
+        m_MethodName: OnClickAddTube
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2266,6 +2267,21 @@ MonoBehaviour:
   _onPointerExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &587268063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587268060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3506d16124ba4b543aba65a7e0364e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  _quantityText: {fileID: 6940956}
+  _iconAds: {fileID: 391483009}
 --- !u!1 &639057121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2601,6 +2617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705447041}
   - component: {fileID: 705447042}
+  - component: {fileID: 705447043}
   m_Layer: 5
   m_Name: Button Undo
   m_TagString: Untagged
@@ -2656,9 +2673,9 @@ MonoBehaviour:
   _onPointerClik:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2130484607}
-        m_TargetAssemblyTypeName: SFXTapController, Assembly-CSharp
-        m_MethodName: OnClickButtonUI
+      - m_Target: {fileID: 705447043}
+        m_TargetAssemblyTypeName: BallSortQuest.BoosterRevoke, Assembly-CSharp
+        m_MethodName: OnClickRevoke
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2671,6 +2688,21 @@ MonoBehaviour:
   _onPointerExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &705447043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705447040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a943dc04d4d7df47892b7c69d1fc543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
+  _quantityText: {fileID: 1551999801}
+  _iconAds: {fileID: 1553927165}
 --- !u!1 &708658738
 GameObject:
   m_ObjectHideFlags: 0
@@ -3722,7 +3754,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_SizeDelta: {x: 72, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1118305629
 MonoBehaviour:
@@ -3744,7 +3776,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ec3fa388840e84194b8a9cf67db0fe60, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3cf50546d23038844bc50d41bba22e87, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4722,8 +4754,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchoredPosition: {x: -10, y: 0}
+  m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1488684106
 MonoBehaviour:
@@ -4745,7 +4777,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8a4b432e40b5640c38aa4b1db649223c, type: 3}
+  m_Sprite: {fileID: 609696928, guid: 22e4dd220a77e3d4a8a5eb1cf6f84657, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7483,8 +7515,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchoredPosition: {x: -7, y: 0}
+  m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2061108918
 MonoBehaviour:
@@ -7506,7 +7538,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8a4b432e40b5640c38aa4b1db649223c, type: 3}
+  m_Sprite: {fileID: -1191711157, guid: 57f1a676b7043c3449db9bb7e910ba96, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

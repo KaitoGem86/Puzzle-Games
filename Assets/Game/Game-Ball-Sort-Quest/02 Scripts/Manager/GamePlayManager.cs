@@ -346,7 +346,7 @@ namespace BallSortQuest
                 {
                     moveBalls.Add(to.Balls[i]);
 
-                    from.Balls.RemoveAt(i);
+                    from.RemoveBallAt(i);
 
                     for (i = holdBalls.Count - 1; i >= 0; i--)
                     {
@@ -372,7 +372,7 @@ namespace BallSortQuest
                     }
                     moveBalls.Add(from.Balls[i]);
 
-                    from.Balls.RemoveAt(i);
+                    from.RemoveBallAt(i);
 
                     max++;
                 }
@@ -392,23 +392,33 @@ namespace BallSortQuest
                     moveBalls[i].Movement(from, to, countBall, i, null);   //move -> new branch
                 }
 
-                to.Balls.Add(moveBalls[i]);
+                to.AddBallAt(moveBalls[i]);
                 AddPrevTube(from, to);
             }
 
-            if (!from.State.Equals(StateTube.Complete) && from.isTubeEmty())
-            {
-                from.ChangeState(StateTube.Emty);
-            }
+            // if (!from.State.Equals(StateTube.Complete) && from.isTubeEmty())
+            // {
+            //     from.ChangeState(StateTube.Empty);
+            // }
         }
 
         private bool ConditionWin()
         {
+            int countEmpty = 0;
+            int countUnComplete = 0;
             for (int i = 0; i < _tubes.Count; i++)
             {
-                if (_tubes[i].State.Equals(StateTube.Emty)) continue;
-                if (!_tubes[i].State.Equals(StateTube.Complete)) return false;
+                Debug.Log(_tubes[i].name + " " + _tubes[i].State.ToString());
+                if (_tubes[i].State.Equals(StateTube.Empty)){
+                    countEmpty ++;
+                }
+                if (!_tubes[i].State.Equals(StateTube.Complete)){
+                    if(!_tubes[i].State.Equals(StateTube.Empty))
+                        countUnComplete ++;
+                }
             }
+            if(countUnComplete > 0)
+                return false;
             return true;
         }
 
@@ -477,7 +487,6 @@ namespace BallSortQuest
         private void UseAddTube()
         {
             int slotTube = _gameManager.Level.tubeSlot;
-            Debug.Log(_cdAddTube);
             if (_cdAddTube < slotTube)
             {
                 if (_tubes.Count <= _gameManager.Level.tube)

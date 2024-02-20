@@ -53,7 +53,7 @@ namespace BallSortQuest
         private void Reset()
         {
             this.data = null;
-            ChangeState(StateTube.Emty);
+            ChangeState(StateTube.Empty);
             if (Balls.Count < 1) return;
             foreach (var ball in Balls)
             {
@@ -83,8 +83,10 @@ namespace BallSortQuest
 
             //  Debug.Log($"spwan pos: {_spwanPos}");
 
-            if (data.dataBall.Count > 1)
+            if (data.dataBall.Count >= 1)
                 ChangeState(StateTube.Incomplete);
+            else
+                ChangeState(StateTube.Empty);
 
             for (int i = 0; i < data.dataBall.Count; i++)
             {
@@ -200,6 +202,20 @@ namespace BallSortQuest
             return canMoveBalls;
         }
 
+        public void RemoveBallAt(int index){
+            Balls.RemoveAt(index);
+            if(Balls.Count == 0){
+                ChangeState(StateTube.Empty);
+            }
+        }
+
+        public void AddBallAt(BallController ball){
+            Balls.Add(ball);
+            // if(Balls.Count == data.Slot){
+            //     ChangeState(StateTube.Complete);
+            // }
+        }
+
         public bool isDone()
         {
             if (_slot < data.Slot) return false;
@@ -223,6 +239,6 @@ namespace BallSortQuest
         Active,
         Incomplete,
         Complete,
-        Emty
+        Empty
     }
 }

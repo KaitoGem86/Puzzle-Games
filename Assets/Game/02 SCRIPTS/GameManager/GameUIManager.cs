@@ -1,15 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
 {
     [SerializeField] private TMP_Text levelText;
+    public override void Awake()
+    {
+        base.Awake();
+        BallSortQuest.ActionEvent.OnResetGamePlay += UpdateLevelText;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        UpdateLevelText(BallSortQuest.GameManager.Instance.Level.level);
+        UpdateLevelText();
     }
 
     // Update is called once per frame
@@ -18,7 +22,7 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         
     }
 
-    public void UpdateLevelText(int level){
-        levelText.text = level.ToString();
+    public void UpdateLevelText(){
+        levelText.text = BallSortQuest.GameManager.Instance.Level.level.ToString();
     }
 }

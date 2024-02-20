@@ -52,6 +52,7 @@ namespace BallSortQuest
             //Debug.LogError($"Current Highest Level: {_userData.HighestLevel}");
             StateGameController.Playing();
             this.Level = Datamanager.LevelDataSO.getLevel(_userData.HighestLevel);
+            Debug.Log($"Current Level: {this.Level.level}");
         }
 
         public void Win()
@@ -59,7 +60,8 @@ namespace BallSortQuest
             StateGameController.Win();
             _userData.UpdateHighestLevel();
             SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("victory1"));
-            PopupWin.Instance.Show();
+            //PopupWin.Instance.Show();
+            PopupSystem.PopupManager.CreateNewInstance<PopupWin>().Show();
         }
 
         public void OnClickReplay()
