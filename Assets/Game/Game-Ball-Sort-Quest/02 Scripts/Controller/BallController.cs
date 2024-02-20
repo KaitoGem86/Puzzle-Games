@@ -17,11 +17,13 @@ namespace BallSortQuest
     {
         public BallData Data;
         [SerializeField] SpriteRenderer _avarSpr;
+        [SerializeField] private GameObject _hiddenMaskBall;
         [SerializeField] float _heighBall;
         [SerializeField]
         public int Id => Data.index;
 
         private bool _isMoving;
+        private bool _isHidden;
 
         #region Unity Medthod
         private void Awake()
@@ -66,6 +68,19 @@ namespace BallSortQuest
             ShowInfor();
 
             SetPosition(originalPos, startMovePos, index);
+
+        }
+
+        public void Init(BallData data, Vector2 originalPos, Vector3 startMovePos, int index, int tubeSlots, bool isHidden = false)
+        {
+            this.Data = data;
+
+            ShowInfor();
+
+            SetPosition(originalPos, startMovePos, index);
+            if(isHidden){
+                _hiddenMaskBall.SetActive(index != tubeSlots - 1);
+            }
         }
 
         private void ShowInfor()

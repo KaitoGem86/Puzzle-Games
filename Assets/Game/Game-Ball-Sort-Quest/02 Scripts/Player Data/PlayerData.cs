@@ -59,7 +59,7 @@ namespace BallSortQuest
             get {
                 if (_userData == null)
                 {
-                    LoadUserData();
+                    _userData = new UserData();
                 }
                 return _userData;
             }

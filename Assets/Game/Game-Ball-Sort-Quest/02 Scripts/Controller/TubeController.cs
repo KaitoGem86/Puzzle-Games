@@ -74,7 +74,7 @@ namespace BallSortQuest
             GameManager.Instance.GamePlayManager.OnClick(this);
         }
 
-        public void Init(Vector2 target, TubeData data, int slot)
+        public void Init(Vector2 target, TubeData data, int slot, bool isHidden = false)
         {
             this.data = data;
             _slot = slot;
@@ -90,7 +90,7 @@ namespace BallSortQuest
 
             for (int i = 0; i < data.dataBall.Count; i++)
             {
-                SpwanBall(data.dataBall[i], i);
+                SpwanBall(data.dataBall[i], i, isHidden);
             }
         }
 
@@ -102,12 +102,15 @@ namespace BallSortQuest
             _startPosMove = _startTransMove.position;
         }
 
-        private void SpwanBall(BallData data, int index)
+        private void SpwanBall(BallData data, int index, bool isHidden = false)
         {
             GameObject ballObj = SimplePool.Spawn(_ballPrefab, Vector2.zero, Quaternion.identity);
             ballObj.transform.SetParent(this.transform);
             BallController ball = ballObj.GetComponent<BallController>();
-            ball.Init(data, _spwanPos, _startPosMove, index);
+            if(!isHidden)
+                ball.Init(data, _spwanPos, _startPosMove, index);
+            else
+                ball.Init(data, _spwanPos, _startPosMove, index, Slot, true);
             Balls.Add(ball);
         }
 

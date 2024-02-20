@@ -22,6 +22,7 @@ namespace BallSortQuest
         [SerializeField] float _tubeHorizonlMax;
         [SerializeField] bool _canClickTube = true;
         private int _cdAddTube;
+        private bool _isSpecialLevel = false;
         private List<KeyValuePair<TubeController, TubeController>> _prevTube = new List<KeyValuePair<TubeController, TubeController>>();
 
         #region Unity Method
@@ -92,6 +93,7 @@ namespace BallSortQuest
         {
             int tubeNumber = _gameManager.Level.tube;
             int slotTube = _gameManager.Level.tubeSlot;
+            _isSpecialLevel = _gameManager.Level.level != 1 && PlayerData.UserData.StepToReachSpecialLevel == 0;
             int index = 0;
             if (tubeNumber > _tubeHorizonlMax)
             {
@@ -103,7 +105,7 @@ namespace BallSortQuest
 
                 for (int i = 0; i < top; i++)
                 {
-                    SpwanTube(i, 0f, slotTube, getBallDatas());
+                    SpwanTube(i, 0f, slotTube, getBallDatas(), _isSpecialLevel);
                 }
 
                 float _spaccBot = tubeNumber % 2 == 0 ? 0f : 0.5f;
@@ -112,7 +114,7 @@ namespace BallSortQuest
                 //*****NEED TO IMPROVE******//
                 for (int i = 0; i < bot; i++)
                 {
-                    SpwanTube(i + _spaccBot, -_spaceVertical, slotTube, getBallDatas());
+                    SpwanTube(i + _spaccBot, -_spaceVertical, slotTube, getBallDatas(), _isSpecialLevel);
                 }
             }
             else
@@ -121,7 +123,7 @@ namespace BallSortQuest
                 Debug.Log($"Space Horizontal: {_spaceHorizontal}");
                 for (int i = 0; i < tubeNumber; i++)
                 {
-                    SpwanTube(i, 0f, slotTube, getBallDatas());
+                    SpwanTube(i, 0f, slotTube, getBallDatas(), _isSpecialLevel);
                 }
             }
 
@@ -159,7 +161,7 @@ namespace BallSortQuest
             return 0.2f;
         }
 
-        private void SpwanTube(float x, float y, int value, List<BallData> ballData)
+        private void SpwanTube(float x, float y, int value, List<BallData> ballData, bool isHidden = false)
         {
             GameObject tubeObj = SimplePool.Spawn(_tubePrefab, Vector2.zero, Quaternion.identity);
 
@@ -171,7 +173,7 @@ namespace BallSortQuest
 
             Vector2 target = new Vector2(x * (tube.Width + _spaceHorizontal), y);
 
-            tube.Init(target, tubeData, value);
+            tube.Init(target, tubeData, value, isHidden);
 
             _tubes.Add(tube);
         }

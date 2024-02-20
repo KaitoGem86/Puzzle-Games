@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace BallSortQuest
@@ -17,6 +15,7 @@ namespace BallSortQuest
         public int BoosterRevokeNumber;
         public int BoosterAddNumber;
         public int CoinNumber;
+        public int StepToReachSpecialLevel;
         #endregion
 
         #region Method
@@ -24,9 +23,12 @@ namespace BallSortQuest
         {
             if (HighestLevel < DataManager.Instance.LevelDataSO.getListLevel() - 1){
                 this.HighestLevel++;
-                UnityEngine.Debug.Log($"Highest Level: {this.HighestLevel}");
+                this.StepToReachSpecialLevel = (this.StepToReachSpecialLevel + 1) % DataManager.Instance.StepToReachSpecialLevel;
+                if (this.StepToReachSpecialLevel == 0)
+                {
+                    UnityEngine.Debug.Log("Special level");
+                }
             }
-                
         }
 
         public void UpdateValueBooster(TypeBooster type, int value)
