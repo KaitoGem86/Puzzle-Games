@@ -16,6 +16,7 @@ namespace BallSortQuest
         /// </summary>
         public int BoosterRevokeNumber;
         public int BoosterAddNumber;
+        public int CoinNumber;
         #endregion
 
         #region Method

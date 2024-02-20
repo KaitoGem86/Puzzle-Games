@@ -1,1 +1,1 @@
-{"HighestLevel":3,"BoosterRevokeNumber":5,"BoosterAddNumber":0}
+{"HighestLevel":3,"BoosterRevokeNumber":5,"BoosterAddNumber":0,"CoinNumber":100}

@@ -1,5 +1,6 @@
 using DG.Tweening;
 using PopupSystem;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Analytics;
 
@@ -12,12 +13,14 @@ namespace BallSortQuest
         [SerializeField] private GameObject _firstGroupButton;
         [SerializeField] private GameObject _secondGroupButton;
         [SerializeField] private GameObject[] _stars = new GameObject[3];
+        [SerializeField] private TMP_Text _textCoins;
         public void Show()
         {
             base.Show();
             _secondGroupButton.SetActive(false);
             _firstGroupButton.SetActive(true);
             ActiveStar(3, 0.5f);
+            UpdateTextCoin();
         }
 
         public void Close()
@@ -34,6 +37,8 @@ namespace BallSortQuest
         public void OnClickAccept(){
             _firstGroupButton.SetActive(false);
             _secondGroupButton.SetActive(true);
+            PlayerData.UserData.CoinNumber += 100; // hard code, need to improve
+            UpdateTextCoin();
         }
 
         private void ActiveStar(int star, float delay = 0){
@@ -56,6 +61,10 @@ namespace BallSortQuest
                     .SetEase(Ease.OutBack)
                 );
             }
+        }
+
+        private void UpdateTextCoin(){
+            _textCoins.text = PlayerData.UserData.CoinNumber.ToString();
         }
     }
 }
