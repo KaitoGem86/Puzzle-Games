@@ -341,6 +341,7 @@ namespace BallSortQuest
             List<BallController> holdBalls = new List<BallController>(from.Balls);
             int max = 0;
             // float t = 0;
+            // if level is not a hidden level
 
             for (int i = holdBalls.Count - 1; i >= 0; i--)
             {
@@ -359,7 +360,7 @@ namespace BallSortQuest
                     }
                     break;
                 }
-                if (holdingBall.Id == holdBalls[i].Id)
+                if (holdingBall.Id == holdBalls[i].Id && !holdBalls[i].IsHidden)
                 {
                     if (to.Balls.Count + moveBalls.Count >= to.Slot)
                     {
@@ -380,8 +381,13 @@ namespace BallSortQuest
                 }
                 else break;
             }
+            Debug.Log("Move Ball: " + moveBalls.Count);
+
+
 
             int countBall = to.Balls.Count;
+            if(_isSpecialLevel && from.Balls.Count > 0)
+                from.GetLastBall().ShowItself();
 
             for (int i = 0; i < moveBalls.Count; i++)
             {
@@ -411,15 +417,17 @@ namespace BallSortQuest
             for (int i = 0; i < _tubes.Count; i++)
             {
                 Debug.Log(_tubes[i].name + " " + _tubes[i].State.ToString());
-                if (_tubes[i].State.Equals(StateTube.Empty)){
-                    countEmpty ++;
+                if (_tubes[i].State.Equals(StateTube.Empty))
+                {
+                    countEmpty++;
                 }
-                if (!_tubes[i].State.Equals(StateTube.Complete)){
-                    if(!_tubes[i].State.Equals(StateTube.Empty))
-                        countUnComplete ++;
+                if (!_tubes[i].State.Equals(StateTube.Complete))
+                {
+                    if (!_tubes[i].State.Equals(StateTube.Empty))
+                        countUnComplete++;
                 }
             }
-            if(countUnComplete > 0)
+            if (countUnComplete > 0)
                 return false;
             return true;
         }

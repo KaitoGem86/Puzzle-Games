@@ -59,7 +59,8 @@ namespace BallSortQuest
             get {
                 if (_userData == null)
                 {
-                    _userData = new UserData();
+                    LoadUserData();
+                    UserData.StepToReachSpecialLevel = 1;
                 }
                 return _userData;
             }

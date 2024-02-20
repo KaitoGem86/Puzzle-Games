@@ -80,12 +80,19 @@ namespace BallSortQuest
             SetPosition(originalPos, startMovePos, index);
             if(isHidden){
                 _hiddenMaskBall.SetActive(index != tubeSlots - 1);
+                _isHidden = index != tubeSlots - 1;
             }
         }
 
         private void ShowInfor()
         {
             _avarSpr.sprite = Data.avatarSpr;
+        }
+
+        public void ShowItself()
+        {
+            _hiddenMaskBall.SetActive(false);
+            _isHidden = false;
         }
 
         public void SetPosition(Vector2 originalPos, Vector2 startMovePos, int index)
@@ -160,5 +167,7 @@ namespace BallSortQuest
 
             return duration;
         }
+
+        public bool IsHidden => _isHidden;
     }
 }
