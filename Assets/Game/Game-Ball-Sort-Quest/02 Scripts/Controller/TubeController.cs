@@ -36,6 +36,7 @@ namespace BallSortQuest
         public Vector2 SpawnPos => _spwanPos;
         public Vector2 StartPosMove => _startPosMove;
         public List<BallController> Balls = new List<BallController>();
+        private Vector2 _defaultPivot = Vector2.zero;
         [field: SerializeField] public StateTube State { get; private set; }
 
         private void Awake()
@@ -109,14 +110,26 @@ namespace BallSortQuest
 
         private void SetHeightOfTube()
         {
-            //Debug.Log($"Slot: {_slot}---Data Slot: {data.Slot}");
+            //Update height of tube
+            Debug.Log(_height);
+            var size = _avaterSpr.size;
+            var beforeSize = new Vector2(size.x, size.y);
+            var heigthOfGlassBase = 0.24f;
+            size.y = (_height / _avaterSpr.transform.localScale.y - heigthOfGlassBase) * _slot / data.Slot + heigthOfGlassBase;
+            Debug.Log(size.y);
+            _avaterSpr.size = size;
+            //Update position of avatar of tube
 
-            // var scale = _avaterSpr.transform.localScale;
-            // scale.y = scale.y * _slot / data.Slot;
-            // _avaterSpr.transform.localScale = scale;
-            // float _offset = _avaterSpr.bounds.size.y * data.Slot / _slot - _avaterSpr.bounds.size.y;
-            // Debug.Log($"Offset: {_offset}");
-            // transform.position = new Vector2(transform.position.x, transform.position.y - _offset / 2);
+            Debug.Log(_defaultPivot);
+            var height = _avaterSpr.bounds.size.y;
+            var offsetY = _height - height;
+            var pos = new Vector2(_defaultPivot.x, _defaultPivot.y);
+            pos.y -= offsetY/2;
+            _avaterSpr.transform.localPosition = pos;
+            // var pos = _avaterSpr.transform.localPosition;
+            // var offset = (size.y - beforeSize.y);
+            // pos.y += offset;
+            // _avaterSpr.transform.localPosition = pos;
         }
 
         private void SpwanBall(BallData data, int index, bool isHidden = false)
