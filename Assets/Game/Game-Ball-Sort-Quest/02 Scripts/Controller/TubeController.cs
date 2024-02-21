@@ -79,7 +79,12 @@ namespace BallSortQuest
             this.data = data;
             _slot = slot;
             SetPosition(target);
-
+            //Set height of tube
+            if (slot == 1)
+            {
+                Debug.Log($"Slot: {_slot}---Data Slot: {data.Slot}");
+            }
+            SetHeightOfTube();
 
             //  Debug.Log($"spwan pos: {_spwanPos}");
 
@@ -102,12 +107,24 @@ namespace BallSortQuest
             _startPosMove = _startTransMove.position;
         }
 
+        private void SetHeightOfTube()
+        {
+            //Debug.Log($"Slot: {_slot}---Data Slot: {data.Slot}");
+
+            // var scale = _avaterSpr.transform.localScale;
+            // scale.y = scale.y * _slot / data.Slot;
+            // _avaterSpr.transform.localScale = scale;
+            // float _offset = _avaterSpr.bounds.size.y * data.Slot / _slot - _avaterSpr.bounds.size.y;
+            // Debug.Log($"Offset: {_offset}");
+            // transform.position = new Vector2(transform.position.x, transform.position.y - _offset / 2);
+        }
+
         private void SpwanBall(BallData data, int index, bool isHidden = false)
         {
             GameObject ballObj = SimplePool.Spawn(_ballPrefab, Vector2.zero, Quaternion.identity);
             ballObj.transform.SetParent(this.transform);
             BallController ball = ballObj.GetComponent<BallController>();
-            if(!isHidden)
+            if (!isHidden)
                 ball.Init(data, _spwanPos, _startPosMove, index);
             else
                 ball.Init(data, _spwanPos, _startPosMove, index, Slot, true);
@@ -122,6 +139,7 @@ namespace BallSortQuest
         public void UpdadeTubeBonus()
         {
             _slot++;
+            SetHeightOfTube();
         }
 
         public bool isTubeEmty()
@@ -184,7 +202,8 @@ namespace BallSortQuest
             return null;
         }
 
-        public List<BallController> GetCanMoveBalls(){
+        public List<BallController> GetCanMoveBalls()
+        {
             if (isTubeEmty()) return null;
             int id = Balls[Balls.Count - 1].Id;
             List<BallController> canMoveBalls = new List<BallController>();
@@ -205,14 +224,17 @@ namespace BallSortQuest
             return canMoveBalls;
         }
 
-        public void RemoveBallAt(int index){
+        public void RemoveBallAt(int index)
+        {
             Balls.RemoveAt(index);
-            if(Balls.Count == 0){
+            if (Balls.Count == 0)
+            {
                 ChangeState(StateTube.Empty);
             }
         }
 
-        public void AddBallAt(BallController ball){
+        public void AddBallAt(BallController ball)
+        {
             Balls.Add(ball);
             // if(Balls.Count == data.Slot){
             //     ChangeState(StateTube.Complete);
@@ -231,6 +253,10 @@ namespace BallSortQuest
                     {
                         return false;
                     }
+                }
+                if (Balls[i].IsHidden)
+                {
+                    return false;
                 }
             }
             return true;

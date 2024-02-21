@@ -173,6 +173,8 @@ namespace BallSortQuest
 
             Vector2 target = new Vector2(x * (tube.Width + _spaceHorizontal), y);
 
+            if(value == 1)
+                Debug.Log(1);
             tube.Init(target, tubeData, value, isHidden);
 
             _tubes.Add(tube);

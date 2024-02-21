@@ -111,7 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    Index: 0
     Slot: 0
     dataBall: []
   _ballPrefab: {fileID: 7092340799384974576, guid: d2f9191835a043e498f91cabaa5db95f, type: 3}
