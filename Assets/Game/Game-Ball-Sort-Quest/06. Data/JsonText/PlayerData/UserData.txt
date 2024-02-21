@@ -1,1 +1,1 @@
-{"HighestLevel":4,"BoosterRevokeNumber":5,"BoosterAddNumber":0,"CoinNumber":400,"StepToReachSpecialLevel":0}
+{"HighestLevel":6,"BoosterRevokeNumber":5,"BoosterAddNumber":0,"CoinNumber":200,"StepToReachSpecialLevel":0,"ProcessValue":10}

@@ -25,6 +25,8 @@ namespace BallSortQuest
             //UserData
             if (!PlayerPrefs.HasKey(Const.KEY_USER_DATA))
             {
+                UserData = new UserData();
+                UserData.InitUserDataValue();
                 SaveUserData();
                 if (!File.Exists(path))
                 {
@@ -60,7 +62,7 @@ namespace BallSortQuest
                 if (_userData == null)
                 {
                     LoadUserData();
-                    UserData.StepToReachSpecialLevel = 1;
+                    //UserData.InitUserDataValue();
                 }
                 return _userData;
             }

@@ -58,7 +58,7 @@ namespace BallSortQuest
         public void Win()
         {
             StateGameController.Win();
-            _userData.UpdateHighestLevel();
+            _userData.UpdateWinGameUserDataValue();
             SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("victory1"));
             //PopupWin.Instance.Show();
             PopupSystem.PopupManager.CreateNewInstance<PopupWin>().Show();

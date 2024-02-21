@@ -9,6 +9,7 @@ namespace BallSortQuest
         public LevelDataSO  LevelDataSO;
         public BallDataSO BallDataSO;
         public int StepToReachSpecialLevel;
+        public int ProcessIncrementValue;
 
         private void OnApplicationPause(bool pause)
         {

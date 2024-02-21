@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AppLovinSettings
   m_EditorClassIdentifier: 
   qualityServiceEnabled: 1
-  sdkKey: 
+  sdkKey: 'frVQ9cwmt84W4RzgaKvsFrGNZk3Cm9DuSL0V18pT8r7QX-0D076J4IAixZQzpa4Gd_61BJ5aUl_7lLtxfTuN_6 '
   setAttributionReportEndpoint: 0
   addApsSkAdNetworkIds: 0
   consentFlowEnabled: 0

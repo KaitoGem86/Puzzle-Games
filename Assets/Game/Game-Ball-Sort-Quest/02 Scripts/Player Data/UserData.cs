@@ -16,18 +16,31 @@ namespace BallSortQuest
         public int BoosterAddNumber;
         public int CoinNumber;
         public int StepToReachSpecialLevel;
+        public int ProcessValue;
         #endregion
 
+
+        //Use if PlayerPref doesn't not contain Key is Const.USER_DATA
+        public void InitUserDataValue(){
+            StepToReachSpecialLevel = 1;
+            ProcessValue = 0;
+        }
+
         #region Method
-        public void UpdateHighestLevel()
+        public void UpdateWinGameUserDataValue()
         {
             if (HighestLevel < DataManager.Instance.LevelDataSO.getListLevel() - 1){
+                //Update highest level (increment)
                 this.HighestLevel++;
+                //Update step to reach special level(increment)
                 this.StepToReachSpecialLevel = (this.StepToReachSpecialLevel + 1) % DataManager.Instance.StepToReachSpecialLevel;
                 if (this.StepToReachSpecialLevel == 0)
                 {
                     UnityEngine.Debug.Log("Special level");
                 }
+
+                //Update process value
+                this.ProcessValue += BallSortQuest.DataManager.Instance.ProcessIncrementValue;
             }
         }
 
