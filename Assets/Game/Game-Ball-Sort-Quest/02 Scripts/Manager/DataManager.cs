@@ -8,6 +8,7 @@ namespace BallSortQuest
     {
         public LevelDataSO  LevelDataSO;
         public BallDataSO BallDataSO;
+        public BackgroundDatas BackgroundDatas;
         public int StepToReachSpecialLevel;
         public int ProcessIncrementValue;
 

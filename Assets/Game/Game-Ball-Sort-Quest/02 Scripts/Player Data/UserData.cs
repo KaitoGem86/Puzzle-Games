@@ -17,6 +17,7 @@ namespace BallSortQuest
         public int CoinNumber;
         public int StepToReachSpecialLevel;
         public int ProcessValue;
+        public int CurrentBackgroundIndex;
         #endregion
 
 

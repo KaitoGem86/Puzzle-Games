@@ -111,25 +111,18 @@ namespace BallSortQuest
         private void SetHeightOfTube()
         {
             //Update height of tube
-            Debug.Log(_height);
             var size = _avaterSpr.size;
             var beforeSize = new Vector2(size.x, size.y);
             var heigthOfGlassBase = 0.24f;
             size.y = (_height / _avaterSpr.transform.localScale.y - heigthOfGlassBase) * _slot / data.Slot + heigthOfGlassBase;
-            Debug.Log(size.y);
             _avaterSpr.size = size;
+            
             //Update position of avatar of tube
-
-            Debug.Log(_defaultPivot);
             var height = _avaterSpr.bounds.size.y;
             var offsetY = _height - height;
             var pos = new Vector2(_defaultPivot.x, _defaultPivot.y);
             pos.y -= offsetY/2;
             _avaterSpr.transform.localPosition = pos;
-            // var pos = _avaterSpr.transform.localPosition;
-            // var offset = (size.y - beforeSize.y);
-            // pos.y += offset;
-            // _avaterSpr.transform.localPosition = pos;
         }
 
         private void SpwanBall(BallData data, int index, bool isHidden = false)
