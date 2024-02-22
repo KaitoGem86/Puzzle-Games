@@ -18,12 +18,19 @@ namespace BallSortQuest
         public int StepToReachSpecialLevel;
         public int ProcessValue;
         public int CurrentBackgroundIndex;
+        public ChallengeState HiddenState;
+        public ChallengeState TimerState;
+        public ChallengeState MoveState;
+        
         #endregion
 
 
         //Use if PlayerPref doesn't not contain Key is Const.USER_DATA
         public void InitUserDataValue(){
             StepToReachSpecialLevel = 1;
+            HiddenState = ChallengeState.InComplete;
+            TimerState = ChallengeState.InComplete;
+            MoveState = ChallengeState.InComplete;
             ProcessValue = 0;
         }
 

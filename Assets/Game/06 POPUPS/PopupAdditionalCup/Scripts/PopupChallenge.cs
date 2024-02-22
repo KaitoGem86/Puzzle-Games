@@ -9,7 +9,7 @@ namespace BallSortQuest
         [Header("Sheet Ref")]
         [SerializeField] private Transform _dailyButtonObject;
         [SerializeField] private Transform _endlessButtonObject;
-        [SerializeField] private GameObject _dailySheet;
+        [SerializeField] private DailyChallengeFrameController _dailySheet;
         [Space, Header("Element Ref")]
         [SerializeField] private TMP_Text _coinText;
 
@@ -39,6 +39,8 @@ namespace BallSortQuest
         public void Show(){
             base.Show();
             UpdateTextCoin();
+            OpenDailyChallengeSheet();
+            _dailySheet.InitChallengeElements();
         }
 
         public void Exit(){
@@ -48,13 +50,13 @@ namespace BallSortQuest
         public void OpenDailyChallengeSheet(){
             _dailyButton.SetState(true);
             _endlessButton.SetState(false);
-            _dailySheet.SetActive(true);
+            _dailySheet.gameObject.SetActive(true);
         }
 
         public void OpenEndlessChallengeSheet(){
             _dailyButton.SetState(false);
             _endlessButton.SetState(true);
-            _dailySheet.SetActive(false);
+            _dailySheet.gameObject.SetActive(false);
         }
 
         private void UpdateTextCoin(){
