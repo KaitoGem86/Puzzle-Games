@@ -46,6 +46,7 @@ namespace BallSortQuest{
         public void OnSelectChallenge(){
             Debug.Log("Select Challenge: " + _type);
             //Do something with GamePlay as set the GamePlayMode enum ???
+            GameManager.Instance.GameModeController.SetGameMode(_type);
         }
 
         public Button PlayButton => _playButton;

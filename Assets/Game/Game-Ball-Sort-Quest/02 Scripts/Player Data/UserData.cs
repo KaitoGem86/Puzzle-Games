@@ -9,6 +9,7 @@ namespace BallSortQuest
         /// Achievements
         /// </summary>
         public int HighestLevel;
+        public int HighestChallengeLevel;
         /// <summary>
         /// Booster
         /// </summary>
@@ -27,6 +28,8 @@ namespace BallSortQuest
 
         //Use if PlayerPref doesn't not contain Key is Const.USER_DATA
         public void InitUserDataValue(){
+            HighestLevel = 0;
+            HighestChallengeLevel = 0;
             StepToReachSpecialLevel = 1;
             HiddenState = ChallengeState.InComplete;
             TimerState = ChallengeState.InComplete;
@@ -49,6 +52,25 @@ namespace BallSortQuest
 
                 //Update process value
                 this.ProcessValue += BallSortQuest.DataManager.Instance.ProcessIncrementValue;
+            }
+        }
+
+        public void UpdateWinChallengeUserDataValue(TypeChallenge type)
+        {
+            switch (type)
+            {
+                case TypeChallenge.Hidden:
+                    this.HiddenState = ChallengeState.Success;
+                    break;
+                case TypeChallenge.Timer:
+                    this.TimerState = ChallengeState.Success;
+                    break;
+                case TypeChallenge.Move:
+                    this.MoveState = ChallengeState.Success;
+                    break;
+            }
+            if(HighestChallengeLevel < DataManager.Instance.ChallengeLevelDataSO.getListLevel() - 1){
+                this.HighestChallengeLevel++;
             }
         }
 

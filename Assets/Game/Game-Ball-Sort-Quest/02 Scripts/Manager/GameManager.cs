@@ -12,6 +12,7 @@ namespace BallSortQuest
         [SerializeField] GamePlayManager _gamePlayManager;
         public GamePlayManager GamePlayManager => _gamePlayManager;
         public StateGameController StateGameController;
+        public GameModeController GameModeController;
 
 
         #region Unity Method
@@ -21,6 +22,7 @@ namespace BallSortQuest
             _userData = PlayerData.UserData;
 
             ActionEvent.OnResetGamePlay += InitLevel;
+            GameModeController = new GameModeController();
 
             InitLevel();
         }
@@ -46,12 +48,19 @@ namespace BallSortQuest
         }
         #endregion
 
-        public void InitLevel()
+        public void 
+        
+        InitLevel()
         {
             //  Debug.Log($"So luong level:{Datamanager.LevelDataSO.getListLevel()}");
             //Debug.LogError($"Current Highest Level: {_userData.HighestLevel}");
             StateGameController.Playing();
-            this.Level = Datamanager.LevelDataSO.getLevel(_userData.HighestLevel);
+            if(GameModeController.CurrentGameMode == TypeChallenge.None)
+                this.Level = Datamanager.LevelDataSO.getLevel(_userData.HighestLevel);
+            else{
+                this.Level = Datamanager.ChallengeLevelDataSO.getLevel(_userData.HighestChallengeLevel);
+            }
+            Debug.Log(GameModeController.CurrentGameMode);
             Debug.Log($"Current Level: {this.Level.level}");
         }
 
@@ -62,6 +71,7 @@ namespace BallSortQuest
             SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("victory1"));
             //PopupWin.Instance.Show();
             PopupSystem.PopupManager.CreateNewInstance<PopupWin>().Show();
+            GameModeController.OnGameModeComplete();
         }
 
         public void OnClickReplay()

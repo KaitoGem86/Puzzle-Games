@@ -7,6 +7,7 @@ namespace BallSortQuest
     public class DataManager : SingletonMonoBehaviour<DataManager>
     {
         public LevelDataSO  LevelDataSO;
+        public LevelDataSO ChallengeLevelDataSO;
         public BallDataSO BallDataSO;
         public BackgroundDatas BackgroundDatas;
         public int StepToReachSpecialLevel;
