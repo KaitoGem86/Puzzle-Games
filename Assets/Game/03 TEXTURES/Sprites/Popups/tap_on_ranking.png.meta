@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b06ef1667b39e284a8ea64c00c0e8f80
+guid: 381d9865f6fb35b46bff9ccf42d1e1fa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 45, y: 50, z: 47, w: 46}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -117,22 +117,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: button_yellow2_0
+      name: tap_on_ranking_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 337
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 34, y: 35, z: 34, w: 34}
+      border: {x: 87, y: 30, z: 88, w: 33}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ef601cf2671c9f4ba1e614a6ab1058e
-      internalID: -456233765
+      spriteID: e1fc16c5810f48940ab481fa866f8ec3
+      internalID: 1216610310
       vertices: []
       indices: 
       edges: []
@@ -141,14 +141,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      button_yellow2_0: -456233765
+      tap_on_ranking_0: 1216610310
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

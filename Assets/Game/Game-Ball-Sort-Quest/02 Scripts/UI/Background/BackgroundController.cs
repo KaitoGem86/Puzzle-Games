@@ -21,6 +21,7 @@ namespace BallSortQuest
                 case TypeBackgroundEnum.Dynamic:
                     _dynamicBackgroundController.gameObject.SetActive(true);
                     _dynamicBackgroundController.SetParticleBackground(data.ParticleBackground);
+                    _dynamicBackgroundController.ResetParticleBackground();
                     _dynamicBackgroundController.InitParticleBackground();
                     break;
                 case TypeBackgroundEnum.Static:

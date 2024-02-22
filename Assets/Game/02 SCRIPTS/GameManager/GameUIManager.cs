@@ -10,7 +10,6 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
     {
         base.Awake();
         BallSortQuest.ActionEvent.OnResetGamePlay += UpdateLevelText;
-        BallSortQuest.ActionEvent.OnResetGamePlay += _backgroundController.InitBackground;
     }
 
     // Start is called before the first frame update
@@ -28,5 +27,6 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
 
     public void UpdateLevelText(){
         levelText.text = BallSortQuest.GameManager.Instance.Level.level.ToString();
+        _backgroundController.InitBackground();
     }
 }

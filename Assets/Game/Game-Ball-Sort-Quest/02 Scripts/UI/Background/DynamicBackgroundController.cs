@@ -28,7 +28,7 @@ namespace BallSortQuest
             _width = _particlePrefab.rectTransform.rect.width;
             _height = _particlePrefab.rectTransform.rect.height;
             Vector3 pivotTripleGroup = firstParticlePosition;
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 15; i++)
             {
                 var firstParticle = SimplePool.Spawn(_particlePrefab.gameObject, pivotTripleGroup, Quaternion.identity);
                 firstParticle.transform.SetParent(transform);
@@ -37,7 +37,7 @@ namespace BallSortQuest
                 firstParticle.GetComponent<Image>().sprite = _particleBackground;
                 //firstParticle.GetComponent<Image>().SetNativeSize();
                 _queueActiveParticle.Add(firstParticle.GetComponent<Image>());
-                for (int j = 1; j < 7; j++)
+                for (int j = 1; j < 15; j++)
                 {
                     firstParticle = SimplePool.Spawn(_particlePrefab.gameObject, pivotTripleGroup, Quaternion.identity);
                     firstParticle.transform.SetParent(transform);
@@ -53,35 +53,48 @@ namespace BallSortQuest
             StartCoroutine(PlayEndlessDynamicBackground());
         }
 
+        public void ResetParticleBackground()
+        {
+            if (_queueActiveParticle == null) return;
+            Debug.Log("Reset");
+            foreach (var particle in _queueActiveParticle)
+            {
+                SimplePool.Despawn(particle.gameObject);
+            }
+            _queueActiveParticle.Clear();
+            this.GetComponent<RectTransform>().localPosition = Vector3.zero;
+            StopAllCoroutines();
+        }
+
         public System.Collections.IEnumerator PlayEndlessDynamicBackground()
         {
             while (true)
             {
+                this.transform.position += _direction * _speed * Time.deltaTime;
                 foreach (var particle in _queueActiveParticle)
                 {
-                    particle.transform.position += _direction * Time.deltaTime * _speed;
                     // if (particle.transform.position.x > _maxReachableXAxe)
                     // {
                     //     particle.transform.position = new Vector3(firstParticlePosition.x, particle.transform.position.y, particle.transform.position.z);
                     // }
-                    if (particle.transform.position.x > _maxReachableXAxe.x || particle.transform.position.y > _maxReachableXAxe.y)
-                    {
-                        if (Vector3.Distance(particle.transform.position, _maxReachableXAxe) < 1)
-                        {
-                            particle.transform.position = new Vector3(particle.transform.position.x - 5 * _width, particle.transform.position.y - 7 * _height, firstParticlePosition.z);
-                        }
-                        else if (particle.transform.position.x > _maxReachableXAxe.x)
-                        {
-                            particle.transform.position = new Vector3(particle.transform.position.x - 5 * _width, particle.transform.position.y, particle.transform.position.z);
-                        }
-                        else if (particle.transform.position.y > _maxReachableXAxe.y)
-                        {
-                            particle.transform.position = new Vector3(particle.transform.position.x, particle.transform.position.y - 7 * _height, particle.transform.position.z);
-                        }
-                    }
-                    yield return new WaitForEndOfFrame();
+                    // if (particle.rectTransform.position.x > _maxReachableXAxe.x || particle.rectTransform.position.y > _maxReachableXAxe.y)
+                    // {
+                    //     if (Vector3.Distance(particle.transform.position, _maxReachableXAxe) < 1)
+                    //     {
+                    //         particle.rectTransform.position = new Vector3(particle.rectTransform.position.x - 5 * _width, particle.rectTransform.position.y - 7 * _height, firstParticlePosition.z);
+                    //     }
+                    //     else if (particle.rectTransform.position.x > _maxReachableXAxe.x)
+                    //     {
+                    //         particle.rectTransform.position = new Vector3(particle.rectTransform.position.x - 5 * _width, particle.rectTransform.position.y, particle.rectTransform.position.z);
+                    //     }
+                    //     else if (particle.rectTransform.position.y > _maxReachableXAxe.y)
+                    //     {
+                    //         particle.rectTransform.position = new Vector3(particle.rectTransform.position.x, particle.rectTransform.position.y - 7 * _height, particle.rectTransform.position.z);
+                    //     }
+                    // }
                     //Do something
                 }
+                yield return new WaitForEndOfFrame();
             }
         }
     }
