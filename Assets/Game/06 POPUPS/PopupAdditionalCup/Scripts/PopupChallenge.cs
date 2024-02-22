@@ -1,18 +1,65 @@
-using System.Collections;
-using System.Collections.Generic;
+using PopupSystem;
+using TMPro;
 using UnityEngine;
 
-public class PopupChallenge : MonoBehaviour
+namespace BallSortQuest
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PopupChallenge : BasePopup
     {
-        
+        [Header("Sheet Ref")]
+        [SerializeField] private Transform _dailyButtonObject;
+        [SerializeField] private Transform _endlessButtonObject;
+        [SerializeField] private GameObject _dailySheet;
+        [Space, Header("Element Ref")]
+        [SerializeField] private TMP_Text _coinText;
+
+        private TwoStateElement _dailyButton;
+        private TwoStateElement _endlessButton;
+
+        public override void Awake()
+        {
+            base.Awake();
+            _dailyButton = new TwoStateElement(_dailyButtonObject);
+            _endlessButton = new TwoStateElement(_endlessButtonObject);
+            UpdateTextCoin();
+        }
+
+        // Start is called before the first frame update
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        public void Show(){
+            base.Show();
+            UpdateTextCoin();
+        }
+
+        public void Exit(){
+            base.Hide();
+        }
+
+        public void OpenDailyChallengeSheet(){
+            _dailyButton.SetState(true);
+            _endlessButton.SetState(false);
+            _dailySheet.SetActive(true);
+        }
+
+        public void OpenEndlessChallengeSheet(){
+            _dailyButton.SetState(false);
+            _endlessButton.SetState(true);
+            _dailySheet.SetActive(false);
+        }
+
+        private void UpdateTextCoin(){
+            _coinText.text = PlayerData.UserData.CoinNumber.ToString();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

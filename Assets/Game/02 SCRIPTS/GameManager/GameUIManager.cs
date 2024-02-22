@@ -22,10 +22,16 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void UpdateLevelText(){
+    public void OpenChallengePopup()
+    {
+        PopupSystem.PopupManager.CreateNewInstance<PopupChallenge>().Show();
+    }
+
+    public void UpdateLevelText()
+    {
         levelText.text = BallSortQuest.GameManager.Instance.Level.level.ToString();
         _backgroundController.InitBackground();
     }
