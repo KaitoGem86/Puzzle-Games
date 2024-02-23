@@ -53,6 +53,7 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
             case TypeChallenge.None:
                 SetUpGamePlayScene(false);
                 _labelText.text = "Level";
+                _labelText.gameObject.SetActive(true);
                 levelText.fontSize = 64;
                 break;
             case TypeChallenge.Hidden:

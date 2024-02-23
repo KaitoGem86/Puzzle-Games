@@ -23,12 +23,29 @@ namespace BallSortQuest{
             }
             else if(_currentGameMode == TypeChallenge.Timer){
                 PlayerData.UserData.TimerState = ChallengeState.Success;
+                TimerModeController.OnCompleteTimer();
             }
             else if(_currentGameMode == TypeChallenge.Move){
                 PlayerData.UserData.MoveState = ChallengeState.Success;
             }
             else {
                 Debug.Log("GameModeController: OnGameModeComplete: GameMode Normal");
+            }
+        }
+
+        public void OnCloseGameChallengeMode(){
+            if(_currentGameMode == TypeChallenge.Hidden){
+                PlayerData.UserData.HiddenState = ChallengeState.InComplete;
+            }
+            else if(_currentGameMode == TypeChallenge.Timer){
+                PlayerData.UserData.TimerState = ChallengeState.InComplete;
+                _timerModeController.OnCompleteTimer();
+            }
+            else if(_currentGameMode == TypeChallenge.Move){
+                PlayerData.UserData.MoveState = ChallengeState.InComplete;
+            }
+            else {
+                Debug.Log("GameModeController: OnCloseGameChallengeMode: GameMode Normal");
             }
         }
 
