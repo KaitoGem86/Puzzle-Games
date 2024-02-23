@@ -52,17 +52,14 @@ namespace BallSortQuest
 
         InitLevel()
         {
-            //  Debug.Log($"So luong level:{Datamanager.LevelDataSO.getListLevel()}");
-            //Debug.LogError($"Current Highest Level: {_userData.HighestLevel}");
             StateGameController.Playing();
             if (GameModeController.CurrentGameMode == TypeChallenge.None)
                 this.Level = Datamanager.LevelDataSO.getLevel(_userData.HighestLevel);
             else
             {
+                Debug.Log("Challenge Mode" + _userData.HighestChallengeLevel);
                 this.Level = Datamanager.ChallengeLevelDataSO.getLevel(_userData.HighestChallengeLevel);
             }
-            Debug.Log(GameModeController.CurrentGameMode);
-            Debug.Log($"Current Level: {this.Level.level}");
         }
 
         public void Win()

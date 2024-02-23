@@ -1,5 +1,4 @@
-using System.Diagnostics;
-
+using UnityEngine;
 namespace BallSortQuest
 {
     public class UserData
@@ -42,6 +41,9 @@ namespace BallSortQuest
         public void UpdateWinGameUserDataValue()
         {
             if (GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None)
+            {
+
+
                 if (HighestLevel < DataManager.Instance.LevelDataSO.getListLevel() - 1)
                 {
                     //Update highest level (increment)
@@ -56,30 +58,13 @@ namespace BallSortQuest
                     //Update process value
                     this.ProcessValue += BallSortQuest.DataManager.Instance.ProcessIncrementValue;
                 }
+            }
             else
+            {
                 if (HighestChallengeLevel < DataManager.Instance.ChallengeLevelDataSO.getListLevel() - 1)
                 {
                     this.HighestChallengeLevel++;
                 }
-        }
-
-        public void UpdateWinChallengeUserDataValue(TypeChallenge type)
-        {
-            switch (type)
-            {
-                case TypeChallenge.Hidden:
-                    this.HiddenState = ChallengeState.Success;
-                    break;
-                case TypeChallenge.Timer:
-                    this.TimerState = ChallengeState.Success;
-                    break;
-                case TypeChallenge.Move:
-                    this.MoveState = ChallengeState.Success;
-                    break;
-            }
-            if (HighestChallengeLevel < DataManager.Instance.ChallengeLevelDataSO.getListLevel() - 1)
-            {
-                this.HighestChallengeLevel++;
             }
         }
 
