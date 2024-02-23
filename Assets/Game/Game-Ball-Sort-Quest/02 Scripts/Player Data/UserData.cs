@@ -22,12 +22,13 @@ namespace BallSortQuest
         public ChallengeState HiddenState;
         public ChallengeState TimerState;
         public ChallengeState MoveState;
-        
+
         #endregion
 
 
         //Use if PlayerPref doesn't not contain Key is Const.USER_DATA
-        public void InitUserDataValue(){
+        public void InitUserDataValue()
+        {
             HighestLevel = 0;
             HighestChallengeLevel = 0;
             StepToReachSpecialLevel = 1;
@@ -40,19 +41,26 @@ namespace BallSortQuest
         #region Method
         public void UpdateWinGameUserDataValue()
         {
-            if (HighestLevel < DataManager.Instance.LevelDataSO.getListLevel() - 1){
-                //Update highest level (increment)
-                this.HighestLevel++;
-                //Update step to reach special level(increment)
-                this.StepToReachSpecialLevel = (this.StepToReachSpecialLevel + 1) % DataManager.Instance.StepToReachSpecialLevel;
-                if (this.StepToReachSpecialLevel == 0)
+            if (GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None)
+                if (HighestLevel < DataManager.Instance.LevelDataSO.getListLevel() - 1)
                 {
-                    UnityEngine.Debug.Log("Special level");
-                }
+                    //Update highest level (increment)
+                    this.HighestLevel++;
+                    //Update step to reach special level(increment)
+                    this.StepToReachSpecialLevel = (this.StepToReachSpecialLevel + 1) % DataManager.Instance.StepToReachSpecialLevel;
+                    if (this.StepToReachSpecialLevel == 0)
+                    {
+                        UnityEngine.Debug.Log("Special level");
+                    }
 
-                //Update process value
-                this.ProcessValue += BallSortQuest.DataManager.Instance.ProcessIncrementValue;
-            }
+                    //Update process value
+                    this.ProcessValue += BallSortQuest.DataManager.Instance.ProcessIncrementValue;
+                }
+            else
+                if (HighestChallengeLevel < DataManager.Instance.ChallengeLevelDataSO.getListLevel() - 1)
+                {
+                    this.HighestChallengeLevel++;
+                }
         }
 
         public void UpdateWinChallengeUserDataValue(TypeChallenge type)
@@ -69,7 +77,8 @@ namespace BallSortQuest
                     this.MoveState = ChallengeState.Success;
                     break;
             }
-            if(HighestChallengeLevel < DataManager.Instance.ChallengeLevelDataSO.getListLevel() - 1){
+            if (HighestChallengeLevel < DataManager.Instance.ChallengeLevelDataSO.getListLevel() - 1)
+            {
                 this.HighestChallengeLevel++;
             }
         }
