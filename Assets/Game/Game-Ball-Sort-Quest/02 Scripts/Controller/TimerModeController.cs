@@ -10,7 +10,10 @@ namespace BallSortQuest
         private TMP_Text _timerText;
         private bool _isInTimer;
 
-        public TimerModeController() { }
+        public TimerModeController()
+        {
+
+        }
 
         public TimerModeController(int maxTimer)
         {
@@ -37,7 +40,7 @@ namespace BallSortQuest
 
         public IEnumerator StartTimer()
         {
-            Debug.Log("Start Timer " + _currentTimer );
+            Debug.Log("Start Timer " + _currentTimer);
             _isInTimer = true;
             while (_isInTimer)
             {

@@ -25,6 +25,7 @@ namespace BallSortQuest
         private bool _isMoving;
         private bool _isHidden;
 
+
         #region Unity Medthod
         private void Awake()
         {
@@ -68,7 +69,8 @@ namespace BallSortQuest
             ShowInfor();
 
             SetPosition(originalPos, startMovePos, index);
-
+            _isHidden = false;
+            _hiddenMaskBall.SetActive(false);
         }
 
         public void Init(BallData data, Vector2 originalPos, Vector3 startMovePos, int index, int tubeSlots, bool isHidden = false)
@@ -95,6 +97,11 @@ namespace BallSortQuest
             _isHidden = false;
         }
 
+        public void HideBall(){
+            _hiddenMaskBall.SetActive(true);
+            _isHidden = true;
+        }
+
         public void SetPosition(Vector2 originalPos, Vector2 startMovePos, int index)
         {
             this.transform.position = new Vector2(originalPos.x, originalPos.y + index * _heighBall);
@@ -106,6 +113,8 @@ namespace BallSortQuest
             float duration = getDuration(tube.StartPosMove);
             if (value)
             {
+                if(_isHidden)
+                    _hiddenMaskBall.SetActive(false);
                 this.transform.DOMoveY(tube.StartPosMove.y, duration).SetEase(Ease.OutQuad).OnComplete(() =>
                  {
                      tube.ChangeState(StateTube.Incomplete);
@@ -115,12 +124,15 @@ namespace BallSortQuest
             }
             else
             {
+                
                 Vector2 target = new Vector2(0, (originalChildCount + index) * _heighBall + tube.SpawnPos.y);
                 this.transform.DOMoveY(target.y, duration).SetEase(Ease.InQuad).OnComplete(() =>
                 {
                     SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("Bottle_Active2"));
                     this.transform.DOJump(new Vector2(this.transform.position.x, target.y), 0.5f, 1, 0.1f).OnComplete(() =>
                     {
+                        if(_isHidden)
+                            _hiddenMaskBall.SetActive(true);
                         tube.ChangeState(StateTube.Incomplete);
                     });
                 });
@@ -168,6 +180,8 @@ namespace BallSortQuest
             return duration;
         }
 
-        public bool IsHidden => _isHidden;
+        public bool IsHidden => _isHidden && GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None;
+        public bool IsHiddenWithNoMode => _isHidden;
+        public GameObject HiddenMaskBall => _hiddenMaskBall;
     }
 }

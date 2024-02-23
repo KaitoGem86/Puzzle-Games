@@ -11,7 +11,6 @@ namespace BallSortQuest
         [SerializeField] private DynamicBackgroundController _dynamicBackgroundController;
         public void InitBackground(){
             BackgroundData data = DataManager.Instance.BackgroundDatas.Backgrounds[PlayerData.UserData.CurrentBackgroundIndex];
-            Debug.Log("Background Index: " + PlayerData.UserData.CurrentBackgroundIndex);
             SetBackground(data);
         }
 

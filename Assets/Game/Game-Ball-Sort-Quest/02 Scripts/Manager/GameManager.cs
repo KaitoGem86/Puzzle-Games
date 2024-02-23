@@ -80,7 +80,22 @@ namespace BallSortQuest
 
         public void OnClickReplay()
         {
-            ActionEvent.OnResetGamePlay?.Invoke();
+            switch (GameModeController.CurrentGameMode)
+            {
+                case TypeChallenge.None:
+                    ActionEvent.OnResetGamePlay?.Invoke();
+                    break;
+                case TypeChallenge.Hidden:
+                    ActionEvent.OnResetGamePlay?.Invoke();
+                    break;
+                case TypeChallenge.Move:
+                    ActionEvent.OnResetGamePlay?.Invoke();
+                    break;
+                case TypeChallenge.Timer:
+                    StopCoroutine(GameModeController.TimerModeController.StartTimer());
+                    ActionEvent.OnResetGamePlay?.Invoke();
+                    break;
+            }
         }
     }
 }

@@ -310,28 +310,6 @@ namespace BallSortQuest
 
                         SortBall(_hodingTube, newTube, OnMoveComplete);
                         _hodingTube = null;
-
-                        /*if (_hodingTube.State.Equals(StateTube.Complete))
-                        {
-                            _hodingTube.ChangeState(StateTube.Emty);
-                            newTube.Complete();
-                            _hodingTube = null;
-                            return;
-                        }
-
-
-                        if (newTube.isDone())
-                        {
-                            newTube.Complete();
-                            VibrationManager.Vibrate(10);
-                            SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("complete1"));
-                            Debug.LogError($"{newTube.name} is done");
-                            if (ConditionWin())
-                            {
-                                Debug.Log("you win");
-                                _gameManager.Win();
-                            }
-                        }*/
                     }
                 }
             }
@@ -345,6 +323,9 @@ namespace BallSortQuest
                     VibrationManager.Vibrate(10);
                     SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("complete1"));
                     Debug.LogError($"{newTube.name} is done");
+                    foreach(var ball in newTube.Balls){
+                        ball.ShowItself();
+                    }
                     if (ConditionWin())
                     {
                         Debug.Log("you win");
@@ -357,6 +338,10 @@ namespace BallSortQuest
                 if (_gameManager.GameModeController.CurrentGameMode == TypeChallenge.Move)
                 {
                     _gameManager.GameModeController.MoveModeController.CheckOverMove();
+                }
+                else if (_gameManager.GameModeController.CurrentGameMode == TypeChallenge.Hidden)
+                {
+                    _gameManager.GameModeController.HiddenModeController.HiddenRandomBall(_tubes);
                 }
             }
         }
@@ -424,6 +409,9 @@ namespace BallSortQuest
                 else
                 {
                     moveBalls[i].Movement(from, to, countBall, i, null);   //move -> new branch
+                }
+                if(moveBalls[i].IsHiddenWithNoMode){
+                    moveBalls[i].ShowItself();
                 }
 
                 to.AddBallAt(moveBalls[i]);
