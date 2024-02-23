@@ -62,8 +62,13 @@ namespace BallSortQuest
 
         public void Reset()
         {
+
             foreach (var tube in _tubes)
             {
+                // foreach (var ball in tube.Balls)
+                // {
+                //     SimplePool.Despawn(ball.gameObject);
+                // }
                 SimplePool.Despawn(tube.gameObject);
             }
             _tubes.Clear();
@@ -92,7 +97,10 @@ namespace BallSortQuest
                     break;
                 case TypeChallenge.Timer:
                     _gameManager.GameModeController.TimerModeController.SetTimer(_gameManager.Level.move * 5);
-                    StartCoroutine(_gameManager.GameModeController.TimerModeController.StartTimer());
+                    if (!_gameManager.GameModeController.TimerModeController.IsInTimer)
+                    {
+                        StartCoroutine(_gameManager.GameModeController.TimerModeController.StartTimer());
+                    }
                     break;
             }
         }
@@ -323,7 +331,8 @@ namespace BallSortQuest
                     VibrationManager.Vibrate(10);
                     SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("complete1"));
                     Debug.LogError($"{newTube.name} is done");
-                    foreach(var ball in newTube.Balls){
+                    foreach (var ball in newTube.Balls)
+                    {
                         ball.ShowItself();
                     }
                     if (ConditionWin())
@@ -410,7 +419,8 @@ namespace BallSortQuest
                 {
                     moveBalls[i].Movement(from, to, countBall, i, null);   //move -> new branch
                 }
-                if(moveBalls[i].IsHiddenWithNoMode){
+                if (moveBalls[i].IsHiddenWithNoMode)
+                {
                     moveBalls[i].ShowItself();
                 }
 

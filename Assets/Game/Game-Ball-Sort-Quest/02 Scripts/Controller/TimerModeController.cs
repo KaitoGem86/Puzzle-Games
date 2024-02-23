@@ -55,5 +55,7 @@ namespace BallSortQuest
             _timerText.text = "0";
             Debug.Log("End Timer");
         }
+
+        public bool IsInTimer { get => _isInTimer; }
     }
 }
