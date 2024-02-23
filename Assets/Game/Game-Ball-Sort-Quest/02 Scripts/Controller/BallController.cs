@@ -117,7 +117,7 @@ namespace BallSortQuest
                     _hiddenMaskBall.SetActive(false);
                 this.transform.DOMoveY(tube.StartPosMove.y, duration).SetEase(Ease.OutQuad).OnComplete(() =>
                  {
-                     tube.ChangeState(StateTube.Incomplete);
+                    tube.ChangeState(StateTube.Incomplete); // Co the gay loi
                  });
 
                 SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("Bottle_Active0"));
@@ -133,7 +133,7 @@ namespace BallSortQuest
                     {
                         if(_isHidden)
                             _hiddenMaskBall.SetActive(true);
-                        tube.ChangeState(StateTube.Incomplete);
+                        tube.ChangeState(StateTube.Incomplete); // Co the gay loi
                     });
                 });
             }

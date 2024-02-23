@@ -1,1 +1,1 @@
-{"HighestLevel":0,"HighestChallengeLevel":0,"BoosterRevokeNumber":5,"BoosterAddNumber":-1,"CoinNumber":0,"StepToReachSpecialLevel":0,"ProcessValue":0,"CurrentBackgroundIndex":0,"HiddenState":0,"TimerState":0,"MoveState":0}
+{"HighestLevel":1,"HighestChallengeLevel":0,"BoosterRevokeNumber":5,"BoosterAddNumber":-1,"CoinNumber":0,"StepToReachSpecialLevel":1,"ProcessValue":35,"CurrentBackgroundIndex":0,"HiddenState":0,"TimerState":0,"MoveState":0}

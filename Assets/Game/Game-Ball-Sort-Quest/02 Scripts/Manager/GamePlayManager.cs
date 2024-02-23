@@ -441,23 +441,29 @@ namespace BallSortQuest
 
         private bool ConditionWin()
         {
-            int countEmpty = 0;
             int countUnComplete = 0;
             for (int i = 0; i < _tubes.Count; i++)
             {
                 Debug.Log(_tubes[i].name + " " + _tubes[i].State.ToString());
-                if (_tubes[i].State.Equals(StateTube.Empty))
+                if (_tubes[i].Balls.Count != 0 && _tubes[i].Balls.Count != _tubes[i].Slot)
+                    return false;
+                // if (_tubes[i].State.Equals(StateTube.Empty))
+                // {
+                //     countEmpty++;
+                // }
+                if (!_tubes[i].State.Equals(StateTube.Complete) && !_tubes[i].State.Equals(StateTube.Empty))
                 {
-                    countEmpty++;
-                }
-                if (!_tubes[i].State.Equals(StateTube.Complete))
-                {
-                    if (!_tubes[i].State.Equals(StateTube.Empty))
-                        countUnComplete++;
+                    countUnComplete++;
+                    int id = _tubes[i].GetLastBall().Id;
+                    foreach (var ball in _tubes[i].Balls)
+                    {
+                        if (ball.Id != id)
+                        {
+                            return false;
+                        }
+                    }
                 }
             }
-            if (countUnComplete > 0)
-                return false;
             return true;
         }
 
