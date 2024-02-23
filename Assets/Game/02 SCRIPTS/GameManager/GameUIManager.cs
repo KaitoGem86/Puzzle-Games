@@ -6,17 +6,23 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
 {
     [SerializeField] private TMP_Text levelText;
     [SerializeField] private BackgroundController _backgroundController;
+    [SerializeField] private TMP_Text _labelText;
+    [SerializeField] private GameObject _closeButton;
+    [SerializeField] private GameObject _challengeButton;
+    [SerializeField] private GameObject _menuButton;
     public override void Awake()
     {
         base.Awake();
+        BallSortQuest.ActionEvent.OnResetGamePlay += ResetGamePlayWithMode;
         BallSortQuest.ActionEvent.OnResetGamePlay += UpdateLevelText;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        UpdateLevelText();
         _backgroundController.InitBackground();
+        ResetGamePlayWithMode();
+        UpdateLevelText();
     }
 
     // Update is called once per frame
@@ -32,7 +38,40 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
 
     public void UpdateLevelText()
     {
-        levelText.text = BallSortQuest.GameManager.Instance.Level.level.ToString();
-        _backgroundController.InitBackground();
+        if(BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None)
+            levelText.text = BallSortQuest.GameManager.Instance.Level.level.ToString();
+    }
+
+    private void ResetGamePlayWithMode(){
+        switch (BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode)
+        {
+            case TypeChallenge.None:
+                SetUpGamePlayScene(false);
+                _labelText.text = "Level";
+                levelText.fontSize = 64;
+                break;
+            case TypeChallenge.Hidden:
+                SetUpGamePlayScene(true);
+                _labelText.gameObject.SetActive(false);
+                levelText.text = "HIDDEN";
+                break;
+            case TypeChallenge.Move:
+                SetUpGamePlayScene(true);
+                _labelText.gameObject.SetActive(false);
+                break;
+            case TypeChallenge.Timer:
+                SetUpGamePlayScene(true);
+                _labelText.gameObject.SetActive(false);
+                levelText.text = "";
+                levelText.fontSize = 100;
+                BallSortQuest.GameManager.Instance.GameModeController.TimerModeController.SetTimerText(levelText);
+                break;
+        }
+    }
+
+    private void SetUpGamePlayScene(bool isChallenge){
+        _menuButton.SetActive(!isChallenge);
+        _challengeButton.SetActive(!isChallenge);
+        _closeButton.SetActive(isChallenge);
     }
 }

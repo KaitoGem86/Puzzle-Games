@@ -77,6 +77,22 @@ namespace BallSortQuest
             Init();
 
             InitScreen();
+
+            switch(_gameManager.GameModeController.CurrentGameMode){
+                case TypeChallenge.None:
+                    
+                    break;
+                case TypeChallenge.Hidden:
+                    
+                    break;
+                case TypeChallenge.Move:
+                    
+                    break;
+                case TypeChallenge.Timer:
+                    _gameManager.GameModeController.TimerModeController.SetTimer(100);
+                    StartCoroutine(_gameManager.GameModeController.TimerModeController.StartTimer());
+                    break;
+            }
         }
 
         private void OnDestroy()
