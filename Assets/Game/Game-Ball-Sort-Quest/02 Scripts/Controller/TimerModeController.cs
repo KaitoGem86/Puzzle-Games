@@ -35,6 +35,8 @@ namespace BallSortQuest
                 _timerText.text = _currentTimer.ToString();
                 _currentTimer--;
             }
+            _timerText.text = "0";
+            Debug.Log("End Timer");
         }
     }
 }

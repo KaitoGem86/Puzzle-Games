@@ -78,15 +78,17 @@ namespace BallSortQuest
 
             InitScreen();
 
-            switch(_gameManager.GameModeController.CurrentGameMode){
+            switch (_gameManager.GameModeController.CurrentGameMode)
+            {
                 case TypeChallenge.None:
-                    
+
                     break;
                 case TypeChallenge.Hidden:
-                    
+
                     break;
                 case TypeChallenge.Move:
-                    
+                    _gameManager.GameModeController.MoveModeController.ResetMaxMove(100);
+                    _gameManager.GameModeController.MoveModeController.UpdateTextMove();
                     break;
                 case TypeChallenge.Timer:
                     _gameManager.GameModeController.TimerModeController.SetTimer(100);
@@ -189,7 +191,7 @@ namespace BallSortQuest
 
             Vector2 target = new Vector2(x * (tube.Width + _spaceHorizontal), y);
 
-            if(value == 1)
+            if (value == 1)
                 Debug.Log(1);
             tube.Init(target, tubeData, value, isHidden);
 
@@ -347,7 +349,14 @@ namespace BallSortQuest
                     {
                         Debug.Log("you win");
                         _gameManager.Win();
+                        return;
                     }
+                }
+
+                Debug.Log("Not yet");
+                if (_gameManager.GameModeController.CurrentGameMode == TypeChallenge.Move)
+                {
+                    _gameManager.GameModeController.MoveModeController.CheckOverMove();
                 }
             }
         }
@@ -399,12 +408,11 @@ namespace BallSortQuest
                 }
                 else break;
             }
-            Debug.Log("Move Ball: " + moveBalls.Count);
 
 
 
             int countBall = to.Balls.Count;
-            if(_isSpecialLevel && from.Balls.Count > 0)
+            if (_isSpecialLevel && from.Balls.Count > 0)
                 from.GetLastBall().ShowItself();
 
             for (int i = 0; i < moveBalls.Count; i++)
@@ -426,6 +434,11 @@ namespace BallSortQuest
             // {
             //     from.ChangeState(StateTube.Empty);
             // }
+
+            if (_gameManager.GameModeController.CurrentGameMode == TypeChallenge.Move)
+            {
+                _gameManager.GameModeController.MoveModeController.UpdateMoveValueAfterMove();
+            }
         }
 
         private bool ConditionWin()

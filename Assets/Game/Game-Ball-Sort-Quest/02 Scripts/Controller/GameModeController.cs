@@ -5,10 +5,12 @@ namespace BallSortQuest{
         private TypeChallenge _currentGameMode;
 
         private TimerModeController _timerModeController;
+        private MoveModeController _moveModeController;
 
         public GameModeController(){
             _currentGameMode = TypeChallenge.None;
             _timerModeController = new TimerModeController();
+            _moveModeController = new MoveModeController();
         }
 
         public void SetGameMode(TypeChallenge type){
@@ -36,5 +38,6 @@ namespace BallSortQuest{
 
         public TypeChallenge CurrentGameMode { get => _currentGameMode; set => _currentGameMode = value; }
         public TimerModeController TimerModeController { get => _timerModeController; }
+        public MoveModeController MoveModeController { get => _moveModeController; }
     }
 }

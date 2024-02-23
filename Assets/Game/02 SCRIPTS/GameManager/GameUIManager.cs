@@ -58,6 +58,9 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
             case TypeChallenge.Move:
                 SetUpGamePlayScene(true);
                 _labelText.gameObject.SetActive(false);
+                levelText.text = "";
+                levelText.fontSize = 100;
+                BallSortQuest.GameManager.Instance.GameModeController.MoveModeController.SetMoveText(levelText);
                 break;
             case TypeChallenge.Timer:
                 SetUpGamePlayScene(true);
