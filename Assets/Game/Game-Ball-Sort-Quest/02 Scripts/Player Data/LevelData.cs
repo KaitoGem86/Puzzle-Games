@@ -55,6 +55,7 @@ namespace BallSortQuest
         public int tube;
         public int tubeSlot;
         public List<int> data;
+        public int move;
 
         public Level(Dictionary<string, string> data)
         {
@@ -82,6 +83,11 @@ namespace BallSortQuest
                 {
                     this.data.Add(int.Parse(datas[i]));
                 }
+            }
+
+            if (!string.IsNullOrEmpty(data["move"]))
+            {
+                this.move = int.Parse(data["move"]);
             }
         }
     }

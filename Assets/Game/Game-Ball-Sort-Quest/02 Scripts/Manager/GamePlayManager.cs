@@ -87,11 +87,11 @@ namespace BallSortQuest
 
                     break;
                 case TypeChallenge.Move:
-                    _gameManager.GameModeController.MoveModeController.ResetMaxMove(100);
+                    _gameManager.GameModeController.MoveModeController.ResetMaxMove(_gameManager.Level.move);
                     _gameManager.GameModeController.MoveModeController.UpdateTextMove();
                     break;
                 case TypeChallenge.Timer:
-                    _gameManager.GameModeController.TimerModeController.SetTimer(100);
+                    _gameManager.GameModeController.TimerModeController.SetTimer(_gameManager.Level.move * 5);
                     StartCoroutine(_gameManager.GameModeController.TimerModeController.StartTimer());
                     break;
             }
