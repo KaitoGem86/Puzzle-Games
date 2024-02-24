@@ -37,11 +37,15 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         BallSortQuest.GameManager.Instance.StateGameController.OnMenu();
     }
 
-    public void CloseChallengeMode(){
+    public void OpenCloseChallengeModePopup(){
         PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Bạn có muốn bỏ cuộc không?", TypeChallenge.None);
         // BallSortQuest.GameManager.Instance.GameModeController.OnCloseGameChallengeMode();
         // BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode = TypeChallenge.None;
         // BallSortQuest.ActionEvent.OnResetGamePlay?.Invoke();
+    }
+
+    public void OpenResetGameModePopup(){
+        PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Dữ liệu game sẽ bị mất, bạn có muốn tiếp tục không?", BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode);
     }
 
     public void UpdateLevelText()

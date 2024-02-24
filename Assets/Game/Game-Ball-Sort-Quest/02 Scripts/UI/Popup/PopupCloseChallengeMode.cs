@@ -13,6 +13,7 @@ namespace BallSortQuest{
             base.Show();
             BallSortQuest.GameManager.Instance.StateGameController.OnMenu();
             _notiText.text = noti;
+            _typeChallengeToChangeTo = typeChallenge;
         }
 
         public void OnClickAccept(){
