@@ -36,7 +36,7 @@ namespace BallSortQuest{
             }
         }
 
-        public void OnCloseGameChallengeMode(){
+        public void OnCloseGameMode(){
             if(_currentGameMode == TypeChallenge.Hidden){
                 PlayerData.UserData.HiddenState = ChallengeState.InComplete;
             }
