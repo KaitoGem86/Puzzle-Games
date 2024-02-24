@@ -71,6 +71,8 @@ namespace BallSortQuest
         private void OnMouseDown()
         {
             if (State.Equals(StateTube.Active)) return;
+            if (GameManager.Instance.StateGameController.State == StateGame.OnMenu) return;
+            if (GameManager.Instance.StateGameController.State == StateGame.Win) return;
 
             GameManager.Instance.GamePlayManager.OnClick(this);
         }

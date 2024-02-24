@@ -45,6 +45,7 @@ namespace BallSortQuest
 
         public void Exit(){
             base.Hide();
+            GameManager.Instance.StateGameController.Playing();
         }
 
         public void OpenDailyChallengeSheet(){

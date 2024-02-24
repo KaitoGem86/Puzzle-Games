@@ -154,7 +154,6 @@ namespace PopupSystem
 		        this.showCompletedCallback = showCompletedCallback;
 		        this.hideCompletedCallback = hideCompletedCallback;
 	        }
-
 	        float waitLastPopupHide = 0;
 	        this.overlay = overlay;
 	        isShowed = true;

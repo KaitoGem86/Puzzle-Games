@@ -65,6 +65,7 @@ namespace BallSortQuest
         public void Init(BallData data, Vector2 originalPos, Vector3 startMovePos, int index)
         {
             this.Data = data;
+            this.transform.DOKill();
 
             ShowInfor();
 

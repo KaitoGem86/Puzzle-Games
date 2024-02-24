@@ -44,15 +44,14 @@ namespace BallSortQuest
             _isInTimer = true;
             while (_isInTimer)
             {
-                yield return new WaitForSeconds(1);
                 _timerText.text = _currentTimer.ToString();
                 _currentTimer--;
                 if (_currentTimer <= 0)
                 {
                     _isInTimer = false;
                 }
+                yield return new WaitForSeconds(1);
             }
-            _timerText.text = "0";
             Debug.Log("End Timer");
         }
 

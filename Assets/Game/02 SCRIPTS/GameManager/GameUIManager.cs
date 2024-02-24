@@ -34,9 +34,11 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
     public void OpenChallengePopup()
     {
         PopupSystem.PopupManager.CreateNewInstance<PopupChallenge>().Show();
+        BallSortQuest.GameManager.Instance.StateGameController.OnMenu();
     }
 
     public void CloseChallengeMode(){
+        BallSortQuest.GameManager.Instance.GameModeController.OnCloseGameChallengeMode();
         BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode = TypeChallenge.None;
         BallSortQuest.ActionEvent.OnResetGamePlay?.Invoke();
     }

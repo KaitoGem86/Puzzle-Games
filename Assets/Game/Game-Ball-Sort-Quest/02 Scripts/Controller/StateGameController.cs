@@ -16,6 +16,11 @@ public class StateGameController : MonoBehaviour
         this.State = StateGame.Win;
     }
 
+    public void OnMenu()
+    {
+        this.State = StateGame.OnMenu;
+    }
+
     private void Lose()
     {
         this.State = StateGame.Lose;
@@ -25,6 +30,8 @@ public class StateGameController : MonoBehaviour
     {
         this.State = StateGame.Pause;
     }
+
+
 }
 
 public enum StateGame
@@ -32,5 +39,6 @@ public enum StateGame
     Playing,
     Win,
     Lose,
-    Pause
+    Pause,
+    OnMenu,
 }
