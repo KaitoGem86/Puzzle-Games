@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using UnityEngine;
 namespace BallSortQuest
 {
@@ -23,7 +24,9 @@ namespace BallSortQuest
         public ChallengeState TimerState;
         public ChallengeState MoveState;
         public string LastTimeGetReward;
-
+        public string LastTimeCompleteHidden;
+        public string LastTimeCompleteTimer;
+        public string LastTimeCompleteMove;
         #endregion
 
 
@@ -39,6 +42,9 @@ namespace BallSortQuest
             MoveState = ChallengeState.InComplete;
             ProcessValue = 0;
             LastTimeGetReward = TimeFromToGoogle.Instance.Now().AddHours(-1).ToString();
+            LastTimeCompleteHidden = TimeFromToGoogle.Instance.Now().AddDays(-1).ToString();
+            LastTimeCompleteTimer = TimeFromToGoogle.Instance.Now().AddDays(-1).ToString();
+            LastTimeCompleteMove = TimeFromToGoogle.Instance.Now().AddDays(-1).ToString();
         }
 
         #region Method
@@ -82,6 +88,58 @@ namespace BallSortQuest
                 case TypeBooster.AddTube:
                     this.BoosterAddNumber += value;
                     break;
+            }
+        }
+
+        public void UpdateCompleteChallengeMode(TypeChallenge type){
+            switch (type)
+            {
+                case TypeChallenge.Hidden:
+                    this.HiddenState = ChallengeState.Success;
+                    this.LastTimeCompleteHidden = TimeFromToGoogle.Instance.Now().ToString();
+                    break;
+                case TypeChallenge.Timer:
+                    this.TimerState = ChallengeState.Success;
+                    this.LastTimeCompleteTimer = TimeFromToGoogle.Instance.Now().ToString();
+                    break;
+                case TypeChallenge.Move:
+                    this.MoveState = ChallengeState.Success;
+                    this.LastTimeCompleteMove = TimeFromToGoogle.Instance.Now().ToString();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public bool IsCanPlayChallengeWithNoAds(TypeChallenge type, DateTime time){
+            switch (type)
+            {
+                case TypeChallenge.Hidden:
+                    if(HiddenState.Equals(ChallengeState.Success) && time.DayOfYear == DateTime.Parse(LastTimeCompleteHidden).DayOfYear)
+                        return false;
+                    return true;
+                case TypeChallenge.Timer:
+                    if(TimerState.Equals(ChallengeState.Success) && time.DayOfYear == DateTime.Parse(LastTimeCompleteTimer).DayOfYear)
+                        return false;
+                    return true; 
+                case TypeChallenge.Move:
+                    if(MoveState.Equals(ChallengeState.Success) && time.DayOfYear == DateTime.Parse(LastTimeCompleteMove).DayOfYear)
+                        return false;
+                    return true;
+                default:
+                    return true;
+            }
+        }
+
+        public void UpdateStateChallengeAfterADay(DateTime time){
+            if(time.DayOfYear != DateTime.Parse(LastTimeCompleteHidden).DayOfYear){
+                HiddenState = ChallengeState.InComplete;
+            }
+            if(time.DayOfYear != DateTime.Parse(LastTimeCompleteTimer).DayOfYear){
+                TimerState = ChallengeState.InComplete;
+            }
+            if(time.DayOfYear != DateTime.Parse(LastTimeCompleteMove).DayOfYear){
+                MoveState = ChallengeState.InComplete;
             }
         }
         #endregion

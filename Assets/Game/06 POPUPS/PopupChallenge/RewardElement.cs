@@ -15,7 +15,9 @@ namespace BallSortQuest{
         private TMP_Text _titleText;
         private TMP_Text _rewardText;
         private TwoStateElement _iconChallenge;
+        private GameObject _adsIcon;
         private Button _playButton;
+        private bool _isCanPlayNoNeedAds;
 
         public RewardElement(Transform challengeRoot, TypeChallenge type){
             _type = type;
@@ -23,9 +25,10 @@ namespace BallSortQuest{
             _iconChallenge = new TwoStateElement(challengeRoot.GetChild(1));
             _rewardText = challengeRoot.GetChild(2).GetChild(1).GetChild(1).GetComponent<TMP_Text>();
             _playButton = challengeRoot.GetChild(3).GetComponent<Button>();
+            _adsIcon = _playButton.transform.GetChild(1).gameObject;
         }
 
-        public void SetDisPlayElement(){
+        public void SetDisPlayElement(bool isCanPlayNoNeedAds = true){
             switch (_type){
                 case TypeChallenge.Hidden:
                     _titleText.text = "Nhiệm vụ Ẩn";
@@ -40,7 +43,16 @@ namespace BallSortQuest{
                     _rewardText.text = "20";
                     break;
             }
-            _iconChallenge.SetState(true);
+            _isCanPlayNoNeedAds = isCanPlayNoNeedAds;
+            Debug.Log("Set Display Element: " + _type + " - " + isCanPlayNoNeedAds);
+            if(isCanPlayNoNeedAds){
+                _adsIcon.SetActive(false);
+                _iconChallenge.SetState(true);
+            }
+            else{
+                _adsIcon.SetActive(true);
+                _iconChallenge.SetState(false);
+            }
         }
 
         public void OnSelectChallenge(){
@@ -50,5 +62,6 @@ namespace BallSortQuest{
         }
 
         public Button PlayButton => _playButton;
+        public bool IsCanPlayNoNeedAds => _isCanPlayNoNeedAds;
     }
 }

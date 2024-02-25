@@ -21,18 +21,9 @@ namespace BallSortQuest{
 
         //Use when start developing flow game
         public void OnGameModeComplete(){
-            if(_currentGameMode == TypeChallenge.Hidden){
-                //PlayerData.UserData.HiddenState = ChallengeState.Success;
-            }
-            else if(_currentGameMode == TypeChallenge.Timer){
-                //PlayerData.UserData.TimerState = ChallengeState.Success;
-                TimerModeController.OnCompleteTimer();
-            }
-            else if(_currentGameMode == TypeChallenge.Move){
-                //PlayerData.UserData.MoveState = ChallengeState.Success;
-            }
-            else {
-                Debug.Log("GameModeController: OnGameModeComplete: GameMode Normal");
+            PlayerData.UserData.UpdateCompleteChallengeMode(_currentGameMode);
+            if(_currentGameMode == TypeChallenge.Timer){
+                _timerModeController.OnCompleteTimer();
             }
         }
 

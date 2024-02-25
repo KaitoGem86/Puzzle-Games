@@ -18,6 +18,7 @@ namespace BallSortQuest
         private void Start()
         {
             InitData();
+            UserData.UpdateStateChallengeAfterADay(TimeFromToGoogle.Instance.Now());
         }
 
         private void InitData()
