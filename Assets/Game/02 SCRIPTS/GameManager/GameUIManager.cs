@@ -39,9 +39,6 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
 
     public void OpenCloseChallengeModePopup(){
         PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Bạn có muốn bỏ cuộc không?", TypeChallenge.None);
-        // BallSortQuest.GameManager.Instance.GameModeController.OnCloseGameChallengeMode();
-        // BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode = TypeChallenge.None;
-        // BallSortQuest.ActionEvent.OnResetGamePlay?.Invoke();
     }
 
     public void OpenRewardPopup(){

@@ -44,7 +44,6 @@ namespace BallSortQuest{
                     break;
             }
             _isCanPlayNoNeedAds = isCanPlayNoNeedAds;
-            Debug.Log("Set Display Element: " + _type + " - " + isCanPlayNoNeedAds);
             if(isCanPlayNoNeedAds){
                 _adsIcon.SetActive(false);
                 _iconChallenge.SetState(true);
@@ -56,7 +55,6 @@ namespace BallSortQuest{
         }
 
         public void OnSelectChallenge(){
-            Debug.Log("Select Challenge: " + _type);
             //Do something with GamePlay as set the GamePlayMode enum ???
             GameManager.Instance.GameModeController.SetGameMode(_type);
         }

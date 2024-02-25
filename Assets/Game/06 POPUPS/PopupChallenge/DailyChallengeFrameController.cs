@@ -32,27 +32,18 @@ namespace BallSortQuest
                 _hiddenChallenge.PlayButton.onClick.RemoveAllListeners();
                 _hiddenChallenge.PlayButton.onClick.AddListener(() => OnClickPlayChallenge(TypeChallenge.Hidden));
             }
-            // else{
-            //     _hiddenChallenge.PlayButton.interactable = false;
-            // }
 
             if (true)
             {
                 _timerChallenge.PlayButton.onClick.RemoveAllListeners();
                 _timerChallenge.PlayButton.onClick.AddListener(() => OnClickPlayChallenge(TypeChallenge.Timer));
             }
-            // else{
-            //     _timerChallenge.PlayButton.interactable = false;
-            // }
 
             if (true)
             {
                 _moveChallenge.PlayButton.onClick.RemoveAllListeners();
                 _moveChallenge.PlayButton.onClick.AddListener(() => OnClickPlayChallenge(TypeChallenge.Move));
             }
-            // else{
-            //     _moveChallenge.PlayButton.interactable = false;
-            // }
         }
 
         public void OnClickPlayChallenge(TypeChallenge type)

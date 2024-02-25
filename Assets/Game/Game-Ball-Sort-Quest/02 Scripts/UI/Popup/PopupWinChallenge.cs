@@ -20,7 +20,7 @@ namespace BallSortQuest
         [Space, Header("Resource")]
         [SerializeField] private Sprite _chestClose;
         [SerializeField] private Sprite _chestOpen;
-        
+
         private bool _isCanCollectReward;
         public void Show()
         {
@@ -30,6 +30,7 @@ namespace BallSortQuest
             UpdateTextCoin();
             // Set Chest's State
             StartCoroutine(CoroutineActiveChest(1.5f));
+            _isCanCollectReward = true;
         }
 
         public void Close()
@@ -54,15 +55,16 @@ namespace BallSortQuest
         }
 
         IEnumerator CoroutineActiveChest(float timeDelay)
-            {
-                _chest.gameObject.SetActive(true);
-                SetChestState(false);
-                yield return new WaitForSeconds(timeDelay);
-                SetChestState(true);
-                _rewardCoin.SetActive(true);
-            }
+        {
+            _chest.gameObject.SetActive(true);
+            SetChestState(false);
+            yield return new WaitForSeconds(timeDelay);
+            SetChestState(true);
+            _rewardCoin.SetActive(true);
+        }
 
-        private void SetChestState(bool isOpened){
+        private void SetChestState(bool isOpened)
+        {
             _chest.sprite = isOpened ? _chestOpen : _chestClose;
             _chest.SetNativeSize();
         }
