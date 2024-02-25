@@ -45,7 +45,7 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
     }
 
     public void OpenRewardPopup(){
-        PopupSystem.PopupManager.CreateNewInstance<PopupGoldReward>().Show();
+        PopupSystem.PopupManager.CreateNewInstance<PopupGoldReward>().Show(TimeFromToGoogle.Instance.Now());
     }
 
     public void OpenResetGameModePopup(){

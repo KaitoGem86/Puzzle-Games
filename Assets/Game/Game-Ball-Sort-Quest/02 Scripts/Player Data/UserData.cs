@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 namespace BallSortQuest
 {
@@ -21,6 +22,7 @@ namespace BallSortQuest
         public ChallengeState HiddenState;
         public ChallengeState TimerState;
         public ChallengeState MoveState;
+        public string LastTimeGetReward;
 
         #endregion
 
@@ -28,6 +30,7 @@ namespace BallSortQuest
         //Use if PlayerPref doesn't not contain Key is Const.USER_DATA
         public void InitUserDataValue()
         {
+            Debug.Log("InitUserDataValue");
             HighestLevel = 0;
             HighestChallengeLevel = 0;
             StepToReachSpecialLevel = 1;
@@ -35,6 +38,7 @@ namespace BallSortQuest
             TimerState = ChallengeState.InComplete;
             MoveState = ChallengeState.InComplete;
             ProcessValue = 0;
+            LastTimeGetReward = TimeFromToGoogle.Instance.Now().AddHours(-1).ToString();
         }
 
         #region Method

@@ -23,6 +23,7 @@ namespace BallSortQuest
         private void InitData()
         {
             //UserData
+            Debug.Log("InitData");
             if (!PlayerPrefs.HasKey(Const.KEY_USER_DATA))
             {
                 UserData = new UserData();
@@ -50,6 +51,7 @@ namespace BallSortQuest
         public static void SaveUserData()
         {
             string saveData = JsonUtility.ToJson(UserData);
+            Debug.LogError("SaveData: " + saveData);
             PlayerPrefs.SetString(Const.KEY_USER_DATA, saveData);
             {
                 File.WriteAllText(path, saveData);
