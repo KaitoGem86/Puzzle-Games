@@ -44,6 +44,10 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         // BallSortQuest.ActionEvent.OnResetGamePlay?.Invoke();
     }
 
+    public void OpenRewardPopup(){
+        PopupSystem.PopupManager.CreateNewInstance<PopupGoldReward>().Show();
+    }
+
     public void OpenResetGameModePopup(){
         PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Dữ liệu game sẽ bị mất, bạn có muốn tiếp tục không?", BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode);
     }
