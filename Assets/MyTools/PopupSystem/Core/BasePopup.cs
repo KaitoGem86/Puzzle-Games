@@ -154,7 +154,6 @@ namespace PopupSystem
 		        this.showCompletedCallback = showCompletedCallback;
 		        this.hideCompletedCallback = hideCompletedCallback;
 	        }
-
 	        float waitLastPopupHide = 0;
 	        this.overlay = overlay;
 	        isShowed = true;
@@ -198,6 +197,7 @@ namespace PopupSystem
 
         void AnimateShow () {
 	        if (animator != null && showAnimationClip != null) {
+				Debug.Log("Show Animation");
 		        float showAnimationDuration = GetAnimationClipDuration(showAnimationClip);
 		        StartCoroutine(RunMethod(showAnimationDuration, OnShowFinish));
 		        animator.Play(showAnimationClip.name);
