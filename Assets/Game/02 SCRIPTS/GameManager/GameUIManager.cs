@@ -10,6 +10,14 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
     [SerializeField] private GameObject _closeButton;
     [SerializeField] private GameObject _challengeButton;
     [SerializeField] private GameObject _menuButton;
+    [SerializeField] private ParticleSystem _topParticle;
+    [SerializeField] private ParticleSystem _leftParticle;
+    [SerializeField] private ParticleSystem _rightParticle;
+
+    private Vector3 _originalTopParticleScale;
+    private Vector3 _originalLeftParticleScale;
+    private Vector3 _originalRightParticleScale;
+
     public override void Awake()
     {
         base.Awake();
@@ -53,6 +61,31 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
     {
         if(BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None)
             levelText.text = BallSortQuest.GameManager.Instance.Level.level.ToString();
+    }
+
+    
+
+    /// <summary>
+    /// Set particle size follow camera size. Default size is setted when camera size is 5
+    /// </summary>
+    /// <param name="cameraSize"></param>
+    public void SetParticleSize(float cameraSize){
+        InitializeParticleSizes();
+        // _topParticle.transform.localScale  = cameraSize / 5 * _originalTopParticleScale;
+        // _leftParticle.transform.localScale = cameraSize / 5 * _originalLeftParticleScale;
+        // _rightParticle.transform.localScale = cameraSize / 5 * _originalRightParticleScale;
+    }
+
+    private void InitializeParticleSizes() {
+    _originalTopParticleScale = _topParticle.transform.localScale;
+    _originalLeftParticleScale = _leftParticle.transform.localScale;
+    _originalRightParticleScale = _rightParticle.transform.localScale;
+    }
+
+    public void PlayBorderParticle(){
+        _topParticle.Play();
+        _leftParticle.Play();
+        _rightParticle.Play();
     }
 
     private void ResetGamePlayWithMode(){

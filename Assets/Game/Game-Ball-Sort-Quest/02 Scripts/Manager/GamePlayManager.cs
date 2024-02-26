@@ -253,6 +253,7 @@ namespace BallSortQuest
             var (center, size) = CalculateOrthoSize();
             _camera.transform.position = center;
             _camera.orthographicSize = size;
+            GameUIManager.Instance.SetParticleSize(size);
         }
 
         private (Vector3 center, float size) CalculateOrthoSize()
@@ -328,6 +329,8 @@ namespace BallSortQuest
                 if (newTube.isDone())
                 {
                     newTube.ChangeState(StateTube.Complete);
+                    newTube.OnTubeComplete();
+                    GameUIManager.Instance.PlayBorderParticle();
                     VibrationManager.Vibrate(10);
                     SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("complete1"));
                     Debug.LogError($"{newTube.name} is done");
@@ -343,7 +346,6 @@ namespace BallSortQuest
                     }
                 }
 
-                Debug.Log("Not yet");
                 if (_gameManager.GameModeController.CurrentGameMode == TypeChallenge.Move)
                 {
                     _gameManager.GameModeController.MoveModeController.CheckOverMove();
@@ -444,7 +446,6 @@ namespace BallSortQuest
             int countUnComplete = 0;
             for (int i = 0; i < _tubes.Count; i++)
             {
-                Debug.Log(_tubes[i].name + " " + _tubes[i].State.ToString());
                 if (_tubes[i].Balls.Count != 0 && _tubes[i].Balls.Count != _tubes[i].Slot)
                     return false;
                 // if (_tubes[i].State.Equals(StateTube.Empty))

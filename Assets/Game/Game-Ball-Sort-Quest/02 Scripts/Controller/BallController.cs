@@ -21,6 +21,7 @@ namespace BallSortQuest
         [SerializeField] float _heighBall;
         [SerializeField]
         public int Id => Data.index;
+        [SerializeField] private ParticleSystem _particle;
 
         private bool _isMoving;
         private bool _isHidden;
@@ -136,6 +137,7 @@ namespace BallSortQuest
                             _hiddenMaskBall.SetActive(true);
                         tube.ChangeState(StateTube.Incomplete); // Co the gay loi
                     });
+                    _particle.Play();
                 });
             }
         }
@@ -169,6 +171,7 @@ namespace BallSortQuest
                   onComplete?.Invoke();
 
                   SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("Bottle_Active2"));
+                  _particle.Play();
               });
             // });
         }

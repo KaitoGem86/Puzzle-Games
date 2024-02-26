@@ -24,6 +24,7 @@ namespace BallSortQuest
         [SerializeField] GameObject _ballPrefab;
         [SerializeField] SpriteRenderer _avaterSpr;
         [SerializeField] Transform _spwanTrans;
+        [SerializeField] private ParticleSystem _particle;
         [Space(10)]
         [SerializeField] Transform _startTransMove;
         [Header("VALUE")]
@@ -268,6 +269,10 @@ namespace BallSortQuest
                 }
             }
             return true;
+        }
+
+        public void OnTubeComplete(){
+            _particle.Play();
         }
     }
 
