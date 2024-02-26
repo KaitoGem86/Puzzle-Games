@@ -221,6 +221,7 @@ MonoBehaviour:
   _avarSpr: {fileID: 7092340799269860700}
   _hiddenMaskBall: {fileID: 4924404777788066138}
   _heighBall: 0
+  _particle: {fileID: 4498377658751664802}
 --- !u!1001 &4038269771057428017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -281,5 +282,10 @@ PrefabInstance:
 --- !u!4 &4369595456435612630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 335864641514249703, guid: 6b8639ee81ac0574591ff33e29cac1e4, type: 3}
+  m_PrefabInstance: {fileID: 4038269771057428017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4498377658751664802 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 461515966952584339, guid: 6b8639ee81ac0574591ff33e29cac1e4, type: 3}
   m_PrefabInstance: {fileID: 4038269771057428017}
   m_PrefabAsset: {fileID: 0}
