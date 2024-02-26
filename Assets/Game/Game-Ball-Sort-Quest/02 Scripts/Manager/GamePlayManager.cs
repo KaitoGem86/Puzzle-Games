@@ -328,6 +328,7 @@ namespace BallSortQuest
                 if (newTube.isDone())
                 {
                     newTube.ChangeState(StateTube.Complete);
+                    newTube.OnTubeComplete();
                     VibrationManager.Vibrate(10);
                     SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("complete1"));
                     Debug.LogError($"{newTube.name} is done");
