@@ -20,6 +20,8 @@ namespace BallSortQuest
         [SerializeField] private Image _chest;
         [SerializeField] private GameObject _rewardCoin;
         [SerializeField] private TMP_Text _processText;
+        [SerializeField] private GameObject _completeProcessGroup;
+        [SerializeField] private GameObject _unCompleteProcessGroup;
 
         //Will be replace by animation
         [Space, Header("Resource")]
@@ -38,6 +40,16 @@ namespace BallSortQuest
             UpdateProcessBar(1.5f);
             // Set Chest's State
             SetChestState(false);
+            if (_isCanCollectReward)
+            {
+                _completeProcessGroup.SetActive(true);
+                _unCompleteProcessGroup.SetActive(false);
+            }
+            else
+            {
+                _unCompleteProcessGroup.SetActive(true);
+                _completeProcessGroup.SetActive(false);
+            }
         }
 
         public void Close()
@@ -89,7 +101,7 @@ namespace BallSortQuest
                             .SetEase(Ease.OutBack)
                             .OnComplete(() =>
                             {
-                                //StartCoroutine(CoroutineActiveRewardCoin(0.6f));
+                                StartCoroutine(CoroutineActiveRewardCoin(0.9f));
                             });
                     }
                 });
