@@ -23,7 +23,7 @@ namespace BallSortQuest{
         public void OnGameModeComplete(){
             PlayerData.UserData.UpdateCompleteChallengeMode(_currentGameMode);
             if(_currentGameMode == TypeChallenge.Timer){
-                _timerModeController.OnCompleteTimer();
+                _timerModeController.OnCompleteTimer(isModeComplete: true);
             }
         }
 
@@ -33,7 +33,7 @@ namespace BallSortQuest{
             }
             else if(_currentGameMode == TypeChallenge.Timer){
                 PlayerData.UserData.TimerState = ChallengeState.InComplete;
-                _timerModeController.OnCompleteTimer();
+                _timerModeController.OnCompleteTimer(isModeComplete: false);
             }
             else if(_currentGameMode == TypeChallenge.Move){
                 PlayerData.UserData.MoveState = ChallengeState.InComplete;

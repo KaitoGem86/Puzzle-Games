@@ -9,16 +9,9 @@ namespace BallSortQuest
         private int _currentTimer;
         private TMP_Text _timerText;
         private bool _isInTimer;
+        private bool _isModeComplete;
 
-        public TimerModeController()
-        {
-
-        }
-
-        public TimerModeController(int maxTimer)
-        {
-            _currentTimer = maxTimer;
-        }
+        public TimerModeController() { }
 
         public void SetTimerText(TMP_Text timerText)
         {
@@ -30,12 +23,13 @@ namespace BallSortQuest
             _currentTimer = maxTimer;
         }
 
-        public void OnCompleteTimer()
+        public void OnCompleteTimer(bool isModeComplete)
         {
             Debug.Log("On Complete Timer");
             //Do something with GamePlay as set the GamePlayMode enum ???
             //GameManager.Instance.GameModeController.SetGameMode(TypeChallenge.None);
             _isInTimer = false;
+            _isModeComplete = isModeComplete;
         }
 
         public IEnumerator StartTimer()
@@ -52,7 +46,8 @@ namespace BallSortQuest
                 }
                 yield return new WaitForSeconds(1);
             }
-            PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Hết thời gian \n Thử lại?", TypeChallenge.Timer, true);
+            if (!_isModeComplete)
+                PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Hết thời gian \n Thử lại?", TypeChallenge.Timer, true);
         }
 
         public bool IsInTimer { get => _isInTimer; }
