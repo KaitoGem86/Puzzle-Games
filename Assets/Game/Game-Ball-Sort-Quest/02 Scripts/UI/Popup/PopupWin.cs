@@ -89,7 +89,7 @@ namespace BallSortQuest
                             .SetEase(Ease.OutBack)
                             .OnComplete(() =>
                             {
-                                StartCoroutine(CoroutineActiveRewardCoin(0.6f));
+                                //StartCoroutine(CoroutineActiveRewardCoin(0.6f));
                             });
                     }
                 });
@@ -161,7 +161,7 @@ namespace BallSortQuest
                 {
                     startValue++;
                     _processText.text = startValue.ToString() + "%";
-                    if (startValue >= minPivot)
+                    if (startValue >= endValue)
                     {
                         _processText.text = endValue.ToString() + "%";
                         yield break;
