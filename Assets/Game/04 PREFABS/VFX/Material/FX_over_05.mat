@@ -1,0 +1,286 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FX_over_05
+  m_Shader: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _DissolveEdgeLevelsTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DissolveTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Distortion2Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowLightTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 5975fef4e00527c4d835e797d721eebf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask2Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask3Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask4Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ModelPositionMoveTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BackColorOn: 0
+    - _BackColorScale: 1
+    - _BumpScale: 1
+    - _ColorMask: 15
+    - _CullMode: 2
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DissolveDistortionIntensity: 1
+    - _DissolveDistortionOn: 0
+    - _DissolveEdgeColorScale: 1
+    - _DissolveEdgeLevelsOn: 0
+    - _DissolveEdgeOn: 0
+    - _DissolveEdgeStart: 0
+    - _DissolveEdgeWidth: 0.01
+    - _DissolveOn: 0
+    - _DissolvePolarOn: 0
+    - _DissolvePower: 1
+    - _DissolveTex_IsClampX: 0
+    - _DissolveTex_IsClampY: 0
+    - _DissolveThreshold: 0.5
+    - _DissolveUVDirOn: 0
+    - _DissolveUVDirX: 0
+    - _DissolveUVDirY: 0
+    - _DissolveUVId: 0
+    - _DissolveUVPivotX: 0
+    - _DissolveUVPivotY: 0
+    - _DissolveWorldDirOn: 0
+    - _Distortion2Intensity: 1
+    - _Distortion2On: 0
+    - _Distortion2PolarOn: 0
+    - _Distortion2UVId: 0
+    - _Distortion2UVPivotX: 0
+    - _Distortion2UVPivotY: 0
+    - _Distortion2UVRotateOffsetX: 0
+    - _Distortion2UVRotateOffsetY: 0
+    - _Distortion2UVSoloRotate: 0
+    - _DistortionIntensity: 1
+    - _DistortionOn: 0
+    - _DistortionPolarOn: 0
+    - _DistortionUVId: 0
+    - _DistortionUVPivotX: 0
+    - _DistortionUVPivotY: 0
+    - _DistortionUVRotateOffsetX: 0
+    - _DistortionUVRotateOffsetY: 0
+    - _DistortionUVSoloRotate: 0
+    - _DoubleFaceOn: 0
+    - _DstBlend: 0
+    - _DstMode: 1
+    - _FlowLightOffset: 0
+    - _FlowLightOn: 0
+    - _FlowLightPos: 0
+    - _FresnelColorScale: 1
+    - _FresnelOn: 0
+    - _FresnelPower: 0.5
+    - _FresnelTransparentOn: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _MainAlphaChannel: 0
+    - _MainColorChannel: 0
+    - _MainColorScale: 1
+    - _MainDistortionIntensity: 1
+    - _MainDistortionOn: 0
+    - _MainPolarOn: 0
+    - _MainSequenceGridCount: 0
+    - _MainSequenceGridStart: 1
+    - _MainSequenceGridX: 1
+    - _MainSequenceGridY: 1
+    - _MainSequenceOn: 0
+    - _MainTex_IsClampX: 0
+    - _MainTex_IsClampY: 0
+    - _MainUVId: 0
+    - _MainUVPivotX: 0
+    - _MainUVPivotY: 0
+    - _MainUVRotateOffsetX: 0
+    - _MainUVRotateOffsetY: 0
+    - _MainUVSoloRotate: 0
+    - _Mask2ColorScale: 1
+    - _Mask2DistortionIntensity: 1
+    - _Mask2DistortionOn: 0
+    - _Mask2On: 0
+    - _Mask2PolarOn: 0
+    - _Mask2RevertOn: 0
+    - _Mask2SequenceGridCount: 0
+    - _Mask2SequenceGridStart: 1
+    - _Mask2SequenceGridX: 1
+    - _Mask2SequenceGridY: 1
+    - _Mask2SequenceOn: 0
+    - _Mask2Tex_IsClampX: 0
+    - _Mask2Tex_IsClampY: 0
+    - _Mask2UVId: 0
+    - _Mask2UVPivotX: 0
+    - _Mask2UVPivotY: 0
+    - _Mask2UVRotateOffsetX: 0
+    - _Mask2UVRotateOffsetY: 0
+    - _Mask2UVSoloRotate: 0
+    - _Mask3ColorScale: 1
+    - _Mask3DistortionIntensity: 1
+    - _Mask3DistortionOn: 0
+    - _Mask3On: 0
+    - _Mask3PolarOn: 0
+    - _Mask3RevertOn: 0
+    - _Mask3SequenceGridCount: 0
+    - _Mask3SequenceGridStart: 1
+    - _Mask3SequenceGridX: 1
+    - _Mask3SequenceGridY: 1
+    - _Mask3SequenceOn: 0
+    - _Mask3Tex_IsClampX: 0
+    - _Mask3Tex_IsClampY: 0
+    - _Mask3UVId: 0
+    - _Mask3UVPivotX: 0
+    - _Mask3UVPivotY: 0
+    - _Mask3UVRotateOffsetX: 0
+    - _Mask3UVRotateOffsetY: 0
+    - _Mask3UVSoloRotate: 0
+    - _Mask4ColorScale: 1
+    - _Mask4DistortionIntensity: 1
+    - _Mask4DistortionOn: 0
+    - _Mask4On: 0
+    - _Mask4PolarOn: 0
+    - _Mask4RevertOn: 0
+    - _Mask4SequenceGridCount: 0
+    - _Mask4SequenceGridStart: 1
+    - _Mask4SequenceGridX: 1
+    - _Mask4SequenceGridY: 1
+    - _Mask4SequenceOn: 0
+    - _Mask4Tex_IsClampX: 0
+    - _Mask4Tex_IsClampY: 0
+    - _Mask4UVId: 0
+    - _Mask4UVPivotX: 0
+    - _Mask4UVPivotY: 0
+    - _Mask4UVRotateOffsetX: 0
+    - _Mask4UVRotateOffsetY: 0
+    - _Mask4UVSoloRotate: 0
+    - _MaskColorScale: 1
+    - _MaskDistortionIntensity: 1
+    - _MaskDistortionOn: 0
+    - _MaskOn: 0
+    - _MaskPolarOn: 0
+    - _MaskRevertOn: 0
+    - _MaskSequenceGridCount: 0
+    - _MaskSequenceGridStart: 1
+    - _MaskSequenceGridX: 1
+    - _MaskSequenceGridY: 1
+    - _MaskSequenceOn: 0
+    - _MaskTex_IsClampX: 0
+    - _MaskTex_IsClampY: 0
+    - _MaskUVId: 0
+    - _MaskUVPivotX: 0
+    - _MaskUVPivotY: 0
+    - _MaskUVRotateOffsetX: 0
+    - _MaskUVRotateOffsetY: 0
+    - _MaskUVSoloRotate: 0
+    - _Metallic: 0
+    - _Mode: 0
+    - _ModelPositionDistortionIntensity: 1
+    - _ModelPositionDistortionOn: 0
+    - _ModelPositionMoveIntensity: 1
+    - _ModelPositionMoveOn: 0
+    - _ModelPositionMovePolarOn: 0
+    - _ModelPositionMoveUVId: 0
+    - _ModelPositionMoveUVPivotX: 0
+    - _ModelPositionMoveUVPivotY: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SkewX: 0
+    - _SkewY: 0
+    - _SmoothnessTextureChannel: 0
+    - _SpaceMask2On: 0
+    - _SpaceMask3On: 0
+    - _SpaceMask4On: 0
+    - _SpaceMaskOn: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _SrcMode: 5
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UVSec: 0
+    - _UseCustomThreshold: 0
+    - _UseUIAlphaClip: 0
+    - _ZWrite: 1
+    - _ZWriteMode: 0
+    m_Colors:
+    - _BackColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DissolveEdgeColor: {r: 1, g: 0, b: 0, a: 1}
+    - _DissolveEdgeLevelsUVSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _DissolveUVSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _DissolveWorldDir: {r: 0, g: 0, b: 0, a: 1}
+    - _Distortion2UVSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _DistortionUVSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FlowLightColor: {r: 1, g: 1, b: 1, a: 50}
+    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainSequenceTime: {r: 1000, g: 1, b: 1, a: 0}
+    - _MainUVSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Mask2Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Mask2ColorMode: {r: 0, g: 0, b: 0, a: 0}
+    - _Mask2SequenceTime: {r: 1000, g: 1, b: 1, a: 0}
+    - _Mask2UVSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Mask3Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Mask3ColorMode: {r: 0, g: 0, b: 0, a: 0}
+    - _Mask3SequenceTime: {r: 1000, g: 1, b: 1, a: 0}
+    - _Mask3UVSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Mask4Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Mask4ColorMode: {r: 0, g: 0, b: 0, a: 0}
+    - _Mask4SequenceTime: {r: 1000, g: 1, b: 1, a: 0}
+    - _Mask4UVSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MaskColorMode: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskSequenceTime: {r: 1000, g: 1, b: 1, a: 0}
+    - _MaskUVSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _ModelPostionUVSpeed: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

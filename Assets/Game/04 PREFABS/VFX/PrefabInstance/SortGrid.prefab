@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1664185617976975
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4647126105671835}
+  - component: {fileID: 114063194831485043}
+  m_Layer: 0
+  m_Name: SortGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4647126105671835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664185617976975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114063194831485043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664185617976975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb77d0b605630cc0b22a7f70239a6ef, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  _limits:
+  - count: 1
+    rowMax: 7
+    scale: 1
+  - count: 8
+    rowMax: 8
+    scale: 0.84
+  - count: 9
+    rowMax: 5
+    scale: 1
+  - count: 11
+    rowMax: 6
+    scale: 1
+  - count: 13
+    rowMax: 7
+    scale: 1
+  - count: 14
+    rowMax: 7
+    scale: 1
+  - count: 15
+    rowMax: 8
+    scale: 0.84
+  _limitsB:
+  - count: 1
+    rowMax: 7
+    scale: 1
+  - count: 8
+    rowMax: 8
+    scale: 0.84
+  - count: 9
+    rowMax: 5
+    scale: 1
+  - count: 11
+    rowMax: 6
+    scale: 1
+  - count: 13
+    rowMax: 7
+    scale: 1
+  - count: 14
+    rowMax: 7
+    scale: 1
+  - count: 15
+    rowMax: 8
+    scale: 0.84
+  _specialLimits:
+  - count: 6
+    rowMax: 7
+    scale: 1
+  - count: 8
+    rowMax: 8
+    scale: 0.84
+  - count: 9
+    rowMax: 5
+    scale: 0.84
+  - count: 10
+    rowMax: 5
+    scale: 0.84
+  _specialLimitsB:
+  - count: 6
+    rowMax: 7
+    scale: 1
+  - count: 8
+    rowMax: 8
+    scale: 0.84
+  - count: 9
+    rowMax: 5
+    scale: 0.7
+  - count: 10
+    rowMax: 5
+    scale: 0.7
+  _heightLimits:
+  - height: 1
+    scale: 1
+  - height: 8
+    scale: 0.65
+  _heightLimitsB:
+  - height: 1
+    scale: 1
+  - height: 8
+    scale: 0.55
+  playgroundCamera: {fileID: 119, guid: d9cadf9761da4874dbcf7fda5db3c09a, type: 2}
+  bottlePrefab: {fileID: 114367497944159173, guid: c73670278b524ba43986e86d4b8e361a, type: 2}
+  animated: 0
+  duration: 0.5
+  verticalOffset: 1
+  reSize: 1
+  realWidth: 0
+  realHeight: 0
+  realHorPadding: 0
+  realUpPadding: 0
+  realDownPadding: 0
