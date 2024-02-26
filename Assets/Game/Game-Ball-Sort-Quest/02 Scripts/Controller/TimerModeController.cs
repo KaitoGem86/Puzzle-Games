@@ -52,7 +52,7 @@ namespace BallSortQuest
                 }
                 yield return new WaitForSeconds(1);
             }
-            Debug.Log("End Timer");
+            PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Hết thời gian \n Thử lại?", TypeChallenge.Timer, true);
         }
 
         public bool IsInTimer { get => _isInTimer; }

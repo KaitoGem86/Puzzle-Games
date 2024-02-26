@@ -30,11 +30,9 @@ namespace BallSortQuest {
         public void CheckOverMove(){
             if (_currentMove >= _maxMove){
                 Debug.Log("Over Move");
+                PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Hết lượt \n Thử lại?", TypeChallenge.Move, true);
                 //Do something with GamePlay as set the GamePlayMode enum ???
                 //GameManager.Instance.GameModeController.SetGameMode(TypeChallenge.None);
-            }
-            else{
-                Debug.Log("Not Over Move");
             }
         }
     }

@@ -59,6 +59,7 @@ namespace BallSortQuest{
                 PlayerData.UserData.LastTimeGetReward = TimeFromToGoogle.Instance.Now().ToString();
                 PlayerData.SaveUserData();
                 _isCanGetReward = false;
+                _timer = new TimeSpan(1, 0, 0);
                 SetRewardBoard();
                 _chestImage.sprite = _openChestSprite;
             }else{
