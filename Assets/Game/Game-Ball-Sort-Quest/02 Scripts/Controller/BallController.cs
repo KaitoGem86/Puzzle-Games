@@ -184,7 +184,7 @@ namespace BallSortQuest
             return duration;
         }
 
-        public bool IsHidden => _isHidden && GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None;
+        public bool IsHidden => _isHidden && GameManager.Instance.GameModeController.CurrentGameMode.Equals(TypeChallenge.None);
         public bool IsHiddenWithNoMode => _isHidden;
         public GameObject HiddenMaskBall => _hiddenMaskBall;
     }
