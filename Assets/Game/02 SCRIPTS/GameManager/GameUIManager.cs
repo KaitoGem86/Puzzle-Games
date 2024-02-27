@@ -57,6 +57,10 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Dữ liệu game sẽ bị mất, bạn có muốn tiếp tục không?", BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode);
     }
 
+    public void OpenMenuPopup(){
+        PopupSystem.PopupManager.CreateNewInstance<MenuPanel>().Show();
+    }
+
     public void UpdateLevelText()
     {
         if(BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None)
