@@ -38,6 +38,10 @@ namespace BallSortQuest
                 Handheld.Vibrate();
         }
 
+        public void OnOpenShopButtonClick(){
+            PopupManager.CreateNewInstance<ShopPanel>().Show();
+        }
+
         public void OnEvaluateButtonClick(){
             //DO SOMETHING
             Debug.Log("Evaluate");
