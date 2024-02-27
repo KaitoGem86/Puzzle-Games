@@ -34,6 +34,53 @@ namespace BallSortQuest
         public void OnVibrateSettingClick(){
             _vibrateSetting.SetState(!PlayerData.UserData.IsVibrateOn);
             PlayerData.UserData.IsVibrateOn = !PlayerData.UserData.IsVibrateOn;
+            if (PlayerData.UserData.IsVibrateOn)
+                Handheld.Vibrate();
+        }
+
+        public void OnEvaluateButtonClick(){
+            //DO SOMETHING
+            Debug.Log("Evaluate");
+        }
+
+        public void OnHelpButtonClick(){
+            //DO SOMETHING
+            Debug.Log("Help");
+        }
+
+        public void OnGoToFaceBook(){
+            //DO SOMETHING
+            Debug.Log("GoToFaceBook");
+        }
+
+        public void OnAchivementButtonClick(){
+            //DO SOMETHING
+            Debug.Log("Achivement");
+        }
+
+        public void OnInfoButtonClick(){
+            //DO SOMETHING
+            Debug.Log("Info");
+        }
+
+        public void OnMoreGameButtonClick(){
+            //DO SOMETHING
+            Debug.Log("MoreGame");
+        }
+
+        public void OnSharedButtonClick(){
+            //DO SOMETHING
+            Debug.Log("Shared");
+        }
+
+        public void OnColorBlindModeButtonClick(){
+            //DO SOMETHING
+            Debug.Log("ColorBlindMode");
+        }
+
+        public void OnRemoveAdsButtonClick(){
+            //DO SOMETHING
+            Debug.Log("RemoveAds");
         }
     }
 }

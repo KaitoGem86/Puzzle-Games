@@ -880,7 +880,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6612831119872542090}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4906307373949168154}
+        m_TargetAssemblyTypeName: BallSortQuest.MenuPanel, Assembly-CSharp
+        m_MethodName: OnInfoButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6612831119974754885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,7 +1167,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6612831119976736588}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4906307373949168154}
+        m_TargetAssemblyTypeName: BallSortQuest.MenuPanel, Assembly-CSharp
+        m_MethodName: OnAchivementButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6612831120104605905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,7 +1530,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6612831120212878352}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4906307373949168154}
+        m_TargetAssemblyTypeName: BallSortQuest.MenuPanel, Assembly-CSharp
+        m_MethodName: OnEvaluateButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6612831120215797021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,7 +1934,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6612831120367696240}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4906307373949168154}
+        m_TargetAssemblyTypeName: BallSortQuest.MenuPanel, Assembly-CSharp
+        m_MethodName: OnColorBlindModeButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6612831120482839089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,7 +2810,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6612831120858133591}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4906307373949168154}
+        m_TargetAssemblyTypeName: BallSortQuest.MenuPanel, Assembly-CSharp
+        m_MethodName: OnHelpButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6612831120885476577
 GameObject:
   m_ObjectHideFlags: 0
@@ -4098,7 +4158,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6612831121268595519}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4906307373949168154}
+        m_TargetAssemblyTypeName: BallSortQuest.MenuPanel, Assembly-CSharp
+        m_MethodName: OnSharedButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6612831121349242686
 GameObject:
   m_ObjectHideFlags: 0
@@ -4977,7 +5049,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6612831121611086577}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4906307373949168154}
+        m_TargetAssemblyTypeName: BallSortQuest.MenuPanel, Assembly-CSharp
+        m_MethodName: OnRemoveAdsButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6612831121623095542
 GameObject:
   m_ObjectHideFlags: 0
@@ -5310,7 +5394,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6612831121641750984}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4906307373949168154}
+        m_TargetAssemblyTypeName: BallSortQuest.MenuPanel, Assembly-CSharp
+        m_MethodName: OnMoreGameButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6612831121656492162
 GameObject:
   m_ObjectHideFlags: 0
@@ -5779,7 +5875,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6612831121806282927}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4906307373949168154}
+        m_TargetAssemblyTypeName: BallSortQuest.MenuPanel, Assembly-CSharp
+        m_MethodName: OnGoToFaceBook
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6612831121954419301
 GameObject:
   m_ObjectHideFlags: 0
