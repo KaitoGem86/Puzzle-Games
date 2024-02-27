@@ -6,6 +6,7 @@ public class SFXTapController : MonoBehaviour
 {
     public void OnClickButtonUI()
     {
-        SoundManager.Instance.PlayUIButtonClick();
+        if (BallSortQuest.PlayerData.UserData.IsSoundOn)
+            SoundManager.Instance.PlayUIButtonClick();
     }
 }

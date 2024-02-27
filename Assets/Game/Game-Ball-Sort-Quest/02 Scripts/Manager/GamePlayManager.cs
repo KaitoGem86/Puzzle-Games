@@ -331,8 +331,10 @@ namespace BallSortQuest
                     newTube.ChangeState(StateTube.Complete);
                     newTube.OnTubeComplete();
                     GameUIManager.Instance.PlayBorderParticle();
-                    VibrationManager.Vibrate(10);
-                    SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("complete1"));
+                    if (PlayerData.UserData.IsVibrateOn)
+                        VibrationManager.Vibrate(10);
+                    if (PlayerData.UserData.IsSoundOn)
+                        SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("complete1"));
                     Debug.LogError($"{newTube.name} is done");
                     foreach (var ball in newTube.Balls)
                     {

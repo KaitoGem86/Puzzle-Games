@@ -27,6 +27,9 @@ namespace BallSortQuest
         public string LastTimeCompleteHidden;
         public string LastTimeCompleteTimer;
         public string LastTimeCompleteMove;
+
+        public bool IsSoundOn;
+        public bool IsVibrateOn;
         #endregion
 
 
@@ -45,6 +48,8 @@ namespace BallSortQuest
             LastTimeCompleteHidden = TimeFromToGoogle.Instance.Now().AddDays(-1).ToString();
             LastTimeCompleteTimer = TimeFromToGoogle.Instance.Now().AddDays(-1).ToString();
             LastTimeCompleteMove = TimeFromToGoogle.Instance.Now().AddDays(-1).ToString();
+            IsSoundOn = true;
+            IsVibrateOn = true;
         }
 
         #region Method
