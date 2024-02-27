@@ -1,5 +1,6 @@
 using UnityEngine;
 using PopupSystem;
+using TMPro;
 
 namespace BallSortQuest
 {
@@ -9,6 +10,7 @@ namespace BallSortQuest
         [SerializeField] private Transform _marketNavigateButton;
         [SerializeField] private Transform _tubeNavigateButton;
         [SerializeField] private Transform _backgroundNavigateButton;
+        [SerializeField] private TMP_Text _coinText;
 
         [Space(10),Header("Purchase Boards")]
         [SerializeField] private GameObject _marketBoard;
@@ -24,6 +26,7 @@ namespace BallSortQuest
             _backgroundButton ??= new TwoStateElement(_backgroundNavigateButton);
             _tubeButton ??= new TwoStateAtMidElement(_tubeNavigateButton);
             OnMarketNavigateButtonClick();
+            UpdateCoinText();
         }
 
         public void Close(){
@@ -52,6 +55,10 @@ namespace BallSortQuest
             _tubeButton.SetState(false, false);
             _marketBoard.SetActive(false);
             _listSlideBoard.SetActive(true);
+        }
+
+        public void UpdateCoinText(){
+            _coinText.text = PlayerData.UserData.CoinNumber.ToString();
         }
     }
 }
