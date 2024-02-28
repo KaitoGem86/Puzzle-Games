@@ -396,6 +396,9 @@ MonoBehaviour:
   _coinText: {fileID: 7098025919997560166}
   _marketBoard: {fileID: 5469758798673223301}
   _listSlideBoard: {fileID: 4054232147033712968}
+  _listViewPort: {fileID: 955505519602393172}
+  _backgroundDatas: {fileID: 11400000, guid: bb2d9e2cd0d5f11408f200d6912fbca7, type: 2}
+  _tubeDatas: {fileID: 11400000, guid: b0ebc595a9d83c6428157880cb80f95b, type: 2}
 --- !u!1 &711162199420173895
 GameObject:
   m_ObjectHideFlags: 0

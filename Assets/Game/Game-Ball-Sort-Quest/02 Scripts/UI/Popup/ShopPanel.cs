@@ -15,16 +15,24 @@ namespace BallSortQuest
         [Space(10),Header("Purchase Boards")]
         [SerializeField] private GameObject _marketBoard;
         [SerializeField] private GameObject _listSlideBoard;
+        [SerializeField] private Transform _listViewPort;
+
+        [Space(10), Header("Data")]
+        [SerializeField] private ShopItemDatas _backgroundDatas;
+        [SerializeField] private ShopItemDatas _tubeDatas;
 
         private TwoStateElement _marketButton;
         private TwoStateElement _backgroundButton;
         private TwoStateAtMidElement _tubeButton;
+
+        private ListShopITemController _listShopITemController;
 
         public void Show(){
             base.Show();
             _marketButton ??= new TwoStateElement(_marketNavigateButton);
             _backgroundButton ??= new TwoStateElement(_backgroundNavigateButton);
             _tubeButton ??= new TwoStateAtMidElement(_tubeNavigateButton);
+            _listShopITemController ??= new ListShopITemController(_backgroundDatas, _tubeDatas, _listViewPort);
             OnMarketNavigateButtonClick();
             UpdateCoinText();
         }
@@ -47,6 +55,8 @@ namespace BallSortQuest
             _tubeButton.SetState(true, true);
             _marketBoard.SetActive(false);
             _listSlideBoard.SetActive(true);
+            _listShopITemController.ClearBoard();
+            _listShopITemController.ShowListItem(_tubeDatas);
         }
 
         public void OnBackgroundNavigateButtonClick(){
@@ -55,6 +65,8 @@ namespace BallSortQuest
             _tubeButton.SetState(false, false);
             _marketBoard.SetActive(false);
             _listSlideBoard.SetActive(true);
+            _listShopITemController.ClearBoard();
+            _listShopITemController.ShowListItem(_backgroundDatas);
         }
 
         public void UpdateCoinText(){
