@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BallSortQuest{
-    public class ListShopITemController{
+namespace BallSortQuest
+{
+    public class ListShopITemController
+    {
         //Data
         private readonly ShopItemDatas _backgroundDatas;
         private readonly ShopItemDatas _tubeDatas;
@@ -17,37 +19,43 @@ namespace BallSortQuest{
         private TypeItem _currentShopBoardType;
         private ShopItem _currentSelectedItem;
 
-        public ListShopITemController(){}
-        public ListShopITemController(ShopItemDatas backgroundDatas, ShopItemDatas tubeDatas, Transform viewPort, GameObject shopItemPrefab){
+        public ListShopITemController() { }
+        public ListShopITemController(ShopItemDatas backgroundDatas, ShopItemDatas tubeDatas, Transform viewPort, GameObject shopItemPrefab)
+        {
             _backgroundDatas = backgroundDatas;
             _tubeDatas = tubeDatas;
             _viewPort = viewPort;
             _shopItemPrefab = shopItemPrefab;
             _shopItems = new List<ShopItem>();
-        }   
+        }
 
-        public void ClearBoard(){
+        public void ClearBoard()
+        {
             if (_shopItems == null) return;
             if (_shopItems.Count == 0) return;
-            for(int i = _shopItems.Count - 1; i >= 0; i--){
+            for (int i = _shopItems.Count - 1; i >= 0; i--)
+            {
                 SimplePool.Despawn(_shopItems[i].gameObject);
                 _shopItems.RemoveAt(i);
             }
             _shopItems.Clear();
         }
 
-        public void ShowListItem(ShopItemDatas datas){
+        public void ShowListItem(ShopItemDatas datas)
+        {
             Debug.Log("Show List Item " + datas.Type.ToString());
             _currentShopBoardType = datas.Type;
-            
-            for(int i = 0; i < datas.ItemDatas.Count; i++){
+
+            for (int i = 0; i < datas.ItemDatas.Count; i++)
+            {
                 var item = SimplePool.Spawn(_shopItemPrefab, Vector2.zero, Quaternion.identity).GetComponent<ShopItem>();
                 item.transform.SetParent(_viewPort);
                 _shopItems.Add(item);
                 _shopItems[i].Init(datas.ItemDatas[i], this, i);
             }
 
-            switch(_currentShopBoardType){
+            switch (_currentShopBoardType)
+            {
                 case TypeItem.Background:
                     SetSelected(_shopItems[PlayerData.UserData.CurrentBackgroundIndex]);
                     break;
@@ -56,16 +64,32 @@ namespace BallSortQuest{
             }
         }
 
-        public IEnumerator GetRandomPurchasedItem(){
+        public IEnumerator GetRandomPurchasedItem()
+        {
             yield return new WaitForEndOfFrame();
             var purchasedData = PlayerData.UserData.GetShopPurchaseData();
-            Debug.Log("Purchased Data: " + purchasedData.PurchasedTubeIndexs.Count + " " + purchasedData.PurchasedBackgroundIndexs.Count);
-            Debug.Log("Get Random Purchased Item: " + Random.Range(0, _shopItems.Count));
-            //var randomItem = _shopItems[Random.Range(0, _shopItems.Count)];
+            if (purchasedData.GetPurchasedIndexs(_currentShopBoardType).Count == _shopItems.Count)
+            {
+                Debug.Log("All item purchased");
+                yield break;
+            }
+            else
+            {
+                int randomItemIndex = Random.Range(0, _shopItems.Count);
+                while (purchasedData.GetPurchasedIndexs(_currentShopBoardType).Contains(randomItemIndex))
+                {
+                    randomItemIndex = (randomItemIndex + 1) % _shopItems.Count;
+                }
+                var randomItem = _shopItems[randomItemIndex];
+                randomItem.OnPurchase();
+                PlayerData.UserData.AddPurchaseData(_currentShopBoardType, randomItemIndex);
+            }
         }
 
-        public void SetSelected(ShopItem item){
-            if (_currentSelectedItem != null){
+        public void SetSelected(ShopItem item)
+        {
+            if (_currentSelectedItem != null)
+            {
                 _currentSelectedItem.SetUnselected();
             }
             _currentSelectedItem = item;
