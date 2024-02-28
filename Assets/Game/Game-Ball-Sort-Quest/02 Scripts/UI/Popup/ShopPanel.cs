@@ -41,7 +41,7 @@ namespace BallSortQuest
 
         public void Close(){
             base.Hide();
-            StopAllCoroutines();
+            StopCoroutine(GetRandomPurchasedItem());
         }
 
         public void OnMarketNavigateButtonClick(){
@@ -84,6 +84,7 @@ namespace BallSortQuest
                 PlayerData.UserData.CoinNumber += 800;
             }
 
+            PlayerData.UserData.CoinNumber -= 800;
             UpdateCoinText();
             StartCoroutine(GetRandomPurchasedItem());
         }
