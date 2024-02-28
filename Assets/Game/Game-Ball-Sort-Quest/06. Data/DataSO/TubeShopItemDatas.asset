@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: TubeShopItemDatas
   m_EditorClassIdentifier: 
   Type: 0
-  _shopItemDatas: []
+  ItemDatas:
+  - Icon: {fileID: 0}
+    IsPurchased: 0
