@@ -57,8 +57,8 @@ Transform:
   m_GameObject: {fileID: 5691027258992095051}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.335, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 2.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 48063039540413308}
   m_RootOrder: 0
@@ -104,7 +104,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1885703392, guid: 90b850899ec241d45839c752a710b76c, type: 3}
+  m_Sprite: {fileID: 1011663527, guid: d325b3121472f7e41a5b5a35fde19678, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -189,7 +189,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 687437678, guid: 90b850899ec241d45839c752a710b76c, type: 3}
+  m_Sprite: {fileID: 1909078350, guid: e8f13c19feee39349b2447645dc0ea75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -275,7 +275,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -118411871, guid: 90b850899ec241d45839c752a710b76c, type: 3}
+  m_Sprite: {fileID: 500660807, guid: d325b3121472f7e41a5b5a35fde19678, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -359,7 +359,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 730316812, guid: 90b850899ec241d45839c752a710b76c, type: 3}
+  m_Sprite: {fileID: 1847377445, guid: 1433e537ffeec3c4e9d356d4da1d5326, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -458,6 +458,7 @@ MonoBehaviour:
   _bottomSpr: {fileID: 6757593389026792486}
   _middleSpr: {fileID: 8666791085765396407}
   _topSpr: {fileID: 2320629341901229660}
+  _baseOfTubeSpr: {fileID: 137840471431840295}
   _spwanTrans: {fileID: 7593389256894418168}
   _particle: {fileID: 2535021537969789431}
   _startTransMove: {fileID: 9025265101000151313}

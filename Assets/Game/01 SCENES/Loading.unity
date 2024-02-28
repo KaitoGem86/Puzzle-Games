@@ -640,6 +640,7 @@ MonoBehaviour:
   ChallengeLevelDataSO: {fileID: 11400000, guid: 07dd61e513feac2448865152117b040d, type: 2}
   BallDataSO: {fileID: 11400000, guid: 04af246ec39843b4e979e81c70415e26, type: 2}
   BackgroundDatas: {fileID: 11400000, guid: b7e6ba3affacd194c9e8fc1b2509873b, type: 2}
+  TubeDatas: {fileID: 11400000, guid: 1577ce98a81417e42aabd83aa94467f6, type: 2}
   StepToReachSpecialLevel: 3
   ProcessIncrementValue: 35
 --- !u!1 &1945951012

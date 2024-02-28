@@ -26,6 +26,7 @@ namespace BallSortQuest
         [SerializeField] SpriteRenderer _bottomSpr;
         [SerializeField] SpriteRenderer _middleSpr;
         [SerializeField] SpriteRenderer _topSpr;
+        [SerializeField] SpriteRenderer _baseOfTubeSpr;
         [SerializeField] Transform _spwanTrans;
         [SerializeField] private ParticleSystem _particle;
         [Space(10)]
@@ -86,6 +87,7 @@ namespace BallSortQuest
         {
             this.data = data;
             _slot = slot;
+            SetSprite();
             SetPosition(target);
             //Set height of tube
             if (slot == 1)
@@ -105,6 +107,14 @@ namespace BallSortQuest
             {
                 SpwanBall(data.dataBall[i], i, isHidden);
             }
+        }
+
+        public void SetSprite(){
+            var data = DataManager.Instance.TubeDatas.tubeSpriteDatas[PlayerData.UserData.CurrentTubeIndex];
+            _baseOfTubeSpr.sprite = data.baseOfTubeSprite;
+            _bottomSpr.sprite = data.bottomSprite;
+            _middleSpr.sprite = data.middleSprite;
+            _topSpr.sprite = data.topSprite;
         }
 
         public void SetPosition(Vector2 target)

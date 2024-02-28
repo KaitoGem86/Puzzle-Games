@@ -20,6 +20,7 @@ namespace BallSortQuest
         public int StepToReachSpecialLevel;
         public int ProcessValue;
         public int CurrentBackgroundIndex;
+        public int CurrentTubeIndex;
         public ChallengeState HiddenState;
         public ChallengeState TimerState;
         public ChallengeState MoveState;
@@ -52,6 +53,7 @@ namespace BallSortQuest
             IsSoundOn = true;
             IsVibrateOn = true;
             CurrentBackgroundIndex = 0;
+            CurrentTubeIndex = 1;
             AddPurchaseData(TypeItem.Background, 0);
             AddPurchaseData(TypeItem.Tube, 0);
         }
