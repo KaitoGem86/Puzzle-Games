@@ -53,6 +53,13 @@ namespace BallSortQuest
             _purchasedBackground.SetActive(_isPurchase);
         }
 
+        public void UnPurchase()
+        {
+            _isPurchase = false;
+            _unpurchaseBackground.SetActive(!_isPurchase);
+            _purchasedBackground.SetActive(_isPurchase);
+        }
+
         public void OnSelect()
         {
             if (!_isPurchase)

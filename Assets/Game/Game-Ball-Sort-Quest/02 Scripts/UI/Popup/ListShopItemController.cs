@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace BallSortQuest
@@ -81,9 +82,28 @@ namespace BallSortQuest
                     randomItemIndex = (randomItemIndex + 1) % _shopItems.Count;
                 }
                 var randomItem = _shopItems[randomItemIndex];
-                randomItem.OnPurchase();
                 PlayerData.UserData.AddPurchaseData(_currentShopBoardType, randomItemIndex);
+                yield return ShowRandomRound(randomItemIndex);
             }
+        }
+
+        private IEnumerator ShowRandomRound(int index){
+            var purchasedData = PlayerData.UserData.GetShopPurchaseData().GetPurchasedIndexs(_currentShopBoardType);
+            List<int> listRandom = Enumerable.Range(0, _shopItems.Count).Where(x => !purchasedData.Contains(x)).ToList();
+            ShopItem currentItem = _shopItems[listRandom[0]];
+            ShopItem randomItem = _shopItems[listRandom[0]];
+            float timer = 2f;
+            while(timer > 0){
+                timer -= 0.3f;
+                currentItem.UnPurchase();
+                randomItem.OnPurchase();
+                currentItem = randomItem;
+                randomItem = _shopItems[listRandom[Random.Range(0, listRandom.Count)]];
+                yield return new WaitForSeconds(0.3f);
+            }
+            currentItem.UnPurchase();
+            randomItem.UnPurchase();
+            _shopItems[index].OnPurchase();
         }
 
         public void SetSelected(ShopItem item)

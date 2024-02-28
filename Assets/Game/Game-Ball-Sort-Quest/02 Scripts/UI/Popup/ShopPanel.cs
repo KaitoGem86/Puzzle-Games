@@ -41,6 +41,7 @@ namespace BallSortQuest
 
         public void Close(){
             base.Hide();
+            StopAllCoroutines();
         }
 
         public void OnMarketNavigateButtonClick(){
