@@ -26,6 +26,13 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         BallSortQuest.ActionEvent.OnSelectShopBackground += InitBackground;
     }
 
+    public void OnDestroy()
+    {
+        BallSortQuest.ActionEvent.OnResetGamePlay -= ResetGamePlayWithMode;
+        BallSortQuest.ActionEvent.OnResetGamePlay -= UpdateLevelText;
+        BallSortQuest.ActionEvent.OnSelectShopBackground -= InitBackground;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

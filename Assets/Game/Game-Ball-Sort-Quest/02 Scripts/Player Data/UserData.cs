@@ -181,7 +181,8 @@ namespace BallSortQuest
             switch (typeItem)
             {
                 case TypeItem.Tube:
-                    //CurrentBackgroundIndex = index;
+                    CurrentTubeIndex = index;
+                    ActionEvent.OnSelectShopTube?.Invoke();
                     break;
                 case TypeItem.Background:
                     CurrentBackgroundIndex = index;

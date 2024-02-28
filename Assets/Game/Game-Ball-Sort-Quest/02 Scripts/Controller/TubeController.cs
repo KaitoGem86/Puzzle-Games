@@ -54,7 +54,7 @@ namespace BallSortQuest
 
         private void OnEnable()
         {
-
+            ActionEvent.OnSelectShopTube += SetSprite;
         }
 
         private void Reset()
@@ -72,6 +72,7 @@ namespace BallSortQuest
         private void OnDisable()
         {
             Reset();
+            ActionEvent.OnSelectShopTube -= SetSprite;
         }
 
         private void OnMouseDown()
