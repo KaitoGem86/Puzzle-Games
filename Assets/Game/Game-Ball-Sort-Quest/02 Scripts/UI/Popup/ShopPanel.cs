@@ -11,6 +11,7 @@ namespace BallSortQuest
         [SerializeField] private Transform _tubeNavigateButton;
         [SerializeField] private Transform _backgroundNavigateButton;
         [SerializeField] private TMP_Text _coinText;
+        [SerializeField] private GameObject _shopItemPrefab;
 
         [Space(10),Header("Purchase Boards")]
         [SerializeField] private GameObject _marketBoard;
@@ -32,7 +33,7 @@ namespace BallSortQuest
             _marketButton ??= new TwoStateElement(_marketNavigateButton);
             _backgroundButton ??= new TwoStateElement(_backgroundNavigateButton);
             _tubeButton ??= new TwoStateAtMidElement(_tubeNavigateButton);
-            _listShopITemController ??= new ListShopITemController(_backgroundDatas, _tubeDatas, _listViewPort);
+            _listShopITemController ??= new ListShopITemController(_backgroundDatas, _tubeDatas, _listViewPort, _shopItemPrefab);
             OnMarketNavigateButtonClick();
             UpdateCoinText();
         }

@@ -379,6 +379,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6faecd9c95c18114abe714ee7e75f7a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _icon: {fileID: 9088981389248997148}
+  _unpurchaseBackground: {fileID: 2155751564330572071}
+  _purchasedBackground: {fileID: 3486154892537024876}
+  _selectedBackground: {fileID: 10801499505362313}
 --- !u!1 &3275995389534519645
 GameObject:
   m_ObjectHideFlags: 0

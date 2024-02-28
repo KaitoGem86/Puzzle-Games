@@ -394,6 +394,7 @@ MonoBehaviour:
   _tubeNavigateButton: {fileID: 711162200759167174}
   _backgroundNavigateButton: {fileID: 711162200220482154}
   _coinText: {fileID: 7098025919997560166}
+  _shopItemPrefab: {fileID: 2604090440113184334, guid: 7f9192aeff4156a44aaf143d01fe5738, type: 3}
   _marketBoard: {fileID: 5469758798673223301}
   _listSlideBoard: {fileID: 4054232147033712968}
   _listViewPort: {fileID: 955505519602393172}

@@ -9,16 +9,19 @@ namespace BallSortQuest{
 
         //Ref
         private readonly Transform _viewPort;
+        private readonly GameObject _shopItemPrefab;
 
         //control list item
         private List<ShopItem> _shopItems;
         private TypeItem _currentShopBoardType;
         
         public ListShopITemController(){}
-        public ListShopITemController(ShopItemDatas backgroundDatas, ShopItemDatas tubeDatas, Transform viewPort){
+        public ListShopITemController(ShopItemDatas backgroundDatas, ShopItemDatas tubeDatas, Transform viewPort, GameObject shopItemPrefab){
             _backgroundDatas = backgroundDatas;
             _tubeDatas = tubeDatas;
             _viewPort = viewPort;
+            _shopItemPrefab = shopItemPrefab;
+            _shopItems = new List<ShopItem>();
         }   
 
         public void ClearBoard(){
@@ -32,6 +35,13 @@ namespace BallSortQuest{
 
         public void ShowListItem(ShopItemDatas datas){
             Debug.Log("Show List Item " + datas.Type.ToString());
+            _currentShopBoardType = datas.Type;
+            foreach (var itemData in datas.ItemDatas){
+                var item = SimplePool.Spawn(_shopItemPrefab, Vector2.zero, Quaternion.identity).GetComponent<ShopItem>();
+                item.transform.SetParent(_viewPort);
+                _shopItems.Add(item);
+                item.Init(itemData);
+            }
         }
     }
 }
