@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +7,7 @@ namespace BallSortQuest
     {
         [SerializeField] private Image _backgroundImage;
         [SerializeField] private DynamicBackgroundController _dynamicBackgroundController;
+        [SerializeField] private StaticBackgroundController _staticBackgroundController;
         public void InitBackground(){
             BackgroundData data = DataManager.Instance.BackgroundDatas.Backgrounds[PlayerData.UserData.CurrentBackgroundIndex];
             SetBackground(data);
@@ -18,6 +17,7 @@ namespace BallSortQuest
             _backgroundImage.sprite = data.SpriteBackground;
             switch(data.TypeBackground){
                 case TypeBackgroundEnum.Dynamic:
+                    _staticBackgroundController.gameObject.SetActive(false);
                     _dynamicBackgroundController.gameObject.SetActive(true);
                     _dynamicBackgroundController.SetParticleBackground(data.ParticleBackground);
                     _dynamicBackgroundController.ResetParticleBackground();
@@ -26,6 +26,8 @@ namespace BallSortQuest
                 case TypeBackgroundEnum.Static:
                     //Do something
                     _dynamicBackgroundController.gameObject.SetActive(false);
+                    _staticBackgroundController.gameObject.SetActive(true);
+                    _staticBackgroundController.SetBackgroundSprite(data.SpriteBackground);
                     break;
                 default:
                     throw new System.Exception("Type Background not found!");

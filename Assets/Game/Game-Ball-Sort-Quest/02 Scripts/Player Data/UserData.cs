@@ -50,6 +50,7 @@ namespace BallSortQuest
             LastTimeCompleteMove = TimeFromToGoogle.Instance.Now().AddDays(-1).ToString();
             IsSoundOn = true;
             IsVibrateOn = true;
+            CurrentBackgroundIndex = 5;
         }
 
         #region Method
