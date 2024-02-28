@@ -27,6 +27,7 @@ namespace BallSortQuest
         public string LastTimeCompleteHidden;
         public string LastTimeCompleteTimer;
         public string LastTimeCompleteMove;
+        public string ShopPurchaseData;
 
         public bool IsSoundOn;
         public bool IsVibrateOn;
@@ -147,6 +148,14 @@ namespace BallSortQuest
             if(time.DayOfYear != DateTime.Parse(LastTimeCompleteMove).DayOfYear){
                 MoveState = ChallengeState.InComplete;
             }
+        }
+
+        public ShopPurchaseData GetShopPurchaseData(){
+            return JsonUtility.FromJson<ShopPurchaseData>(ShopPurchaseData);
+        }
+
+        public void SetShopPurchaseData(ShopPurchaseData data){
+            ShopPurchaseData = JsonUtility.ToJson(data);
         }
         #endregion
     }

@@ -73,5 +73,10 @@ namespace BallSortQuest
         public void UpdateCoinText(){
             _coinText.text = PlayerData.UserData.CoinNumber.ToString();
         }
+
+        public void OnClickButtonPurchase(){
+            //DO SOMETHING
+            Debug.Log("Purchase");
+        }
     }
 }
