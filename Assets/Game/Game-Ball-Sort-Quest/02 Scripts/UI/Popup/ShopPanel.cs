@@ -1,6 +1,7 @@
 using UnityEngine;
 using PopupSystem;
 using TMPro;
+using System.Collections;
 
 namespace BallSortQuest
 {
@@ -77,6 +78,17 @@ namespace BallSortQuest
         public void OnClickButtonPurchase(){
             //DO SOMETHING
             Debug.Log("Purchase");
+            if (PlayerData.UserData.CoinNumber < 800)
+            {
+                PlayerData.UserData.CoinNumber += 800;
+            }
+
+            UpdateCoinText();
+            StartCoroutine(GetRandomPurchasedItem());
+        }
+
+        private IEnumerator GetRandomPurchasedItem(){
+            yield return _listShopITemController.GetRandomPurchasedItem();
         }
     }
 }

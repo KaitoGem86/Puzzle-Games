@@ -51,7 +51,7 @@ namespace BallSortQuest
             LastTimeCompleteMove = TimeFromToGoogle.Instance.Now().AddDays(-1).ToString();
             IsSoundOn = true;
             IsVibrateOn = true;
-            CurrentBackgroundIndex = 5;
+            CurrentBackgroundIndex = 0;
         }
 
         #region Method
@@ -154,8 +154,19 @@ namespace BallSortQuest
             return JsonUtility.FromJson<ShopPurchaseData>(ShopPurchaseData);
         }
 
-        public void SetShopPurchaseData(ShopPurchaseData data){
-            ShopPurchaseData = JsonUtility.ToJson(data);
+        public void AddPurchaseData(TypeItem typeItem, int index){
+            ShopPurchaseData data = GetShopPurchaseData();
+            switch (typeItem)
+            {
+                case TypeItem.Tube:
+                    data.PurchasedTubeIndexs.Add(index);
+                    break;
+                case TypeItem.Background:
+                    data.PurchasedTubeIndexs.Add(index);
+                    break;
+                default:
+                    throw new Exception("Type item not found: " + typeItem.ToString());
+            }
         }
         #endregion
     }

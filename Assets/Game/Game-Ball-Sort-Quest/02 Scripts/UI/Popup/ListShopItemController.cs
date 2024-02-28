@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +15,8 @@ namespace BallSortQuest{
         //control list item
         private List<ShopItem> _shopItems;
         private TypeItem _currentShopBoardType;
-        
+        private ShopItem _currentSelectedItem;
+
         public ListShopITemController(){}
         public ListShopITemController(ShopItemDatas backgroundDatas, ShopItemDatas tubeDatas, Transform viewPort, GameObject shopItemPrefab){
             _backgroundDatas = backgroundDatas;
@@ -40,8 +42,29 @@ namespace BallSortQuest{
                 var item = SimplePool.Spawn(_shopItemPrefab, Vector2.zero, Quaternion.identity).GetComponent<ShopItem>();
                 item.transform.SetParent(_viewPort);
                 _shopItems.Add(item);
-                item.Init(itemData);
+                item.Init(itemData, this);
             }
+            switch(_currentShopBoardType){
+                case TypeItem.Background:
+                    SetSelected(_shopItems[PlayerData.UserData.CurrentBackgroundIndex]);
+                    break;
+                case TypeItem.Tube:
+                    break;
+            }
+        }
+
+        public IEnumerator GetRandomPurchasedItem(){
+            yield return new WaitForEndOfFrame();
+            Debug.Log("Get Random Purchased Item: " + Random.Range(0, _shopItems.Count));
+            //var randomItem = _shopItems[Random.Range(0, _shopItems.Count)];
+        }
+
+        public void SetSelected(ShopItem item){
+            if (_currentSelectedItem != null){
+                _currentSelectedItem.SetUnselected();
+            }
+            _currentSelectedItem = item;
+            _currentSelectedItem.SetSelected();
         }
     }
 }
