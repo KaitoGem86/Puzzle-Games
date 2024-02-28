@@ -21,11 +21,11 @@ namespace BallSortQuest{
 
         public void Init(ShopItemData data, ListShopITemController container, int id){
             _icon.sprite = data.Icon;
-            _isPurchase = data.IsPurchased;
             _unpurchaseBackground.SetActive(!_isPurchase);
             _purchasedBackground.SetActive(_isPurchase);
             _listShopITemController = container;
             _id = id;
+            _isPurchase = PlayerData.UserData.GetShopPurchaseData().GetPurchasedIndexs(_listShopITemController.CurrentShopBoardType).Contains(_id);
         }
 
         public void SetSelected(){
@@ -47,6 +47,8 @@ namespace BallSortQuest{
         }
 
         public void OnSelect(){
+            if(!_isPurchase)
+                return;
             _listShopITemController.SetSelected(this);
             PlayerData.UserData.SelectShop(_listShopITemController.CurrentShopBoardType, _id);
         }

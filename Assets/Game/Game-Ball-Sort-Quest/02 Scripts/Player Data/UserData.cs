@@ -52,6 +52,8 @@ namespace BallSortQuest
             IsSoundOn = true;
             IsVibrateOn = true;
             CurrentBackgroundIndex = 0;
+            AddPurchaseData(TypeItem.Background, 0);
+            AddPurchaseData(TypeItem.Tube, 0);
         }
 
         #region Method
@@ -156,17 +158,21 @@ namespace BallSortQuest
 
         public void AddPurchaseData(TypeItem typeItem, int index){
             ShopPurchaseData data = GetShopPurchaseData();
+            if(data == null){
+                data = new ShopPurchaseData();
+            }
             switch (typeItem)
             {
                 case TypeItem.Tube:
                     data.PurchasedTubeIndexs.Add(index);
                     break;
                 case TypeItem.Background:
-                    data.PurchasedTubeIndexs.Add(index);
+                    data.PurchasedBackgroundIndexs.Add(index);
                     break;
                 default:
                     throw new Exception("Type item not found: " + typeItem.ToString());
             }
+            ShopPurchaseData = JsonUtility.ToJson(data);
         }
 
         public void SelectShop(TypeItem typeItem, int index){

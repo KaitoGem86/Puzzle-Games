@@ -29,8 +29,9 @@ namespace BallSortQuest{
         public void ClearBoard(){
             if (_shopItems == null) return;
             if (_shopItems.Count == 0) return;
-            foreach (var item in _shopItems){
-                SimplePool.Despawn(item.gameObject);
+            for(int i = _shopItems.Count - 1; i >= 0; i--){
+                SimplePool.Despawn(_shopItems[i].gameObject);
+                _shopItems.RemoveAt(i);
             }
             _shopItems.Clear();
         }
@@ -57,6 +58,8 @@ namespace BallSortQuest{
 
         public IEnumerator GetRandomPurchasedItem(){
             yield return new WaitForEndOfFrame();
+            var purchasedData = PlayerData.UserData.GetShopPurchaseData();
+            Debug.Log("Purchased Data: " + purchasedData.PurchasedTubeIndexs.Count + " " + purchasedData.PurchasedBackgroundIndexs.Count);
             Debug.Log("Get Random Purchased Item: " + Random.Range(0, _shopItems.Count));
             //var randomItem = _shopItems[Random.Range(0, _shopItems.Count)];
         }

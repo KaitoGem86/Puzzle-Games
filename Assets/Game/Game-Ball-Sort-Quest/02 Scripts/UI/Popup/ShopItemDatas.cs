@@ -13,6 +13,6 @@ namespace BallSortQuest{
     [Serializable]
     public class ShopItemData{
         public Sprite Icon;
-        public bool IsPurchased;
+        //public bool IsPurchased;
     }
 }
