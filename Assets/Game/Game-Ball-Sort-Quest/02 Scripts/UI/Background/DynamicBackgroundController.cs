@@ -16,7 +16,9 @@ namespace BallSortQuest
         private float _width;
         private float _height;
 
-
+        public void StopDynamicBackground(){
+            StopAllCoroutines();
+        }
         public void SetParticleBackground(Sprite particleBackground)
         {
             _particleBackground = particleBackground;

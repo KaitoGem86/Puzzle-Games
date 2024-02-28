@@ -15,6 +15,7 @@ namespace BallSortQuest
 
         public void SetBackground(BackgroundData data){
             _backgroundImage.sprite = data.SpriteBackground;
+            _dynamicBackgroundController.StopDynamicBackground();
             switch(data.TypeBackground){
                 case TypeBackgroundEnum.Dynamic:
                     _staticBackgroundController.gameObject.SetActive(false);
