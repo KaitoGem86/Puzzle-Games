@@ -38,12 +38,14 @@ namespace BallSortQuest{
         public void ShowListItem(ShopItemDatas datas){
             Debug.Log("Show List Item " + datas.Type.ToString());
             _currentShopBoardType = datas.Type;
-            foreach (var itemData in datas.ItemDatas){
+            
+            for(int i = 0; i < datas.ItemDatas.Count; i++){
                 var item = SimplePool.Spawn(_shopItemPrefab, Vector2.zero, Quaternion.identity).GetComponent<ShopItem>();
                 item.transform.SetParent(_viewPort);
                 _shopItems.Add(item);
-                item.Init(itemData, this);
+                _shopItems[i].Init(datas.ItemDatas[i], this, i);
             }
+
             switch(_currentShopBoardType){
                 case TypeItem.Background:
                     SetSelected(_shopItems[PlayerData.UserData.CurrentBackgroundIndex]);
@@ -66,5 +68,7 @@ namespace BallSortQuest{
             _currentSelectedItem = item;
             _currentSelectedItem.SetSelected();
         }
+
+        public TypeItem CurrentShopBoardType => _currentShopBoardType;
     }
 }

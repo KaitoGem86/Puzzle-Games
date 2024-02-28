@@ -168,6 +168,21 @@ namespace BallSortQuest
                     throw new Exception("Type item not found: " + typeItem.ToString());
             }
         }
+
+        public void SelectShop(TypeItem typeItem, int index){
+            switch (typeItem)
+            {
+                case TypeItem.Tube:
+                    //CurrentBackgroundIndex = index;
+                    break;
+                case TypeItem.Background:
+                    CurrentBackgroundIndex = index;
+                    ActionEvent.OnSelectShopBackground?.Invoke();
+                    break;
+                default:
+                    throw new Exception("Type item not found: " + typeItem.ToString());
+            }
+        }
         #endregion
     }
 }

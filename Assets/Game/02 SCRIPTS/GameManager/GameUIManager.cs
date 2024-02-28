@@ -23,12 +23,13 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         base.Awake();
         BallSortQuest.ActionEvent.OnResetGamePlay += ResetGamePlayWithMode;
         BallSortQuest.ActionEvent.OnResetGamePlay += UpdateLevelText;
+        BallSortQuest.ActionEvent.OnSelectShopBackground += InitBackground;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        _backgroundController.InitBackground();
+        InitBackground();
         ResetGamePlayWithMode();
         UpdateLevelText();
     }
@@ -127,5 +128,9 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         _menuButton.SetActive(!isChallenge);
         _challengeButton.SetActive(!isChallenge);
         _closeButton.SetActive(isChallenge);
+    }
+
+    private void InitBackground(){
+        _backgroundController.InitBackground();
     }
 }
