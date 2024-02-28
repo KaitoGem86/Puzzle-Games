@@ -61,6 +61,7 @@ namespace BallSortQuest
                     SetSelected(_shopItems[PlayerData.UserData.CurrentBackgroundIndex]);
                     break;
                 case TypeItem.Tube:
+                    SetSelected(_shopItems[PlayerData.UserData.CurrentTubeIndex]);
                     break;
             }
         }
@@ -87,22 +88,34 @@ namespace BallSortQuest
             }
         }
 
-        private IEnumerator ShowRandomRound(int index){
+        private IEnumerator ShowRandomRound(int index)
+        {
             var purchasedData = PlayerData.UserData.GetShopPurchaseData().GetPurchasedIndexs(_currentShopBoardType);
+            Debug.Log("Purchased Data " + purchasedData.Count + " " + _shopItems.Count);
             List<int> listRandom = Enumerable.Range(0, _shopItems.Count).Where(x => !purchasedData.Contains(x)).ToList();
-            ShopItem currentItem = _shopItems[listRandom[0]];
-            ShopItem randomItem = _shopItems[listRandom[0]];
-            float timer = 2f;
-            while(timer > 0){
-                timer -= 0.3f;
-                currentItem.UnPurchase();
-                randomItem.OnPurchase();
-                currentItem = randomItem;
-                randomItem = _shopItems[listRandom[Random.Range(0, listRandom.Count)]];
-                yield return new WaitForSeconds(0.3f);
+            if (listRandom.Count == 0)
+            {
+                _shopItems[index].OnPurchase();
+                yield break;
             }
-            currentItem.UnPurchase();
-            randomItem.UnPurchase();
+            else
+            {
+                ShopItem currentItem = _shopItems[listRandom[0]];
+                ShopItem randomItem = _shopItems[listRandom[0]];
+                float timer = 2f;
+                while (timer > 0)
+                {
+                    timer -= 0.3f;
+                    currentItem.UnPurchase();
+                    randomItem.OnPurchase();
+                    currentItem = randomItem;
+                    randomItem = _shopItems[listRandom[Random.Range(0, listRandom.Count)]];
+                    yield return new WaitForSeconds(0.3f);
+                }
+                currentItem.UnPurchase();
+                randomItem.UnPurchase();
+            }
+
             _shopItems[index].OnPurchase();
         }
 

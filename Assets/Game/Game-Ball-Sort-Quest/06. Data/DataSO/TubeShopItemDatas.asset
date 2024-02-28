@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   ItemDatas:
-  - Icon: {fileID: 0}
-    IsPurchased: 0
+  - Icon: {fileID: -1089467355, guid: e48513de6fef7044e8576e12e381ff71, type: 3}
+  - Icon: {fileID: -457986164, guid: e4c5e1d3986fe6a4d96a33afd153992d, type: 3}

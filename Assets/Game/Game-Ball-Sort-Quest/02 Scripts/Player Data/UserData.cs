@@ -53,7 +53,7 @@ namespace BallSortQuest
             IsSoundOn = true;
             IsVibrateOn = true;
             CurrentBackgroundIndex = 0;
-            CurrentTubeIndex = 1;
+            CurrentTubeIndex = 0;
             AddPurchaseData(TypeItem.Background, 0);
             AddPurchaseData(TypeItem.Tube, 0);
         }
