@@ -18,5 +18,8 @@ namespace BallSortQuest
         public Sprite middleSprite;
         public Sprite bottomSprite;
         public Sprite baseOfTubeSprite;
+
+        public Vector3 bottomSpriteOffset;
+        public Vector3 middleSpriteOffset;
     }
 }

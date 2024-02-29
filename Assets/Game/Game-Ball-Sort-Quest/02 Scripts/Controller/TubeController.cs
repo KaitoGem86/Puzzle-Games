@@ -41,15 +41,19 @@ namespace BallSortQuest
         public Vector2 SpawnPos => _spwanPos;
         public Vector2 StartPosMove => _startPosMove;
         public List<BallController> Balls = new List<BallController>();
-        private Vector2 _defaultPivot = Vector2.zero;
+        private Vector3 _defaultBasePivot = Vector3.zero;
+        private Vector3 _defaultMiddlePivot = Vector3.zero;
         private float _heightOfASlot = 0.46f;//hard code
         [field: SerializeField] public StateTube State { get; private set; }
+        TubeSpriteData _data;
 
         private void Awake()
         {
             _width = _avaterSpr.bounds.size.x;
             _height = _avaterSpr.bounds.size.y;
             //   Debug.LogError($"Width Tube: {_width}--- Height Tube: {_height}");
+            _defaultBasePivot = _baseOfTubeSpr.transform.localPosition;
+            _defaultMiddlePivot = _middleSpr.transform.localPosition;
         }
 
         private void OnEnable()
@@ -111,11 +115,13 @@ namespace BallSortQuest
         }
 
         public void SetSprite(){
-            var data = DataManager.Instance.TubeDatas.tubeSpriteDatas[PlayerData.UserData.CurrentTubeIndex];
-            _baseOfTubeSpr.sprite = data.baseOfTubeSprite;
-            _bottomSpr.sprite = data.bottomSprite;
-            _middleSpr.sprite = data.middleSprite;
-            _topSpr.sprite = data.topSprite;
+            _data = DataManager.Instance.TubeDatas.tubeSpriteDatas[PlayerData.UserData.CurrentTubeIndex];
+            _baseOfTubeSpr.sprite = _data.baseOfTubeSprite;
+            _bottomSpr.sprite = _data.bottomSprite;
+            _middleSpr.sprite = _data.middleSprite;
+            _topSpr.sprite = _data.topSprite;
+            _middleSpr.transform.localPosition = _defaultMiddlePivot + _data.middleSpriteOffset;
+            _baseOfTubeSpr.transform.localPosition = _defaultBasePivot + _data.bottomSpriteOffset;
         }
 
         public void SetPosition(Vector2 target)
@@ -142,10 +148,13 @@ namespace BallSortQuest
             // pos.y -= offsetY/2;
             // _avaterSpr.transform.localPosition = pos;
 
+            //_bottomSpr.transform.localPosition = _defaultBasePivot + _data.bottomSpriteOffset;
             var size = _middleSpr.size;
             size.y = _heightOfASlot * (_slot - 1);
             _middleSpr.size = size;
+            //_middleSpr.transform.localPosition = _defaultMiddlePivot + _data.middleSpriteOffset;
             _topSpr.transform.localPosition = new Vector3(0, size.y);
+
         }
 
         private void SpwanBall(BallData data, int index, bool isHidden = false)

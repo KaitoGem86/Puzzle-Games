@@ -17,7 +17,11 @@ MonoBehaviour:
     middleSprite: {fileID: 687437678, guid: 90b850899ec241d45839c752a710b76c, type: 3}
     bottomSprite: {fileID: 1885703392, guid: 90b850899ec241d45839c752a710b76c, type: 3}
     baseOfTubeSprite: {fileID: -118411871, guid: 90b850899ec241d45839c752a710b76c, type: 3}
+    bottomSpriteOffset: {x: 0, y: 0, z: 0}
+    middleSpriteOffset: {x: 0, y: 0, z: 0}
   - topSprite: {fileID: 1847377445, guid: 1433e537ffeec3c4e9d356d4da1d5326, type: 3}
     middleSprite: {fileID: 1909078350, guid: e8f13c19feee39349b2447645dc0ea75, type: 3}
     bottomSprite: {fileID: 1011663527, guid: d325b3121472f7e41a5b5a35fde19678, type: 3}
     baseOfTubeSprite: {fileID: 500660807, guid: d325b3121472f7e41a5b5a35fde19678, type: 3}
+    bottomSpriteOffset: {x: 0, y: -0.07, z: 0}
+    middleSpriteOffset: {x: 0, y: -0.11, z: 0}
