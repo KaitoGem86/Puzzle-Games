@@ -2672,7 +2672,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2685,7 +2685,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: 894e825a956103748b4af24627e6c5ad, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -6379,6 +6379,10 @@ MonoBehaviour:
   _endlessButtonObject: {fileID: 257975045436156197}
   _dailySheet: {fileID: 6206820099882840067}
   _coinText: {fileID: 8653532704933750479}
+  _hiddenRoot: {fileID: 5461950034144214443}
+  _timerRoot: {fileID: 1816025809306149015}
+  _moveRoot: {fileID: 8402025576215148975}
+  _rewardAllButton: {fileID: 2944914199895602719}
 --- !u!1 &8653532706379224136
 GameObject:
   m_ObjectHideFlags: 0

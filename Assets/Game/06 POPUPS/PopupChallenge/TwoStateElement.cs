@@ -4,14 +4,20 @@ namespace BallSortQuest{
     public class TwoStateElement{
         protected readonly Transform _onObject;
         protected readonly Transform _offObject;
+        private bool _isOn;
         public TwoStateElement(Transform trans){
             _onObject = trans.GetChild(0);
             _offObject = trans.GetChild(1);
         }
 
         public void SetState(bool isOn){
+            _isOn = isOn;
             _onObject.gameObject.SetActive(isOn);
             _offObject.gameObject.SetActive(!isOn);
+        }
+
+        public bool IsOn{
+            get => _isOn;
         }
     }
 

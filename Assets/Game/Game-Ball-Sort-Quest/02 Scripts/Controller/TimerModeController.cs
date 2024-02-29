@@ -39,16 +39,16 @@ namespace BallSortQuest
             while (_isInTimer)
             {
                 _timerText.text = ConvertToTime(_currentTimer);
-                _currentTimer--;
                 if (_currentTimer <= 0)
                 {
                     _isInTimer = false;
-                    _isModeComplete = true;
+                    Debug.Log("Time Out");
                 }
+                _currentTimer--;
                 yield return new WaitForSeconds(1);
             }
-            _timerText.text = ConvertToTime(_currentTimer);
-            if (_isModeComplete)
+            //_timerText.text = ConvertToTime(_currentTimer);
+            if (!_isModeComplete && _currentTimer <= 0)
                 PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Hết thời gian \n Thử lại?", TypeChallenge.Timer, true);
         }
 
