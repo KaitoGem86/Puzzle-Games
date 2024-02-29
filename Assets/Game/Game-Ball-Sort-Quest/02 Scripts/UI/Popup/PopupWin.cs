@@ -76,6 +76,11 @@ namespace BallSortQuest
             UpdateTextCoin();
         }
 
+        public void OnClickGotoShop(){
+            OnClickNextLevel();
+            PopupSystem.PopupManager.CreateNewInstance<ShopPanel>().Show();
+        }
+
         //Tai thoi diem nay, PlayerData.UserData.ProcessValue da duoc update, co the > 100
         private void UpdateProcessBar(float delay = 0)
         {
