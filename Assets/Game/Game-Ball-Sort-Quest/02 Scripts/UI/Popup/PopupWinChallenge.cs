@@ -22,6 +22,7 @@ namespace BallSortQuest
         [SerializeField] private Sprite _chestOpen;
 
         private bool _isCanCollectReward;
+        private int _multiRewardCoeff = 1;
         public void Show()
         {
             base.Show();
@@ -50,8 +51,16 @@ namespace BallSortQuest
             _firstGroupButton.SetActive(false);
             _secondGroupButton.SetActive(true);
             if (_isCanCollectReward)
-                PlayerData.UserData.CoinNumber += 20; // hard code, need to improve
+                PlayerData.UserData.CoinNumber += 20 * _multiRewardCoeff; // hard code, need to improve
             UpdateTextCoin();
+            _multiRewardCoeff = 1;
+        }
+
+        public void OnClickAdsButton(){
+            //Show Ads
+            _multiRewardCoeff = 2;
+            //If success, call OnClickAccept
+            OnClickAccept();
         }
 
         IEnumerator CoroutineActiveChest(float timeDelay)
