@@ -23,12 +23,20 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         base.Awake();
         BallSortQuest.ActionEvent.OnResetGamePlay += ResetGamePlayWithMode;
         BallSortQuest.ActionEvent.OnResetGamePlay += UpdateLevelText;
+        BallSortQuest.ActionEvent.OnSelectShopBackground += InitBackground;
+    }
+
+    public void OnDestroy()
+    {
+        BallSortQuest.ActionEvent.OnResetGamePlay -= ResetGamePlayWithMode;
+        BallSortQuest.ActionEvent.OnResetGamePlay -= UpdateLevelText;
+        BallSortQuest.ActionEvent.OnSelectShopBackground -= InitBackground;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        _backgroundController.InitBackground();
+        InitBackground();
         ResetGamePlayWithMode();
         UpdateLevelText();
     }
@@ -55,6 +63,10 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
 
     public void OpenResetGameModePopup(){
         PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Dữ liệu game sẽ bị mất, bạn có muốn tiếp tục không?", BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode);
+    }
+
+    public void OpenMenuPopup(){
+        PopupSystem.PopupManager.CreateNewInstance<MenuPanel>().Show();
     }
 
     public void UpdateLevelText()
@@ -123,5 +135,9 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         _menuButton.SetActive(!isChallenge);
         _challengeButton.SetActive(!isChallenge);
         _closeButton.SetActive(isChallenge);
+    }
+
+    private void InitBackground(){
+        _backgroundController.InitBackground();
     }
 }

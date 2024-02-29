@@ -22,3 +22,42 @@ MonoBehaviour:
   - TypeBackground: 0
     SpriteBackground: {fileID: 21300000, guid: db921719d4f676b4d91080e6f1c32e85, type: 3}
     _particleBackgrounds: {fileID: 21300000, guid: 9f4ba36c9b2e75b46bf0cb40fa906309, type: 3}
+  - TypeBackground: 1
+    SpriteBackground: {fileID: 21300000, guid: 909b66a663a0fa347abacd1193d04d69, type: 3}
+    _particleBackgrounds: {fileID: 0}
+  - TypeBackground: 1
+    SpriteBackground: {fileID: 21300000, guid: fa34d4b2a03038849ae7c0007e32f778, type: 3}
+    _particleBackgrounds: {fileID: 0}
+  - TypeBackground: 1
+    SpriteBackground: {fileID: 21300000, guid: fad9f83385734774895f7258b07ee310, type: 3}
+    _particleBackgrounds: {fileID: 0}
+  - TypeBackground: 1
+    SpriteBackground: {fileID: 21300000, guid: 5f39e84385a98fd429ea2f0111ccec7c, type: 3}
+    _particleBackgrounds: {fileID: 0}
+  - TypeBackground: 1
+    SpriteBackground: {fileID: 21300000, guid: fee7e03f5d820e0458571c40162fc6cf, type: 3}
+    _particleBackgrounds: {fileID: 0}
+  - TypeBackground: 1
+    SpriteBackground: {fileID: 21300000, guid: c2da877b3f4c1fe44a96b195ffa807a6, type: 3}
+    _particleBackgrounds: {fileID: 0}
+  - TypeBackground: 1
+    SpriteBackground: {fileID: 21300000, guid: c119c93e09a09844bbb2b323db46558d, type: 3}
+    _particleBackgrounds: {fileID: 0}
+  - TypeBackground: 1
+    SpriteBackground: {fileID: 21300000, guid: 450631679e65a9942840f72c79519b1d, type: 3}
+    _particleBackgrounds: {fileID: 0}
+  - TypeBackground: 1
+    SpriteBackground: {fileID: 21300000, guid: e0addb5a3fe65394db6d6caf559615cf, type: 3}
+    _particleBackgrounds: {fileID: 0}
+  - TypeBackground: 1
+    SpriteBackground: {fileID: 21300000, guid: f7c0d3ce36041754d980fa27787b11e8, type: 3}
+    _particleBackgrounds: {fileID: 0}
+  - TypeBackground: 1
+    SpriteBackground: {fileID: 21300000, guid: ab23bfc1c9a8bb343b8ad1c70f3291ef, type: 3}
+    _particleBackgrounds: {fileID: 0}
+  - TypeBackground: 1
+    SpriteBackground: {fileID: 21300000, guid: 187e49f3c4a417946a341150eed03e10, type: 3}
+    _particleBackgrounds: {fileID: 0}
+  - TypeBackground: 1
+    SpriteBackground: {fileID: 21300000, guid: fe391e28350f1f54283610b37633d66b, type: 3}
+    _particleBackgrounds: {fileID: 0}

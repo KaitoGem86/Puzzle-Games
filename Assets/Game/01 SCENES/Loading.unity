@@ -640,6 +640,7 @@ MonoBehaviour:
   ChallengeLevelDataSO: {fileID: 11400000, guid: 07dd61e513feac2448865152117b040d, type: 2}
   BallDataSO: {fileID: 11400000, guid: 04af246ec39843b4e979e81c70415e26, type: 2}
   BackgroundDatas: {fileID: 11400000, guid: b7e6ba3affacd194c9e8fc1b2509873b, type: 2}
+  TubeDatas: {fileID: 11400000, guid: 1577ce98a81417e42aabd83aa94467f6, type: 2}
   StepToReachSpecialLevel: 3
   ProcessIncrementValue: 35
 --- !u!1 &1945951012
@@ -882,6 +883,8 @@ MonoBehaviour:
   - {fileID: 4156869620540956894, guid: ce4cd68c01f09514c8b4940f2e8b3d06, type: 3}
   - {fileID: 8815945138112755855, guid: 3c3f07154603b634f950b25e05f2a256, type: 3}
   - {fileID: 7538601763622176877, guid: ee3fcffa31d1ef544aeba16849635221, type: 3}
+  - {fileID: 4906307373949168154, guid: 6d143d3fe4798394f9261bacf0dac137, type: 3}
+  - {fileID: 263571251666355025, guid: 40da70f0554ef1d4994deca6051336fd, type: 3}
   transparent: {fileID: 7659179651087851638}
   parent: {fileID: 7548558703387335186}
   hasPopupShowing: 0

@@ -20,6 +20,7 @@ namespace BallSortQuest
         public int StepToReachSpecialLevel;
         public int ProcessValue;
         public int CurrentBackgroundIndex;
+        public int CurrentTubeIndex;
         public ChallengeState HiddenState;
         public ChallengeState TimerState;
         public ChallengeState MoveState;
@@ -27,6 +28,10 @@ namespace BallSortQuest
         public string LastTimeCompleteHidden;
         public string LastTimeCompleteTimer;
         public string LastTimeCompleteMove;
+        public string ShopPurchaseData;
+
+        public bool IsSoundOn;
+        public bool IsVibrateOn;
         #endregion
 
 
@@ -45,6 +50,12 @@ namespace BallSortQuest
             LastTimeCompleteHidden = TimeFromToGoogle.Instance.Now().AddDays(-1).ToString();
             LastTimeCompleteTimer = TimeFromToGoogle.Instance.Now().AddDays(-1).ToString();
             LastTimeCompleteMove = TimeFromToGoogle.Instance.Now().AddDays(-1).ToString();
+            IsSoundOn = true;
+            IsVibrateOn = true;
+            CurrentBackgroundIndex = 0;
+            CurrentTubeIndex = 0;
+            AddPurchaseData(TypeItem.Background, 0);
+            AddPurchaseData(TypeItem.Tube, 0);
         }
 
         #region Method
@@ -140,6 +151,45 @@ namespace BallSortQuest
             }
             if(time.DayOfYear != DateTime.Parse(LastTimeCompleteMove).DayOfYear){
                 MoveState = ChallengeState.InComplete;
+            }
+        }
+
+        public ShopPurchaseData GetShopPurchaseData(){
+            return JsonUtility.FromJson<ShopPurchaseData>(ShopPurchaseData);
+        }
+
+        public void AddPurchaseData(TypeItem typeItem, int index){
+            ShopPurchaseData data = GetShopPurchaseData();
+            if(data == null){
+                data = new ShopPurchaseData();
+            }
+            switch (typeItem)
+            {
+                case TypeItem.Tube:
+                    data.PurchasedTubeIndexs.Add(index);
+                    break;
+                case TypeItem.Background:
+                    data.PurchasedBackgroundIndexs.Add(index);
+                    break;
+                default:
+                    throw new Exception("Type item not found: " + typeItem.ToString());
+            }
+            ShopPurchaseData = JsonUtility.ToJson(data);
+        }
+
+        public void SelectShop(TypeItem typeItem, int index){
+            switch (typeItem)
+            {
+                case TypeItem.Tube:
+                    CurrentTubeIndex = index;
+                    ActionEvent.OnSelectShopTube?.Invoke();
+                    break;
+                case TypeItem.Background:
+                    CurrentBackgroundIndex = index;
+                    ActionEvent.OnSelectShopBackground?.Invoke();
+                    break;
+                default:
+                    throw new Exception("Type item not found: " + typeItem.ToString());
             }
         }
         #endregion

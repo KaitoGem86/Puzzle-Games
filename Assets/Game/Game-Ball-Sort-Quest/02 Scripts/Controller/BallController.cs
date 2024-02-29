@@ -121,8 +121,8 @@ namespace BallSortQuest
                  {
                     tube.ChangeState(StateTube.Incomplete); // Co the gay loi
                  });
-
-                SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("Bottle_Active0"));
+                if(PlayerData.UserData.IsSoundOn)
+                    SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("Bottle_Active0"));
             }
             else
             {
@@ -130,7 +130,8 @@ namespace BallSortQuest
                 Vector2 target = new Vector2(0, (originalChildCount + index) * _heighBall + tube.SpawnPos.y);
                 this.transform.DOMoveY(target.y, duration).SetEase(Ease.InQuad).OnComplete(() =>
                 {
-                    SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("Bottle_Active2"));
+                    if(PlayerData.UserData.IsSoundOn)
+                        SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("Bottle_Active2"));
                     this.transform.DOJump(new Vector2(this.transform.position.x, target.y), 0.5f, 1, 0.1f).OnComplete(() =>
                     {
                         if(_isHidden)
@@ -169,8 +170,8 @@ namespace BallSortQuest
                   this.transform.DOJump(new Vector2(this.transform.position.x, target.y), 0.5f, 1, 0.1f);
 
                   onComplete?.Invoke();
-
-                  SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("Bottle_Active2"));
+                  if(PlayerData.UserData.IsSoundOn)
+                    SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("Bottle_Active2"));
                   _particle.Play();
               });
             // });

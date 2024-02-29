@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2930b938f2466fb4f9f0b7c9a4367810, type: 3}
+  m_Name: TubeShopItemDatas
+  m_EditorClassIdentifier: 
+  Type: 0
+  ItemDatas:
+  - Icon: {fileID: -1089467355, guid: e48513de6fef7044e8576e12e381ff71, type: 3}
+  - Icon: {fileID: -457986164, guid: e4c5e1d3986fe6a4d96a33afd153992d, type: 3}
