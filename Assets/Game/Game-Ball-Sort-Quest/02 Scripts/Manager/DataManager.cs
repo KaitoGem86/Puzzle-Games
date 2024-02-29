@@ -9,6 +9,7 @@ namespace BallSortQuest
         public LevelDataSO  LevelDataSO;
         public LevelDataSO ChallengeLevelDataSO;
         public BallDataSO BallDataSO;
+        public ListBallDataSO ListBallDataSO;
         public BackgroundDatas BackgroundDatas;
         public TubeDataSO TubeDatas;
         public int StepToReachSpecialLevel;

@@ -162,7 +162,8 @@ namespace BallSortQuest
                     {
                         return dataBalls;
                     }
-                    BallData data = _gameManager.Datamanager.BallDataSO.getBallData(_gameManager.Level.data[index]);
+                    //BallData data = _gameManager.Datamanager.BallDataSO.getBallData(_gameManager.Level.data[index]);
+                    BallData data = _gameManager.Datamanager.ListBallDataSO.BallDatas[PlayerData.UserData.CurrentBallIndex].getBallData(_gameManager.Level.data[index]);
                     dataBalls.Add(data);
                     index++;
                 }
