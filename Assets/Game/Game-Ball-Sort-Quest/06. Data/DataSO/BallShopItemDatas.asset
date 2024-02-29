@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   ItemDatas:
-  - Icon: {fileID: 0}
+  - Icon: {fileID: 21300000, guid: ecd0f74652590cb4d843c4f51c1b5b48, type: 3}
+  - Icon: {fileID: 21300000, guid: 167de11d186ff4b4a85c7fbc862e9f5b, type: 3}
+  - Icon: {fileID: 21300000, guid: 7b73c67d6a1a63645a73a33683282798, type: 3}
+  - Icon: {fileID: 21300000, guid: 85751da36b30b434691c173a144c92a8, type: 3}
+  - Icon: {fileID: 21300000, guid: e0fcfdec8d00b17409d51e2401751087, type: 3}
