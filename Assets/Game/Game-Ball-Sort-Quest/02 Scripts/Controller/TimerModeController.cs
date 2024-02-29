@@ -38,18 +38,27 @@ namespace BallSortQuest
             _isInTimer = true;
             while (_isInTimer)
             {
-                _timerText.text = _currentTimer.ToString();
+                _timerText.text = ConvertToTime(_currentTimer);
                 _currentTimer--;
                 if (_currentTimer <= 0)
                 {
                     _isInTimer = false;
+                    _isModeComplete = true;
                 }
                 yield return new WaitForSeconds(1);
             }
-            if (!_isModeComplete)
+            _timerText.text = ConvertToTime(_currentTimer);
+            if (_isModeComplete)
                 PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Hết thời gian \n Thử lại?", TypeChallenge.Timer, true);
         }
 
         public bool IsInTimer { get => _isInTimer; }
+
+        private string ConvertToTime(int time)
+        {
+            int minutes = time / 60;
+            int seconds = time % 60;
+            return string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
     }
 }
