@@ -219,7 +219,7 @@ MonoBehaviour:
     index: 0
     avatarSpr: {fileID: 0}
   _avarSpr: {fileID: 7092340799269860700}
-  _hiddenMaskBall: {fileID: 4924404777788066138}
+  _hiddenMaskBall: {fileID: 8555432394581513851}
   _heighBall: 0
   _particle: {fileID: 4498377658751664802}
 --- !u!1001 &4038269771057428017

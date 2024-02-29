@@ -59,6 +59,7 @@ namespace BallSortQuest
             CurrentBallIndex = 0;
             AddPurchaseData(TypeItem.Background, 0);
             AddPurchaseData(TypeItem.Tube, 0);
+            AddPurchaseData(TypeItem.Ball, 0);
         }
 
         #region Method

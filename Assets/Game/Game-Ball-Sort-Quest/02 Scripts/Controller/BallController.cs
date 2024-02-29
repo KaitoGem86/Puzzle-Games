@@ -17,7 +17,7 @@ namespace BallSortQuest
     {
         public BallData Data;
         [SerializeField] SpriteRenderer _avarSpr;
-        [SerializeField] private GameObject _hiddenMaskBall;
+        [SerializeField] private SpriteRenderer _hiddenMaskBall;
         [SerializeField] float _heighBall;
         [SerializeField]
         public int Id => Data.index;
@@ -36,6 +36,7 @@ namespace BallSortQuest
         private void OnEnable()
         {
             // Reset();
+            ActionEvent.OnSelectShopBall += SetSpriteTemplate;
         }
 
         // Start is called before the first frame update
@@ -60,6 +61,7 @@ namespace BallSortQuest
         private void OnDisable()
         {
             Reset();
+            ActionEvent.OnSelectShopBall -= SetSpriteTemplate;
         }
         #endregion
 
@@ -72,7 +74,7 @@ namespace BallSortQuest
 
             SetPosition(originalPos, startMovePos, index);
             _isHidden = false;
-            _hiddenMaskBall.SetActive(false);
+            _hiddenMaskBall.gameObject.SetActive(false);
         }
 
         public void Init(BallData data, Vector2 originalPos, Vector3 startMovePos, int index, int tubeSlots, bool isHidden = false)
@@ -83,9 +85,16 @@ namespace BallSortQuest
 
             SetPosition(originalPos, startMovePos, index);
             if(isHidden){
-                _hiddenMaskBall.SetActive(index != tubeSlots - 1);
+                _hiddenMaskBall.gameObject.SetActive(index != tubeSlots - 1);
                 _isHidden = index != tubeSlots - 1;
             }
+        }
+
+        private void SetSpriteTemplate(){
+            var currentBallSpriteData = BallSortQuest.GameManager.Instance.Datamanager.ListBallDataSO.BallDatas[PlayerData.UserData.CurrentBallIndex];
+            Data = currentBallSpriteData.BallDataList[Id];
+            ShowInfor();
+            _hiddenMaskBall.sprite = currentBallSpriteData.BallDataList[12].avatarSpr;
         }
 
         private void ShowInfor()
@@ -95,12 +104,12 @@ namespace BallSortQuest
 
         public void ShowItself()
         {
-            _hiddenMaskBall.SetActive(false);
+            _hiddenMaskBall.gameObject.SetActive(false);
             _isHidden = false;
         }
 
         public void HideBall(){
-            _hiddenMaskBall.SetActive(true);
+            _hiddenMaskBall.gameObject.SetActive(true);
             _isHidden = true;
         }
 
@@ -116,7 +125,7 @@ namespace BallSortQuest
             if (value)
             {
                 if(_isHidden)
-                    _hiddenMaskBall.SetActive(false);
+                    _hiddenMaskBall.gameObject.SetActive(false);
                 this.transform.DOMoveY(tube.StartPosMove.y, duration).SetEase(Ease.OutQuad).OnComplete(() =>
                  {
                     tube.ChangeState(StateTube.Incomplete); // Co the gay loi
@@ -135,7 +144,7 @@ namespace BallSortQuest
                     this.transform.DOJump(new Vector2(this.transform.position.x, target.y), 0.5f, 1, 0.1f).OnComplete(() =>
                     {
                         if(_isHidden)
-                            _hiddenMaskBall.SetActive(true);
+                            _hiddenMaskBall.gameObject.SetActive(true);
                         tube.ChangeState(StateTube.Incomplete); // Co the gay loi
                     });
                     _particle.Play();
@@ -187,6 +196,6 @@ namespace BallSortQuest
 
         public bool IsHidden => _isHidden && GameManager.Instance.GameModeController.CurrentGameMode.Equals(TypeChallenge.None);
         public bool IsHiddenWithNoMode => _isHidden;
-        public GameObject HiddenMaskBall => _hiddenMaskBall;
+        public SpriteRenderer HiddenMaskBall => _hiddenMaskBall;
     }
 }
