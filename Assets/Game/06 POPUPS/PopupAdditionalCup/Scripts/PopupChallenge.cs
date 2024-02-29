@@ -61,12 +61,19 @@ namespace BallSortQuest
             _dailySheet.gameObject.SetActive(false);
         }
 
+        public void CollectRewardAll(){
+            PlayerData.UserData.CoinNumber += 50;
+            PlayerData.UserData.IsCanCollectAllReward = false;
+            UpdateTextCoin();
+            _rewardAllButton.interactable = false;
+        }
+
         private void UpdatePanelRewardCompleteAll()
         {
             _hiddenIcon.SetState(PlayerData.UserData.HiddenState.Equals(ChallengeState.Success));
             _timerIcon.SetState(PlayerData.UserData.TimerState.Equals(ChallengeState.Success));
             _moveIcon.SetState(PlayerData.UserData.MoveState.Equals(ChallengeState.Success));
-            _rewardAllButton.interactable = _hiddenIcon.IsOn && _timerIcon.IsOn && _moveIcon.IsOn;;
+            _rewardAllButton.interactable = _hiddenIcon.IsOn && _timerIcon.IsOn && _moveIcon.IsOn && PlayerData.UserData.IsCanCollectAllReward;
         }
 
         private void UpdateTextCoin(){

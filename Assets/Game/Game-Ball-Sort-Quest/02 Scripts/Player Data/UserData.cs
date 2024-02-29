@@ -28,6 +28,7 @@ namespace BallSortQuest
         public string LastTimeCompleteHidden;
         public string LastTimeCompleteTimer;
         public string LastTimeCompleteMove;
+        public bool IsCanCollectAllReward;
         public string ShopPurchaseData;
 
         public bool IsSoundOn;
@@ -145,12 +146,15 @@ namespace BallSortQuest
         public void UpdateStateChallengeAfterADay(DateTime time){
             if(time.DayOfYear != DateTime.Parse(LastTimeCompleteHidden).DayOfYear){
                 HiddenState = ChallengeState.InComplete;
+                IsCanCollectAllReward = true;
             }
             if(time.DayOfYear != DateTime.Parse(LastTimeCompleteTimer).DayOfYear){
                 TimerState = ChallengeState.InComplete;
+                IsCanCollectAllReward = true;
             }
             if(time.DayOfYear != DateTime.Parse(LastTimeCompleteMove).DayOfYear){
                 MoveState = ChallengeState.InComplete;
+                IsCanCollectAllReward = true;
             }
         }
 
