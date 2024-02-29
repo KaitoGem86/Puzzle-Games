@@ -32,29 +32,33 @@ namespace BallSortQuest
         public void Show()
         {
             base.Show();
-            _secondGroupButton.SetActive(false);
-            _firstGroupButton.SetActive(true);
+            
             ActiveStar(3, 0.5f);
             UpdateTextCoin();
             // Delay after activate 3 stars
             UpdateProcessBar(1.5f);
             // Set Chest's State
             SetChestState(false);
+            _secondGroupButton.SetActive(false);
+            _firstGroupButton.SetActive(false);
             if (_isCanCollectReward)
             {
                 _completeProcessGroup.SetActive(true);
                 _unCompleteProcessGroup.SetActive(false);
+                _firstGroupButton.SetActive(true);
             }
             else
             {
                 _unCompleteProcessGroup.SetActive(true);
                 _completeProcessGroup.SetActive(false);
+                _secondGroupButton.SetActive(true);
             }
         }
 
         public void Close()
         {
             base.Hide();
+            StopCoroutine("UpdateProcessText");
         }
 
         public void OnClickNextLevel()
@@ -101,7 +105,7 @@ namespace BallSortQuest
                             .SetEase(Ease.OutBack)
                             .OnComplete(() =>
                             {
-                                StartCoroutine(CoroutineActiveRewardCoin(0.9f));
+                                StartCoroutine(CoroutineActiveRewardCoin(1.7f));
                             });
                     }
                 });
