@@ -23,6 +23,7 @@ namespace BallSortQuest
         [Space(10), Header("Data")]
         [SerializeField] private ShopItemDatas _backgroundDatas;
         [SerializeField] private ShopItemDatas _tubeDatas;
+        [SerializeField] private ShopItemDatas _ballDatas;
 
         private TwoStateElement _marketButton;
         private TwoStateElement _backgroundButton;
@@ -37,7 +38,7 @@ namespace BallSortQuest
             _backgroundButton ??= new TwoStateElement(_backgroundNavigateButton);
             _tubeButton ??= new TwoStateAtMidElement(_tubeNavigateButton);
             _ballButton ??= new TwoStateAtMidElement(_ballNavigateButton);
-            _listShopITemController ??= new ListShopITemController(_backgroundDatas, _tubeDatas, _listViewPort, _shopItemPrefab);
+            _listShopITemController ??= new ListShopITemController(_backgroundDatas, _tubeDatas, _ballDatas, _listViewPort, _shopItemPrefab);
             OnMarketNavigateButtonClick();
             UpdateCoinText();
         }
@@ -74,8 +75,8 @@ namespace BallSortQuest
             _ballButton.SetState(true, true);
             _marketBoard.SetActive(false);
             _listSlideBoard.SetActive(true);
-            //_listShopITemController.ClearBoard();
-            //_listShopITemController.ShowListItem(_backgroundDatas);
+            _listShopITemController.ClearBoard();
+            _listShopITemController.ShowListItem(_ballDatas);
         }
 
         public void OnBackgroundNavigateButtonClick(){

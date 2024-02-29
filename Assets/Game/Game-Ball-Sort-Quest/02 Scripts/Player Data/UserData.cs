@@ -21,6 +21,7 @@ namespace BallSortQuest
         public int ProcessValue;
         public int CurrentBackgroundIndex;
         public int CurrentTubeIndex;
+        public int CurrentBallIndex;
         public ChallengeState HiddenState;
         public ChallengeState TimerState;
         public ChallengeState MoveState;
@@ -55,6 +56,7 @@ namespace BallSortQuest
             IsVibrateOn = true;
             CurrentBackgroundIndex = 0;
             CurrentTubeIndex = 0;
+            CurrentBallIndex = 0;
             AddPurchaseData(TypeItem.Background, 0);
             AddPurchaseData(TypeItem.Tube, 0);
         }
@@ -175,6 +177,9 @@ namespace BallSortQuest
                 case TypeItem.Background:
                     data.PurchasedBackgroundIndexs.Add(index);
                     break;
+                case TypeItem.Ball:
+                    data.PurchasedBallIndexs.Add(index);
+                    break;
                 default:
                     throw new Exception("Type item not found: " + typeItem.ToString());
             }
@@ -191,6 +196,10 @@ namespace BallSortQuest
                 case TypeItem.Background:
                     CurrentBackgroundIndex = index;
                     ActionEvent.OnSelectShopBackground?.Invoke();
+                    break;
+                case TypeItem.Ball:
+                    CurrentBallIndex = index;
+                    ActionEvent.OnSelectShopBall?.Invoke();
                     break;
                 default:
                     throw new Exception("Type item not found: " + typeItem.ToString());

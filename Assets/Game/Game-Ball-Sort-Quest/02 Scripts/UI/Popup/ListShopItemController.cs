@@ -10,7 +10,7 @@ namespace BallSortQuest
         //Data
         private readonly ShopItemDatas _backgroundDatas;
         private readonly ShopItemDatas _tubeDatas;
-
+        private readonly ShopItemDatas _ballDatas;
         //Ref
         private readonly Transform _viewPort;
         private readonly GameObject _shopItemPrefab;
@@ -21,10 +21,11 @@ namespace BallSortQuest
         private ShopItem _currentSelectedItem;
 
         public ListShopITemController() { }
-        public ListShopITemController(ShopItemDatas backgroundDatas, ShopItemDatas tubeDatas, Transform viewPort, GameObject shopItemPrefab)
+        public ListShopITemController(ShopItemDatas backgroundDatas, ShopItemDatas tubeDatas, ShopItemDatas ballDatas, Transform viewPort, GameObject shopItemPrefab)
         {
             _backgroundDatas = backgroundDatas;
             _tubeDatas = tubeDatas;
+            _ballDatas = ballDatas;
             _viewPort = viewPort;
             _shopItemPrefab = shopItemPrefab;
             _shopItems = new List<ShopItem>();
@@ -62,6 +63,9 @@ namespace BallSortQuest
                     break;
                 case TypeItem.Tube:
                     SetSelected(_shopItems[PlayerData.UserData.CurrentTubeIndex]);
+                    break;
+                case TypeItem.Ball:
+                    SetSelected(_shopItems[PlayerData.UserData.CurrentBallIndex]);
                     break;
             }
         }

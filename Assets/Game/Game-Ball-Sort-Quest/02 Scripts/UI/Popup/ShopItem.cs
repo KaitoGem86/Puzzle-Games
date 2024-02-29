@@ -7,7 +7,8 @@ namespace BallSortQuest
     public enum TypeItem
     {
         Tube,
-        Background
+        Background,
+        Ball
     }
 
     public class ShopItem : MonoBehaviour

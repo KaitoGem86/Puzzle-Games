@@ -16,6 +16,7 @@ namespace BallSortQuest
         #region Select Shop
         public static Action OnSelectShopBackground;
         public static Action OnSelectShopTube;
+        public static Action OnSelectShopBall;
         #endregion
     }
 }
