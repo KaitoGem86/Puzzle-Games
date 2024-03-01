@@ -58,9 +58,10 @@ namespace BallSortQuest
         }
 
         public void OpenEndlessChallengeSheet(){
-            _dailyButton.SetState(false);
-            _endlessButton.SetState(true);
-            _dailySheet.gameObject.SetActive(false);
+            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng này đang được phát triển");
+            // _dailyButton.SetState(false);
+            // _endlessButton.SetState(true);
+            // _dailySheet.gameObject.SetActive(false);
         }
 
         public void CollectRewardAll(){

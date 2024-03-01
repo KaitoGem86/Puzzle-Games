@@ -52,6 +52,10 @@ namespace BallSortQuest{
             StopCoroutine(StartTimer());
         }
 
+        public void OnClickInfoButton(){
+            PopupManager.CreateNewInstance<NotificationPopup>().Show("Thông báo\nMỗi giờ bạn sẽ nhận được 30 vàng miễn phí.");
+        }
+
         public void OnClickRewardButton(){
             if(_isCanGetReward){
                 PlayerData.UserData.CoinNumber += 30;
