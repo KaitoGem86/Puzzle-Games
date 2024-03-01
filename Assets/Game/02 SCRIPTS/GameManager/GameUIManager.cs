@@ -7,6 +7,8 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
     [SerializeField] private TMP_Text levelText;
     [SerializeField] private BackgroundController _backgroundController;
     [SerializeField] private TMP_Text _labelText;
+    [SerializeField] private GameObject _safeAreaCanvas;
+    [SerializeField] private TMP_Text _tutorialText;
     [SerializeField] private GameObject _closeButton;
     [SerializeField] private GameObject _challengeButton;
     [SerializeField] private GameObject _menuButton;
@@ -104,6 +106,20 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         switch (BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode)
         {
             case TypeChallenge.None:
+                if(BallSortQuest.GameManager.Instance.Level.level == 1)
+                {
+                    _safeAreaCanvas.SetActive(false);
+                    _tutorialText.text = "Vui lòng chọn nước để đổ vào chai thủy tinh";
+                    return;
+                }
+                _safeAreaCanvas.SetActive(true);
+                if(BallSortQuest.GameManager.Instance.Level.level == 2)
+                {
+                    _tutorialText.text = "Bạn có thể đổ nước lên trên màu giống nhau";
+                }
+                else{
+                    _tutorialText.gameObject.SetActive(false);
+                }
                 SetUpGamePlayScene(false);
                 _labelText.text = "Level";
                 _labelText.gameObject.SetActive(true);
