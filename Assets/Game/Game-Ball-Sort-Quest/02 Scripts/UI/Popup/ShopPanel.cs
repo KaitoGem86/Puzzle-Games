@@ -11,6 +11,7 @@ namespace BallSortQuest
         [SerializeField] private Transform _marketNavigateButton;
         [SerializeField] private Transform _tubeNavigateButton;
         [SerializeField] private Transform _backgroundNavigateButton;
+        [SerializeField] private Transform _ballNavigateButton;
         [SerializeField] private TMP_Text _coinText;
         [SerializeField] private GameObject _shopItemPrefab;
 
@@ -22,10 +23,12 @@ namespace BallSortQuest
         [Space(10), Header("Data")]
         [SerializeField] private ShopItemDatas _backgroundDatas;
         [SerializeField] private ShopItemDatas _tubeDatas;
+        [SerializeField] private ShopItemDatas _ballDatas;
 
         private TwoStateElement _marketButton;
         private TwoStateElement _backgroundButton;
         private TwoStateAtMidElement _tubeButton;
+        private TwoStateAtMidElement _ballButton;
 
         private ListShopITemController _listShopITemController;
 
@@ -34,7 +37,8 @@ namespace BallSortQuest
             _marketButton ??= new TwoStateElement(_marketNavigateButton);
             _backgroundButton ??= new TwoStateElement(_backgroundNavigateButton);
             _tubeButton ??= new TwoStateAtMidElement(_tubeNavigateButton);
-            _listShopITemController ??= new ListShopITemController(_backgroundDatas, _tubeDatas, _listViewPort, _shopItemPrefab);
+            _ballButton ??= new TwoStateAtMidElement(_ballNavigateButton);
+            _listShopITemController ??= new ListShopITemController(_backgroundDatas, _tubeDatas, _ballDatas, _listViewPort, _shopItemPrefab);
             OnMarketNavigateButtonClick();
             UpdateCoinText();
         }
@@ -48,6 +52,7 @@ namespace BallSortQuest
             _marketButton.SetState(true);
             _backgroundButton.SetState(false);
             _tubeButton.SetState(false, true);
+            _ballButton.SetState(false, true);
             _marketBoard.SetActive(true);
             _listSlideBoard.SetActive(false);
         }
@@ -56,21 +61,35 @@ namespace BallSortQuest
             _marketButton.SetState(false);
             _backgroundButton.SetState(false);
             _tubeButton.SetState(true, true);
+            _ballButton.SetState(false, true);
             _marketBoard.SetActive(false);
             _listSlideBoard.SetActive(true);
             _listShopITemController.ClearBoard();
             _listShopITemController.ShowListItem(_tubeDatas);
         }
 
+        public void OnBallNavigateButtonClick(){
+            _marketButton.SetState(false);
+            _backgroundButton.SetState(false);
+            _tubeButton.SetState(false, false);
+            _ballButton.SetState(true, true);
+            _marketBoard.SetActive(false);
+            _listSlideBoard.SetActive(true);
+            _listShopITemController.ClearBoard();
+            _listShopITemController.ShowListItem(_ballDatas);
+        }
+
         public void OnBackgroundNavigateButtonClick(){
             _marketButton.SetState(false);
             _backgroundButton.SetState(true);
             _tubeButton.SetState(false, false);
+            _ballButton.SetState(false, false);
             _marketBoard.SetActive(false);
             _listSlideBoard.SetActive(true);
             _listShopITemController.ClearBoard();
             _listShopITemController.ShowListItem(_backgroundDatas);
         }
+
 
         public void UpdateCoinText(){
             _coinText.text = PlayerData.UserData.CoinNumber.ToString();

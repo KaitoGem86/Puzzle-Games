@@ -16,7 +16,7 @@ namespace BallSortQuest{
         private TMP_Text _rewardText;
         private TwoStateElement _iconChallenge;
         private GameObject _adsIcon;
-        private Button _playButton;
+        private AnimButton _playButton;
         private bool _isCanPlayNoNeedAds;
 
         public RewardElement(Transform challengeRoot, TypeChallenge type){
@@ -24,7 +24,7 @@ namespace BallSortQuest{
             _titleText = challengeRoot.GetChild(0).GetComponent<TMP_Text>();
             _iconChallenge = new TwoStateElement(challengeRoot.GetChild(1));
             _rewardText = challengeRoot.GetChild(2).GetChild(1).GetChild(1).GetComponent<TMP_Text>();
-            _playButton = challengeRoot.GetChild(3).GetComponent<Button>();
+            _playButton = challengeRoot.GetChild(3).GetComponent<AnimButton>();
             _adsIcon = _playButton.transform.GetChild(1).gameObject;
         }
 
@@ -59,7 +59,7 @@ namespace BallSortQuest{
             GameManager.Instance.GameModeController.SetGameMode(_type);
         }
 
-        public Button PlayButton => _playButton;
+        public AnimButton PlayButton => _playButton;
         public bool IsCanPlayNoNeedAds => _isCanPlayNoNeedAds;
     }
 }

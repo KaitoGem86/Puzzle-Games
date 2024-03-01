@@ -22,6 +22,7 @@ namespace BallSortQuest
         [SerializeField] UnityEvent _onPointerDown, _onPointerUp, _onPointerClik, _onPointerExit;
         private Vector2 _originalPos;
         private bool _canClick = true;
+        private bool _interactable = true;
 
         private void Awake()
         {
@@ -31,6 +32,7 @@ namespace BallSortQuest
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            if (!_interactable) return;
             if (!_canClick) return;
             _canClick = false;
             ShowButton();
@@ -39,18 +41,21 @@ namespace BallSortQuest
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            if (!_interactable) return;
             HideButton();
             _onPointerExit?.Invoke();
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            if (!_interactable) return;
             HideButton();
             _onPointerUp?.Invoke();
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            if (!_interactable) return;
             _onPointerClik?.Invoke();
         }
 
@@ -85,5 +90,8 @@ namespace BallSortQuest
                     break;
             }
         }
+
+        public UnityEvent onPointerClick { get => _onPointerClik; set => _onPointerClik = value; }
+        public bool Interactable { get => _interactable; set => _interactable = value; }
     }
 }

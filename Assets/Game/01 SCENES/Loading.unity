@@ -639,6 +639,7 @@ MonoBehaviour:
   LevelDataSO: {fileID: 11400000, guid: 07dd61e513feac2448865152117b040d, type: 2}
   ChallengeLevelDataSO: {fileID: 11400000, guid: 07dd61e513feac2448865152117b040d, type: 2}
   BallDataSO: {fileID: 11400000, guid: 04af246ec39843b4e979e81c70415e26, type: 2}
+  ListBallDataSO: {fileID: 11400000, guid: c1dd862e486033e449c78fb568c25b31, type: 2}
   BackgroundDatas: {fileID: 11400000, guid: b7e6ba3affacd194c9e8fc1b2509873b, type: 2}
   TubeDatas: {fileID: 11400000, guid: 1577ce98a81417e42aabd83aa94467f6, type: 2}
   StepToReachSpecialLevel: 3
@@ -755,7 +756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64f98ef6ceb24749afa29e1513f52a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textData: {fileID: 4900000, guid: d8db690c1507d75448dbc9494f944e90, type: 3}
+  _textData: {fileID: 4900000, guid: 97be3f6083d643b4c9507515f8e012cc, type: 3}
   _levelDataSO: {fileID: 11400000, guid: 07dd61e513feac2448865152117b040d, type: 2}
 --- !u!1 &2128972023
 GameObject:
@@ -885,6 +886,7 @@ MonoBehaviour:
   - {fileID: 7538601763622176877, guid: ee3fcffa31d1ef544aeba16849635221, type: 3}
   - {fileID: 4906307373949168154, guid: 6d143d3fe4798394f9261bacf0dac137, type: 3}
   - {fileID: 263571251666355025, guid: 40da70f0554ef1d4994deca6051336fd, type: 3}
+  - {fileID: 1547937328244496888, guid: 4238f7f760e475642b1ed99290319ba0, type: 3}
   transparent: {fileID: 7659179651087851638}
   parent: {fileID: 7548558703387335186}
   hasPopupShowing: 0

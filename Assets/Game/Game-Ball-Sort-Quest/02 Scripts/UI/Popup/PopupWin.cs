@@ -29,32 +29,37 @@ namespace BallSortQuest
         [SerializeField] private Sprite _chestOpen;
 
         private bool _isCanCollectReward;
+        private int _multiRewardCoeff = 1;
         public void Show()
         {
             base.Show();
-            _secondGroupButton.SetActive(false);
-            _firstGroupButton.SetActive(true);
+            
             ActiveStar(3, 0.5f);
             UpdateTextCoin();
             // Delay after activate 3 stars
             UpdateProcessBar(1.5f);
             // Set Chest's State
             SetChestState(false);
+            _secondGroupButton.SetActive(false);
+            _firstGroupButton.SetActive(false);
             if (_isCanCollectReward)
             {
                 _completeProcessGroup.SetActive(true);
                 _unCompleteProcessGroup.SetActive(false);
+                _firstGroupButton.SetActive(true);
             }
             else
             {
                 _unCompleteProcessGroup.SetActive(true);
                 _completeProcessGroup.SetActive(false);
+                _secondGroupButton.SetActive(true);
             }
         }
 
         public void Close()
         {
             base.Hide();
+            StopCoroutine("UpdateProcessText");
         }
 
         public void OnClickNextLevel()
@@ -68,8 +73,21 @@ namespace BallSortQuest
             _firstGroupButton.SetActive(false);
             _secondGroupButton.SetActive(true);
             if (_isCanCollectReward)
-                PlayerData.UserData.CoinNumber += 100; // hard code, need to improve
+                PlayerData.UserData.CoinNumber += 100 * _multiRewardCoeff; // hard code, need to improve
             UpdateTextCoin();
+            _multiRewardCoeff = 1;
+        }
+
+        public void OnClickAdsButton(){
+            //Show Ads
+            _multiRewardCoeff = 2;
+            //If success, call OnClickAccept
+            OnClickAccept();
+        }
+
+        public void OnClickGotoShop(){
+            OnClickNextLevel();
+            PopupSystem.PopupManager.CreateNewInstance<ShopPanel>().Show();
         }
 
         //Tai thoi diem nay, PlayerData.UserData.ProcessValue da duoc update, co the > 100
@@ -101,7 +119,7 @@ namespace BallSortQuest
                             .SetEase(Ease.OutBack)
                             .OnComplete(() =>
                             {
-                                StartCoroutine(CoroutineActiveRewardCoin(0.9f));
+                                StartCoroutine(CoroutineActiveRewardCoin(1.7f));
                             });
                     }
                 });

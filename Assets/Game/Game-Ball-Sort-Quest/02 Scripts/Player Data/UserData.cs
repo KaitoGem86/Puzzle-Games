@@ -21,6 +21,7 @@ namespace BallSortQuest
         public int ProcessValue;
         public int CurrentBackgroundIndex;
         public int CurrentTubeIndex;
+        public int CurrentBallIndex;
         public ChallengeState HiddenState;
         public ChallengeState TimerState;
         public ChallengeState MoveState;
@@ -28,6 +29,7 @@ namespace BallSortQuest
         public string LastTimeCompleteHidden;
         public string LastTimeCompleteTimer;
         public string LastTimeCompleteMove;
+        public bool IsCanCollectAllReward;
         public string ShopPurchaseData;
 
         public bool IsSoundOn;
@@ -54,8 +56,10 @@ namespace BallSortQuest
             IsVibrateOn = true;
             CurrentBackgroundIndex = 0;
             CurrentTubeIndex = 0;
+            CurrentBallIndex = 0;
             AddPurchaseData(TypeItem.Background, 0);
             AddPurchaseData(TypeItem.Tube, 0);
+            AddPurchaseData(TypeItem.Ball, 0);
         }
 
         #region Method
@@ -145,12 +149,15 @@ namespace BallSortQuest
         public void UpdateStateChallengeAfterADay(DateTime time){
             if(time.DayOfYear != DateTime.Parse(LastTimeCompleteHidden).DayOfYear){
                 HiddenState = ChallengeState.InComplete;
+                IsCanCollectAllReward = true;
             }
             if(time.DayOfYear != DateTime.Parse(LastTimeCompleteTimer).DayOfYear){
                 TimerState = ChallengeState.InComplete;
+                IsCanCollectAllReward = true;
             }
             if(time.DayOfYear != DateTime.Parse(LastTimeCompleteMove).DayOfYear){
                 MoveState = ChallengeState.InComplete;
+                IsCanCollectAllReward = true;
             }
         }
 
@@ -171,6 +178,9 @@ namespace BallSortQuest
                 case TypeItem.Background:
                     data.PurchasedBackgroundIndexs.Add(index);
                     break;
+                case TypeItem.Ball:
+                    data.PurchasedBallIndexs.Add(index);
+                    break;
                 default:
                     throw new Exception("Type item not found: " + typeItem.ToString());
             }
@@ -187,6 +197,10 @@ namespace BallSortQuest
                 case TypeItem.Background:
                     CurrentBackgroundIndex = index;
                     ActionEvent.OnSelectShopBackground?.Invoke();
+                    break;
+                case TypeItem.Ball:
+                    CurrentBallIndex = index;
+                    ActionEvent.OnSelectShopBall?.Invoke();
                     break;
                 default:
                     throw new Exception("Type item not found: " + typeItem.ToString());

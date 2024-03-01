@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2930b938f2466fb4f9f0b7c9a4367810, type: 3}
+  m_Name: BallShopItemDatas
+  m_EditorClassIdentifier: 
+  Type: 2
+  ItemDatas:
+  - Icon: {fileID: 21300000, guid: ecd0f74652590cb4d843c4f51c1b5b48, type: 3}
+  - Icon: {fileID: 21300000, guid: 167de11d186ff4b4a85c7fbc862e9f5b, type: 3}
+  - Icon: {fileID: 21300000, guid: 7b73c67d6a1a63645a73a33683282798, type: 3}
+  - Icon: {fileID: 21300000, guid: 85751da36b30b434691c173a144c92a8, type: 3}
+  - Icon: {fileID: 21300000, guid: e0fcfdec8d00b17409d51e2401751087, type: 3}
+  - Icon: {fileID: 21300000, guid: d3a947135d5c74045a4705023778ada8, type: 3}
+  - Icon: {fileID: 21300000, guid: 8d7b8aab15c6af74b941739a9218f737, type: 3}
+  - Icon: {fileID: 21300000, guid: 482cacc58a2191748aceac77bd79b5d4, type: 3}
+  - Icon: {fileID: 21300000, guid: b8cbf36d6d4bf1546ab87531d0573e92, type: 3}
