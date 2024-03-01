@@ -85,5 +85,8 @@ namespace BallSortQuest
                     break;
             }
         }
+
+        public UnityEvent onPointerClick { get => _onPointerClik; set => _onPointerClik = value; }
+        public bool CanClick { get => _canClick; set => _canClick = value; }
     }
 }

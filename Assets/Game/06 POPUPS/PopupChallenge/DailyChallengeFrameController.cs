@@ -29,20 +29,20 @@ namespace BallSortQuest
             _moveChallenge.SetDisPlayElement(PlayerData.UserData.IsCanPlayChallengeWithNoAds(TypeChallenge.Move, time));
             if (true)
             {
-                _hiddenChallenge.PlayButton.onClick.RemoveAllListeners();
-                _hiddenChallenge.PlayButton.onClick.AddListener(() => OnClickPlayChallenge(TypeChallenge.Hidden));
+                _hiddenChallenge.PlayButton.onPointerClick.RemoveAllListeners();
+                _hiddenChallenge.PlayButton.onPointerClick.AddListener(() => OnClickPlayChallenge(TypeChallenge.Hidden));
             }
 
             if (true)
             {
-                _timerChallenge.PlayButton.onClick.RemoveAllListeners();
-                _timerChallenge.PlayButton.onClick.AddListener(() => OnClickPlayChallenge(TypeChallenge.Timer));
+                _timerChallenge.PlayButton.onPointerClick.RemoveAllListeners();
+                _timerChallenge.PlayButton.onPointerClick.AddListener(() => OnClickPlayChallenge(TypeChallenge.Timer));
             }
 
             if (true)
             {
-                _moveChallenge.PlayButton.onClick.RemoveAllListeners();
-                _moveChallenge.PlayButton.onClick.AddListener(() => OnClickPlayChallenge(TypeChallenge.Move));
+                _moveChallenge.PlayButton.onPointerClick.RemoveAllListeners();
+                _moveChallenge.PlayButton.onPointerClick.AddListener(() => OnClickPlayChallenge(TypeChallenge.Move));
             }
         }
 
