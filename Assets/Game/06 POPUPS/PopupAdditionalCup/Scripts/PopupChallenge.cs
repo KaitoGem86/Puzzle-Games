@@ -16,13 +16,14 @@ namespace BallSortQuest
         [SerializeField] private Transform _hiddenRoot;
         [SerializeField] private Transform _timerRoot;
         [SerializeField] private Transform _moveRoot;
-        [SerializeField] private Button _rewardAllButton;
+        [SerializeField] private AnimButton _rewardAllButton;
 
         private TwoStateElement _dailyButton;
         private TwoStateElement _endlessButton;
         private TwoStateElement _hiddenIcon;
         private TwoStateElement _timerIcon;
         private TwoStateElement _moveIcon;
+        private TwoStateElement _rewardAllButtonIcon;
 
 
         public override void Awake()
@@ -33,6 +34,7 @@ namespace BallSortQuest
             _timerIcon ??= new TwoStateElement(_timerRoot);
             _hiddenIcon ??= new TwoStateElement(_hiddenRoot);
             _moveIcon ??= new TwoStateElement(_moveRoot);
+            _rewardAllButtonIcon ??= new TwoStateElement(_rewardAllButton.transform);
             UpdateTextCoin();
         }
 
@@ -65,7 +67,8 @@ namespace BallSortQuest
             PlayerData.UserData.CoinNumber += 50;
             PlayerData.UserData.IsCanCollectAllReward = false;
             UpdateTextCoin();
-            _rewardAllButton.interactable = false;
+            _rewardAllButton.Interactable = false;
+            _rewardAllButtonIcon.SetState(false);
         }
 
         private void UpdatePanelRewardCompleteAll()
@@ -73,7 +76,8 @@ namespace BallSortQuest
             _hiddenIcon.SetState(PlayerData.UserData.HiddenState.Equals(ChallengeState.Success));
             _timerIcon.SetState(PlayerData.UserData.TimerState.Equals(ChallengeState.Success));
             _moveIcon.SetState(PlayerData.UserData.MoveState.Equals(ChallengeState.Success));
-            _rewardAllButton.interactable = _hiddenIcon.IsOn && _timerIcon.IsOn && _moveIcon.IsOn && PlayerData.UserData.IsCanCollectAllReward;
+            _rewardAllButton.Interactable = _hiddenIcon.IsOn && _timerIcon.IsOn && _moveIcon.IsOn && PlayerData.UserData.IsCanCollectAllReward;
+            _rewardAllButtonIcon.SetState(_rewardAllButton.Interactable);
         }
 
         private void UpdateTextCoin(){

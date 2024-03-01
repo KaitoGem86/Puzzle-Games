@@ -2655,7 +2655,7 @@ MonoBehaviour:
   _typeButton: 0
   _currenRect: {fileID: 4666724268720825207}
   _duration: 0.1
-  _target: {x: 0, y: 0}
+  _target: {x: 0.9, y: 0.9}
   _onPointerDown:
     m_PersistentCalls:
       m_Calls: []
@@ -6425,7 +6425,7 @@ MonoBehaviour:
   _hiddenRoot: {fileID: 5461950034144214443}
   _timerRoot: {fileID: 1816025809306149015}
   _moveRoot: {fileID: 8402025576215148975}
-  _rewardAllButton: {fileID: 0}
+  _rewardAllButton: {fileID: 5056129640798904909}
 --- !u!1 &8653532706379224136
 GameObject:
   m_ObjectHideFlags: 0
