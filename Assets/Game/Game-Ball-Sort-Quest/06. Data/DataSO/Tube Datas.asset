@@ -13,15 +13,18 @@ MonoBehaviour:
   m_Name: Tube Datas
   m_EditorClassIdentifier: 
   tubeSpriteDatas:
-  - topSprite: {fileID: 730316812, guid: 90b850899ec241d45839c752a710b76c, type: 3}
-    middleSprite: {fileID: 687437678, guid: 90b850899ec241d45839c752a710b76c, type: 3}
-    bottomSprite: {fileID: 1885703392, guid: 90b850899ec241d45839c752a710b76c, type: 3}
-    baseOfTubeSprite: {fileID: -118411871, guid: 90b850899ec241d45839c752a710b76c, type: 3}
-    bottomSpriteOffset: {x: 0, y: 0, z: 0}
-    middleSpriteOffset: {x: 0, y: 0, z: 0}
-  - topSprite: {fileID: 1847377445, guid: 1433e537ffeec3c4e9d356d4da1d5326, type: 3}
-    middleSprite: {fileID: 1909078350, guid: e8f13c19feee39349b2447645dc0ea75, type: 3}
-    bottomSprite: {fileID: 1011663527, guid: d325b3121472f7e41a5b5a35fde19678, type: 3}
-    baseOfTubeSprite: {fileID: 500660807, guid: d325b3121472f7e41a5b5a35fde19678, type: 3}
-    bottomSpriteOffset: {x: 0, y: -0.07, z: 0}
-    middleSpriteOffset: {x: 0, y: -0.11, z: 0}
+  - topSprite: {fileID: 21300000, guid: 2eb6a388b03a5154db4ee200ec36d30b, type: 3}
+    middleSprite: {fileID: 1544617517, guid: b98849e6912911f448af3209cf099834, type: 3}
+    bottomSprite: {fileID: 21300000, guid: 697ac292ae9858441bf54e1088e0677e, type: 3}
+  - topSprite: {fileID: 21300000, guid: c20d4d94c9931634f8eba716792d6c37, type: 3}
+    middleSprite: {fileID: -382089831, guid: 1d153fc5f6943954382b9818d5280000, type: 3}
+    bottomSprite: {fileID: 21300000, guid: 3453382895c50c04fa55bc8dfd926af2, type: 3}
+  - topSprite: {fileID: 21300000, guid: eb93eba7ae2e2e749b082ec38d75f368, type: 3}
+    middleSprite: {fileID: 21300000, guid: 73ea28acf9edb8c43a64c64b06fe6089, type: 3}
+    bottomSprite: {fileID: 21300000, guid: 0c66fd087dcd14140abfb7211ab96c9a, type: 3}
+  - topSprite: {fileID: 21300000, guid: 398edab949ad9174891e1636961bc906, type: 3}
+    middleSprite: {fileID: 21300000, guid: 96665b4e34cc56844ad38d4ecee0ceb8, type: 3}
+    bottomSprite: {fileID: 21300000, guid: b2011049766fc9443abb18eaab994a4f, type: 3}
+  - topSprite: {fileID: 21300000, guid: 279401419f1fcb6468e178f5c859b0e8, type: 3}
+    middleSprite: {fileID: 21300000, guid: 94537e9b0715c2e4a935cfebb202e3ed, type: 3}
+    bottomSprite: {fileID: 21300000, guid: 7de5856a2be1770419c26f4acf448055, type: 3}
