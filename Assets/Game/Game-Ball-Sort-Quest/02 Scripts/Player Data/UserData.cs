@@ -17,7 +17,7 @@ namespace BallSortQuest
         public int BoosterRevokeNumber;
         public int BoosterAddNumber;
         public int CoinNumber;
-        public int StepToReachSpecialLevel;
+        //public int StepToReachSpecialLevel;
         public int ProcessValue;
         public int CurrentBackgroundIndex;
         public int CurrentTubeIndex;
@@ -43,7 +43,7 @@ namespace BallSortQuest
             Debug.Log("InitUserDataValue");
             HighestLevel = 0;
             HighestChallengeLevel = 0;
-            StepToReachSpecialLevel = 1;
+            //StepToReachSpecialLevel = 1;
             HiddenState = ChallengeState.InComplete;
             TimerState = ChallengeState.InComplete;
             MoveState = ChallengeState.InComplete;
@@ -74,11 +74,11 @@ namespace BallSortQuest
                     //Update highest level (increment)
                     this.HighestLevel++;
                     //Update step to reach special level(increment)
-                    this.StepToReachSpecialLevel = (this.StepToReachSpecialLevel + 1) % DataManager.Instance.StepToReachSpecialLevel;
-                    if (this.StepToReachSpecialLevel == 0)
-                    {
-                        UnityEngine.Debug.Log("Special level");
-                    }
+                    //this.StepToReachSpecialLevel = (this.StepToReachSpecialLevel + 1) % DataManager.Instance.StepToReachSpecialLevel;
+                    //if (this.StepToReachSpecialLevel == 0)
+                    //{
+                     //   UnityEngine.Debug.Log("Special level");
+                    //}
 
                     //Update process value
                     this.ProcessValue += BallSortQuest.DataManager.Instance.ProcessIncrementValue;

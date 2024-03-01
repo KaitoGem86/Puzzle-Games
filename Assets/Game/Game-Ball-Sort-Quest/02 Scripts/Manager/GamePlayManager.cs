@@ -119,7 +119,7 @@ namespace BallSortQuest
         {
             int tubeNumber = _gameManager.Level.tube;
             int slotTube = _gameManager.Level.tubeSlot;
-            _isSpecialLevel = _gameManager.Level.level != 1 && PlayerData.UserData.StepToReachSpecialLevel == 0 && _gameManager.GameModeController.CurrentGameMode == TypeChallenge.None;
+            _isSpecialLevel = LevelUtil.IsLevelHidden(_gameManager.Level.level) && _gameManager.GameModeController.CurrentGameMode == TypeChallenge.None;
             int index = 0;
             if (tubeNumber > _tubeHorizonlMax)
             {
