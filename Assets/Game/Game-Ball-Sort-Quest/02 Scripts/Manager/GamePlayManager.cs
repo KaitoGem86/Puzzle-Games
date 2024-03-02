@@ -158,9 +158,14 @@ namespace BallSortQuest
                 List<BallData> dataBalls = new List<BallData>();
                 for (int j = 0; j < slotTube; j++)
                 {
+                    Debug.Log($"Index: {index}");
                     if (index >= _gameManager.Level.data.Count)
                     {
                         return dataBalls;
+                    }
+                    if(_gameManager.Level.data[index] < 0){
+                        index++;
+                        continue;
                     }
                     //BallData data = _gameManager.Datamanager.BallDataSO.getBallData(_gameManager.Level.data[index]);
                     BallData data = _gameManager.Datamanager.ListBallDataSO.BallDatas[PlayerData.UserData.CurrentBallIndex].getBallData(_gameManager.Level.data[index]);
