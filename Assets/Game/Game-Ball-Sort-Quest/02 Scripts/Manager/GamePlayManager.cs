@@ -24,6 +24,7 @@ namespace BallSortQuest
         [SerializeField] bool _canClickTube = true;
         private int _cdAddTube;
         private bool _isSpecialLevel = false;
+        private HandController _handController;
         private List<KeyValuePair<TubeController, TubeController>> _prevTube = new List<KeyValuePair<TubeController, TubeController>>();
 
         #region Unity Method
@@ -184,8 +185,8 @@ namespace BallSortQuest
             if (_gameManager.Level.level == 1)
             {
                 Debug.Log("Active Hand Tutorial");
-                var hand = SimplePool.Spawn(_handPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-                hand.GetComponent<HandController>().Init(_tubes);
+                _handController = SimplePool.Spawn(_handPrefab, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<HandController>();
+                _handController.Init(_tubes);
             }
         }
 
@@ -309,12 +310,17 @@ namespace BallSortQuest
                 // Debug.Log(newTube.name);
                 _hodingTube = newTube;
                 newTube.GetLastBall().StartMove(newTube, true);
+                if(_gameManager.Level.level == 1){
+                    _handController.OnClickTube();   
+                }
             }
             else
             {
                 if (_hodingTube.Equals(newTube)) // cành đang giữ == cành mới 
                 {
                     //   Debug.Log(newTube.name);
+                    if(_gameManager.Level.level == 1)
+                        return;
                     newTube.GetLastBall().StartMove(newTube, false, newTube.Balls.Count - 1);
                     // foreach (var ball in newTube.GetCanMoveBalls())
                     // {
@@ -338,6 +344,9 @@ namespace BallSortQuest
 
                         SortBall(_hodingTube, newTube, OnMoveComplete);
                         _hodingTube = null;
+                        if(_gameManager.Level.level == 1){
+                            _handController.OnClickTube();
+                        }
                     }
                 }
             }
