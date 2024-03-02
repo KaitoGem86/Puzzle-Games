@@ -21063,6 +21063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tubePrefab: {fileID: 9139621216133895327, guid: c1dd51592298f9b4cbf0fa99542a994f, type: 3}
+  _handPrefab: {fileID: 1670728143253172, guid: a3672dbdc1ed37045a9956197bfefae8, type: 3}
   _tubes: []
   _hodingTube: {fileID: 0}
   _minCamSize: 12

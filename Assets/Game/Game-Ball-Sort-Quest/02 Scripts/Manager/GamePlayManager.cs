@@ -10,6 +10,7 @@ namespace BallSortQuest
     {
         [Header("REFFERENCE")]
         [SerializeField] GameObject _tubePrefab;
+        [SerializeField] GameObject _handPrefab;
         private Camera _camera;
         private GameManager _gameManager;
         [SerializeField] List<TubeController> _tubes = new List<TubeController>();
@@ -45,6 +46,8 @@ namespace BallSortQuest
             Init();
 
             InitScreen();
+
+            ActiveHandTutorial();
         }
 
         // Update is called once per frame
@@ -158,12 +161,12 @@ namespace BallSortQuest
                 List<BallData> dataBalls = new List<BallData>();
                 for (int j = 0; j < slotTube; j++)
                 {
-                    Debug.Log($"Index: {index}");
                     if (index >= _gameManager.Level.data.Count)
                     {
                         return dataBalls;
                     }
-                    if(_gameManager.Level.data[index] < 0){
+                    if (_gameManager.Level.data[index] < 0)
+                    {
                         index++;
                         continue;
                     }
@@ -173,6 +176,16 @@ namespace BallSortQuest
                     index++;
                 }
                 return dataBalls;
+            }
+        }
+
+        private void ActiveHandTutorial()
+        {
+            if (_gameManager.Level.level == 1)
+            {
+                Debug.Log("Active Hand Tutorial");
+                var hand = SimplePool.Spawn(_handPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                hand.GetComponent<HandController>().Init(_tubes);
             }
         }
 
