@@ -12,7 +12,8 @@ namespace BallSortQuest
         private TwoStateElement _soundSetting;
         private TwoStateElement _vibrateSetting;
 
-        public void Show(){
+        public void Show()
+        {
             base.Show();
             GameManager.Instance.StateGameController.OnMenu();
             _soundSetting ??= new TwoStateElement(_soundSettingButton);
@@ -21,70 +22,110 @@ namespace BallSortQuest
             _vibrateSetting.SetState(PlayerData.UserData.IsVibrateOn);
         }
 
-        public void Close(){
+        public void Close()
+        {
             base.Hide();
             GameManager.Instance.StateGameController.Playing();
         }
 
-        public void OnSoundSettingClick(){
+        public void OnSoundSettingClick()
+        {
             _soundSetting.SetState(!PlayerData.UserData.IsSoundOn);
             PlayerData.UserData.IsSoundOn = !PlayerData.UserData.IsSoundOn;
         }
 
-        public void OnVibrateSettingClick(){
+        public void OnVibrateSettingClick()
+        {
             _vibrateSetting.SetState(!PlayerData.UserData.IsVibrateOn);
             PlayerData.UserData.IsVibrateOn = !PlayerData.UserData.IsVibrateOn;
             if (PlayerData.UserData.IsVibrateOn)
                 Handheld.Vibrate();
         }
 
-        public void OnOpenShopButtonClick(){
+        public void OnLanguageSettingClick()
+        {
+            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+        }
+
+        public void OnOpenStageMenu()
+        {
+            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+        }
+
+        public void OnOpenShopButtonClick()
+        {
             PopupManager.CreateNewInstance<ShopPanel>().Show();
         }
 
-        public void OnEvaluateButtonClick(){
+        public void OnEvaluateButtonClick()
+        {
             //DO SOMETHING
             Debug.Log("Evaluate");
+            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+
         }
 
-        public void OnHelpButtonClick(){
+        public void OnHelpButtonClick()
+        {
             //DO SOMETHING
             Debug.Log("Help");
+            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+
         }
 
-        public void OnGoToFaceBook(){
+        public void OnGoToFaceBook()
+        {
             //DO SOMETHING
             Debug.Log("GoToFaceBook");
+            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
         }
 
-        public void OnAchivementButtonClick(){
+        public void OnAchivementButtonClick()
+        {
             //DO SOMETHING
             Debug.Log("Achivement");
+            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+
         }
 
-        public void OnInfoButtonClick(){
+        public void OnInfoButtonClick()
+        {
             //DO SOMETHING
             Debug.Log("Info");
+            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+
         }
 
-        public void OnMoreGameButtonClick(){
+        public void OnMoreGameButtonClick()
+        {
             //DO SOMETHING
             Debug.Log("MoreGame");
+            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+
         }
 
-        public void OnSharedButtonClick(){
+        public void OnSharedButtonClick()
+        {
             //DO SOMETHING
             Debug.Log("Shared");
+            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+
         }
 
-        public void OnColorBlindModeButtonClick(){
+        public void OnColorBlindModeButtonClick()
+        {
             //DO SOMETHING
             Debug.Log("ColorBlindMode");
+            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+
         }
 
-        public void OnRemoveAdsButtonClick(){
+        public void OnRemoveAdsButtonClick()
+        {
             //DO SOMETHING
             Debug.Log("RemoveAds");
+            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+
         }
     }
 }
