@@ -26,7 +26,7 @@ namespace BallSortQuest
         [SerializeField] SpriteRenderer _bottomSpr;
         [SerializeField] SpriteRenderer _middleSpr;
         [SerializeField] SpriteRenderer _topSpr;
-        [SerializeField] SpriteRenderer _baseOfTubeSpr;
+        //[SerializeField] SpriteRenderer _baseOfTubeSpr;
         [SerializeField] Transform _spwanTrans;
         [SerializeField] private ParticleSystem _particle;
         [Space(10)]
@@ -52,13 +52,13 @@ namespace BallSortQuest
             _width = _avaterSpr.bounds.size.x;
             _height = _avaterSpr.bounds.size.y;
             //   Debug.LogError($"Width Tube: {_width}--- Height Tube: {_height}");
-            _defaultBasePivot = _baseOfTubeSpr.transform.localPosition;
-            _defaultMiddlePivot = _middleSpr.transform.localPosition;
+            //_defaultBasePivot = _baseOfTubeSpr.transform.localPosition;
+            //_defaultMiddlePivot = _middleSpr.transform.localPosition;
         }
 
         private void OnEnable()
         {
-            ActionEvent.OnSelectShopTube += SetSprite;
+            ActionEvent.OnSelectShopTube += OnSelectTubeOnShop;
         }
 
         private void Reset()
@@ -76,7 +76,7 @@ namespace BallSortQuest
         private void OnDisable()
         {
             Reset();
-            ActionEvent.OnSelectShopTube -= SetSprite;
+            ActionEvent.OnSelectShopTube -= OnSelectTubeOnShop;
         }
 
         private void OnMouseDown()
@@ -116,12 +116,17 @@ namespace BallSortQuest
 
         public void SetSprite(){
             _data = DataManager.Instance.TubeDatas.tubeSpriteDatas[PlayerData.UserData.CurrentTubeIndex];
-            _baseOfTubeSpr.sprite = _data.baseOfTubeSprite;
+            //_baseOfTubeSpr.sprite = _data.baseOfTubeSprite;
             _bottomSpr.sprite = _data.bottomSprite;
             _middleSpr.sprite = _data.middleSprite;
+            _middleSpr.size = new Vector2(_data.middleSprite.textureRect.width, _data.middleSprite.textureRect.height) / _data.middleSprite.pixelsPerUnit;
             _topSpr.sprite = _data.topSprite;
-            _middleSpr.transform.localPosition = _defaultMiddlePivot + _data.middleSpriteOffset;
-            _baseOfTubeSpr.transform.localPosition = _defaultBasePivot + _data.bottomSpriteOffset;
+            //_baseOfTubeSpr.transform.localPosition = _defaultBasePivot + _data.bottomSpriteOffset;
+        }
+
+        private void OnSelectTubeOnShop(){
+            SetSprite();
+            SetHeightOfTube();
         }
 
         public void SetPosition(Vector2 target)
@@ -150,7 +155,7 @@ namespace BallSortQuest
 
             //_bottomSpr.transform.localPosition = _defaultBasePivot + _data.bottomSpriteOffset;
             var size = _middleSpr.size;
-            size.y = _heightOfASlot * (_slot - 1);
+            size.y = _heightOfASlot * (_slot + 1);
             _middleSpr.size = size;
             //_middleSpr.transform.localPosition = _defaultMiddlePivot + _data.middleSpriteOffset;
             _topSpr.transform.localPosition = new Vector3(0, size.y);

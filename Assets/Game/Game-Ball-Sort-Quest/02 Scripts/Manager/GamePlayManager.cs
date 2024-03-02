@@ -10,6 +10,7 @@ namespace BallSortQuest
     {
         [Header("REFFERENCE")]
         [SerializeField] GameObject _tubePrefab;
+        [SerializeField] GameObject _handPrefab;
         private Camera _camera;
         private GameManager _gameManager;
         [SerializeField] List<TubeController> _tubes = new List<TubeController>();
@@ -23,6 +24,7 @@ namespace BallSortQuest
         [SerializeField] bool _canClickTube = true;
         private int _cdAddTube;
         private bool _isSpecialLevel = false;
+        private HandController _handController;
         private List<KeyValuePair<TubeController, TubeController>> _prevTube = new List<KeyValuePair<TubeController, TubeController>>();
 
         #region Unity Method
@@ -45,6 +47,8 @@ namespace BallSortQuest
             Init();
 
             InitScreen();
+
+            ActiveHandTutorial();
         }
 
         // Update is called once per frame
@@ -119,7 +123,7 @@ namespace BallSortQuest
         {
             int tubeNumber = _gameManager.Level.tube;
             int slotTube = _gameManager.Level.tubeSlot;
-            _isSpecialLevel = _gameManager.Level.level != 1 && PlayerData.UserData.StepToReachSpecialLevel == 0 && _gameManager.GameModeController.CurrentGameMode == TypeChallenge.None;
+            _isSpecialLevel = LevelUtil.IsLevelHidden(_gameManager.Level.level) && _gameManager.GameModeController.CurrentGameMode == TypeChallenge.None;
             int index = 0;
             if (tubeNumber > _tubeHorizonlMax)
             {
@@ -162,12 +166,27 @@ namespace BallSortQuest
                     {
                         return dataBalls;
                     }
+                    if (_gameManager.Level.data[index] < 0)
+                    {
+                        index++;
+                        continue;
+                    }
                     //BallData data = _gameManager.Datamanager.BallDataSO.getBallData(_gameManager.Level.data[index]);
                     BallData data = _gameManager.Datamanager.ListBallDataSO.BallDatas[PlayerData.UserData.CurrentBallIndex].getBallData(_gameManager.Level.data[index]);
                     dataBalls.Add(data);
                     index++;
                 }
                 return dataBalls;
+            }
+        }
+
+        private void ActiveHandTutorial()
+        {
+            if (_gameManager.Level.level == 1)
+            {
+                Debug.Log("Active Hand Tutorial");
+                _handController = SimplePool.Spawn(_handPrefab, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<HandController>();
+                _handController.Init(_tubes);
             }
         }
 
@@ -291,12 +310,17 @@ namespace BallSortQuest
                 // Debug.Log(newTube.name);
                 _hodingTube = newTube;
                 newTube.GetLastBall().StartMove(newTube, true);
+                if(_gameManager.Level.level == 1){
+                    _handController.OnClickTube();   
+                }
             }
             else
             {
                 if (_hodingTube.Equals(newTube)) // cành đang giữ == cành mới 
                 {
                     //   Debug.Log(newTube.name);
+                    if(_gameManager.Level.level == 1)
+                        return;
                     newTube.GetLastBall().StartMove(newTube, false, newTube.Balls.Count - 1);
                     // foreach (var ball in newTube.GetCanMoveBalls())
                     // {
@@ -320,6 +344,9 @@ namespace BallSortQuest
 
                         SortBall(_hodingTube, newTube, OnMoveComplete);
                         _hodingTube = null;
+                        if(_gameManager.Level.level == 1){
+                            _handController.OnClickTube();
+                        }
                     }
                 }
             }
