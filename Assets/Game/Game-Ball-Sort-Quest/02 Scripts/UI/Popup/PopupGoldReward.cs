@@ -9,16 +9,22 @@ using UnityEngine.UI;
 namespace BallSortQuest{
     public class PopupGoldReward : BasePopup{
         [Header("Popup Elements")]
-        [SerializeField] private TMP_Text _labelText;
+        
         [SerializeField] private TMP_Text _timerText;
         [SerializeField] private GameObject _rewardImage;
         [SerializeField] private Image _chestImage;
-        [SerializeField] private TMP_Text _buttonLabel;
+        
         [SerializeField] private TMP_Text _goldText;
 
         [Space, Header("Resource Elements")]
         [SerializeField] private Sprite _openChestSprite;
         [SerializeField] private Sprite _closeChestSprite;
+
+        [Space, Header("Text Elements")]
+        [SerializeField] private TMP_Text _labelText;
+        [SerializeField] private TMP_Text _timeLabelText;
+        [SerializeField] private TMP_Text _buttonLabel;
+        [SerializeField] private TMP_Text _adsRewardText;
 
         private TimeSpan _timer;
         private bool _isCanGetReward;
@@ -32,6 +38,7 @@ namespace BallSortQuest{
 
         public void Show(DateTime time){
             base.Show();
+            SetDisplayText();
             GameManager.Instance.StateGameController.OnMenu();
             //_labelText.text = "Bạn đã hoàn thành màn chơi";
             _timer = time - DateTime.Parse(PlayerData.UserData.LastTimeGetReward);
@@ -113,6 +120,12 @@ namespace BallSortQuest{
                 yield return new WaitForSeconds(1);
             }
             
+        }
+
+        private void SetDisplayText(){
+            _labelText.text = "Phần thưởng vàng";
+            _timeLabelText.text = "Thời gian còn lại";
+            _adsRewardText.text = "Xem quảng cáo và nhận thưởng";
         }
     }
 }

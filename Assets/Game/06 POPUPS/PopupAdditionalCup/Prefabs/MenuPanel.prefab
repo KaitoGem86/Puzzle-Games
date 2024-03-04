@@ -2208,7 +2208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "C\xE0i \u0111\u1EB7t"
+  m_text: SETTINGs
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5618,6 +5618,19 @@ MonoBehaviour:
   hideAnimationClip: {fileID: 7400000, guid: 0c1dc3dc31e7fd5419a0941c1bb5d4e7, type: 2}
   _soundSettingButton: {fileID: 6612831119822008522}
   _vibrateSettingButton: {fileID: 6612831121069818147}
+  _stageText: {fileID: 6612831120275613389}
+  _shopText: {fileID: 6612831121637721066}
+  _rewardText: {fileID: 6612831121523671867}
+  _evaluateText: {fileID: 6612831121349242684}
+  _helpText: {fileID: 6612831121034655070}
+  _achivementText: {fileID: 6612831121656492160}
+  _infoText: {fileID: 6612831120639600547}
+  _shareText: {fileID: 6612831119862534436}
+  _colorBlindModeText: {fileID: 6612831120482839103}
+  _removeAdsText: {fileID: 6612831121436503273}
+  _soundText: {fileID: 6612831121256231488}
+  _vibrateText: {fileID: 6612831119846594256}
+  _languageText: {fileID: 6612831120696942654}
 --- !u!1 &6612831121767799062
 GameObject:
   m_ObjectHideFlags: 0

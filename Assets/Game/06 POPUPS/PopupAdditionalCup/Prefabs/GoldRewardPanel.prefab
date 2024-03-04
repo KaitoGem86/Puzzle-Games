@@ -2458,14 +2458,17 @@ MonoBehaviour:
   wasPlayAnim: 0
   showAnimationClip: {fileID: 7400000, guid: e40a885b5b7665d4597a31a47c4144be, type: 2}
   hideAnimationClip: {fileID: 7400000, guid: 0c1dc3dc31e7fd5419a0941c1bb5d4e7, type: 2}
-  _labelText: {fileID: 321649232041695077}
   _timerText: {fileID: 8477873600242194307}
   _rewardImage: {fileID: 886313633269671566}
   _chestImage: {fileID: 6153238435597904624}
-  _buttonLabel: {fileID: 1101113873947270770}
   _goldText: {fileID: 8445455234820623081}
   _openChestSprite: {fileID: 21300000, guid: 5585386b627d11441a3442498888e90f, type: 3}
   _closeChestSprite: {fileID: 21300000, guid: 0ee090efecd430d4682f46b4b3fd23c6, type: 3}
+  _labelText: {fileID: 2984507907470703409}
+  _timeLabelText: {fileID: 321649232041695077}
+  _acceptText: {fileID: 0}
+  _buttonLabel: {fileID: 1101113873947270770}
+  _adsRewardText: {fileID: 8300298303947289331}
 --- !u!1 &8300298304096180622
 GameObject:
   m_ObjectHideFlags: 0
