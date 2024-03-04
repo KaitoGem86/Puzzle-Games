@@ -76,6 +76,9 @@ namespace BallSortQuest
             if (!_isPurchase)
                 return;
             //_listShopITemController.SetSelected(this);
+            _listShopITemController.SetSelected(this);
+            // _highlightBorder.SetActive(true);
+            // _selectedPin.SetActive(true);
             PlayerData.UserData.SelectShop(_listShopITemController.CurrentShopBoardType, _id);
         }
     }

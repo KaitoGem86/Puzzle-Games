@@ -47,19 +47,9 @@ namespace BallSortQuest
 
         public void Close()
         {
-            base.Hide();
             StopCoroutine(GetRandomPurchasedItem());
+            base.Hide();
         }
-
-        // public void OnMarketNavigateButtonClick()
-        // {
-        //     //_marketButton.SetState(true);
-        //     _backgroundButton.SetState(false);
-        //     _tubeButton.SetState(false, true);
-        //     _ballButton.SetState(false, true);
-        //     _marketBoard.SetActive(true);
-        //     _listSlideBoard.SetActive(false);
-        // }
 
         public void OnTubeNavigateButtonClick()
         {
