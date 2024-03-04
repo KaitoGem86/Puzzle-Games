@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Backgrounds
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 1
+      enableAlphaDilation: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 67a6ceed32f84384490bcd6c3042d69c, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: a63bc910a0491dc418c41d016b7e8f24, type: 3}
+  - {fileID: 21300000, guid: 84f0a580d19dbef44a8ef8047d0ab9da, type: 3}
+  - {fileID: 21300000, guid: e65ff4234ed5b0e4fbf5e65bca226dbd, type: 3}
+  - {fileID: 21300000, guid: 1b2780c3d06da78409131c2883268a4b, type: 3}
+  - {fileID: 21300000, guid: 69ec8b2639e6ea74d88bacc62cbacf5e, type: 3}
+  - {fileID: 21300000, guid: c6b1771a5315cdb4385e3de0c862ed45, type: 3}
+  - {fileID: 21300000, guid: ad2ec90eecc6b8343abc958bbedebf94, type: 3}
+  - {fileID: 21300000, guid: a094c5ae0f8e7824d9edd8855ae64b74, type: 3}
+  - {fileID: 21300000, guid: 2c7ea62ffa07bfa4e92625ddf4816764, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Ui_Shop_Theme09_B
+  - Ui_Shop_Theme02_B
+  - Ui_Shop_Theme04_B
+  - Ui_Shop_Theme05_B
+  - Ui_Shop_Theme03_B
+  - Ui_Shop_Theme01_B
+  - Ui_Shop_Theme06_B
+  - Ui_Shop_Theme07_B
+  - Ui_Shop_Theme08_B
+  m_RenderDataMap: {}
+  m_Tag: Backgrounds
+  m_IsVariant: 0

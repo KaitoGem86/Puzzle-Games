@@ -71,7 +71,7 @@ namespace BallSortQuest
 
         public void OnOpenShopButtonClick()
         {
-            PopupManager.CreateNewInstance<ShopPanel>().Show();
+            PopupManager.CreateNewInstance<ShopPanel1>().Show();
         }
 
         public void OnEvaluateButtonClick()
