@@ -79,6 +79,17 @@ namespace BallSortQuest
                 Debug.Log("All item purchased");
                 yield break;
             }
+            else if (purchasedData.GetPurchasedIndexs(_currentShopBoardType).Count == _shopItems.Count - 1)
+            {
+                int randomItemIndex = Random.Range(0, _shopItems.Count);
+                while (purchasedData.GetPurchasedIndexs(_currentShopBoardType).Contains(randomItemIndex))
+                {
+                    randomItemIndex = (randomItemIndex + 1) % _shopItems.Count;
+                }
+                var randomItem = _shopItems[randomItemIndex];
+                PlayerData.UserData.AddPurchaseData(_currentShopBoardType, randomItemIndex);
+                randomItem.Purchased();
+            }
             else
             {
                 int randomItemIndex = Random.Range(0, _shopItems.Count);
