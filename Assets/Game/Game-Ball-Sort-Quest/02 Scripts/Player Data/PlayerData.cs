@@ -52,11 +52,9 @@ namespace BallSortQuest
         public static void SaveUserData()
         {
             string saveData = JsonUtility.ToJson(UserData);
-            Debug.LogError("SaveData: " + saveData);
             PlayerPrefs.SetString(Const.KEY_USER_DATA, saveData);
             {
                 File.WriteAllText(path, saveData);
-                Debug.LogError("Save");
             }
         }
 

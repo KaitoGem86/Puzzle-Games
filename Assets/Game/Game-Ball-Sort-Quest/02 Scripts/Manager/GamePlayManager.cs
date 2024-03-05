@@ -150,7 +150,6 @@ namespace BallSortQuest
             else
             {
                 _spaceHorizontal = (_tubeHorizonlMax / tubeNumber) * getDistance(tubeNumber);
-                Debug.Log($"Space Horizontal: {_spaceHorizontal}");
                 for (int i = 0; i < tubeNumber; i++)
                 {
                     SpwanTube(i, 0f, slotTube, getBallDatas(), _isSpecialLevel);

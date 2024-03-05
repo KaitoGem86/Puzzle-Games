@@ -50,7 +50,6 @@ namespace BallSortQuest
             _isOpenAds = quantity < -1;
             PlayerData.UserData.UpdateValueBooster(this.Type, quantity - PlayerData.UserData.BoosterAddNumber);
             base.DisplayBooster(PlayerData.UserData.BoosterAddNumber);
-            Debug.Log("Quantity: " + PlayerData.UserData.BoosterAddNumber);
         }
     }
 }
