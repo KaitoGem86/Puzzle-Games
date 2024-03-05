@@ -95,10 +95,10 @@ public class FirebaseManager : SingletonMonoBehaviour<FirebaseManager>
             {
                 Debug.Log($"{TAG}: Read remote config...");
                 FirebaseRemoteConfig.DefaultInstance.ActivateAsync();
-                AppConfig.Instance.BannerAdLevel = GetFetchIntValue("banner_ad_level", AppConfig.Instance.BannerAdLevel);
-                AppConfig.Instance.InterAdLevel = GetFetchIntValue("interstitial_ad_level", AppConfig.Instance.InterAdLevel);            }
-                AppConfig.Instance.InterFrequencyTime = GetFetchIntValue("interstitial_frequency_time", AppConfig.Instance.InterFrequencyTime);
-                AppConfig.Instance.IsShowInterWithClosePopupRemoveAds = GetFetchBoolValue("is_show_interstitial_with_close_popup_remove_ads", AppConfig.Instance.IsShowInterWithClosePopupRemoveAds);
+                AppConfig.Instance.BannerAdLevel = GetFetchIntValue(Const.KEY_BANNER_AD_LEVEL, AppConfig.Instance.BannerAdLevel);
+                AppConfig.Instance.InterAdLevel = GetFetchIntValue(Const.KEY_INTER_AD_LEVEL, AppConfig.Instance.InterAdLevel);            }
+                AppConfig.Instance.InterFrequencyTime = GetFetchIntValue(Const.KEY_INTER_FREQUENCY_TIME, AppConfig.Instance.InterFrequencyTime);
+                AppConfig.Instance.IsShowInterWithClosePopupRemoveAds = GetFetchBoolValue(Const.KEY_INTER_AD_CLOSE_POPUP_REMOVE_ADS, AppConfig.Instance.IsShowInterWithClosePopupRemoveAds);
         });
     }
 
