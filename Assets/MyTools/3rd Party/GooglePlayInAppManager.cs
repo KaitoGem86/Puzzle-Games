@@ -16,7 +16,7 @@ public class GooglePlayInAppManager : SingletonMonoBehaviour<GooglePlayInAppMana
 
     public void Review()
     {
-       // Debug.Log("[IN-APP REVIEW]: Review");
+        Debug.Log("[IN-APP REVIEW]: Review");
         StartCoroutine(RequestReviews());
     }
 
@@ -35,7 +35,7 @@ public class GooglePlayInAppManager : SingletonMonoBehaviour<GooglePlayInAppMana
 
         if (requestFlowOperation.Error != ReviewErrorCode.NoError)
         {
-          //  Debug.LogWarning($"[IN-APP REVIEW] Request Error: {requestFlowOperation.Error}!"); ;
+            Debug.LogWarning($"[IN-APP REVIEW] Request Error: {requestFlowOperation.Error}!"); ;
             yield break;
         }
 
@@ -48,7 +48,7 @@ public class GooglePlayInAppManager : SingletonMonoBehaviour<GooglePlayInAppMana
 
         if (launchFlowOperation.Error != ReviewErrorCode.NoError)
         {
-           // Debug.LogWarning($"[IN-APP REVIEW] Launch Error: {launchFlowOperation.Error}!"); ;
+            Debug.LogWarning($"[IN-APP REVIEW] Launch Error: {launchFlowOperation.Error}!"); ;
             yield break;
         }
     }
