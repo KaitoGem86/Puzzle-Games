@@ -27,8 +27,8 @@ namespace BallSortQuest
         [SerializeField] private TMP_Text _moveQuestText;
         [SerializeField] private TMP_Text _rewardAllText;
 
-        private TwoStateElement _dailyButton;
-        private TwoStateElement _endlessButton;
+        //private TwoStateElement _dailyButton;
+        //private TwoStateElement _endlessButton;
         private TwoStateElement _hiddenIcon;
         private TwoStateElement _timerIcon;
         private TwoStateElement _moveIcon;
@@ -38,8 +38,8 @@ namespace BallSortQuest
         public override void Awake()
         {
             base.Awake();
-            _dailyButton = new TwoStateElement(_dailyButtonObject);
-            _endlessButton = new TwoStateElement(_endlessButtonObject);
+            //_dailyButton = new TwoStateElement(_dailyButtonObject);
+            //_endlessButton = new TwoStateElement(_endlessButtonObject);
             _timerIcon ??= new TwoStateElement(_timerRoot);
             _hiddenIcon ??= new TwoStateElement(_hiddenRoot);
             _moveIcon ??= new TwoStateElement(_moveRoot);
@@ -62,9 +62,9 @@ namespace BallSortQuest
         }
 
         public void OpenDailyChallengeSheet(){
-            _dailyButton.SetState(true);
-            _endlessButton.SetState(false);
-            _dailySheet.gameObject.SetActive(true);
+            //_dailyButton.SetState(true);
+            //_endlessButton.SetState(false);
+            //_dailySheet.gameObject.SetActive(true);
         }
 
         public void OpenEndlessChallengeSheet(){
