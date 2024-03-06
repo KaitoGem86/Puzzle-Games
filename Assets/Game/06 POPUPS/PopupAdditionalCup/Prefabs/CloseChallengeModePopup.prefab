@@ -386,6 +386,8 @@ MonoBehaviour:
   showAnimationClip: {fileID: 7400000, guid: e40a885b5b7665d4597a31a47c4144be, type: 2}
   hideAnimationClip: {fileID: 7400000, guid: 0c1dc3dc31e7fd5419a0941c1bb5d4e7, type: 2}
   _notiText: {fileID: 6161697554957744643}
+  _acceptText: {fileID: 6161697555169822033}
+  _cancelText: {fileID: 6161697555504234058}
 --- !u!1 &6161697555169822035
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,6 +54,7 @@ namespace BallSortQuest
             //   Debug.LogError($"Width Tube: {_width}--- Height Tube: {_height}");
             //_defaultBasePivot = _baseOfTubeSpr.transform.localPosition;
             //_defaultMiddlePivot = _middleSpr.transform.localPosition;
+            _heightOfASlot = _middleSpr.size.y;
         }
 
         private void OnEnable()
@@ -155,7 +156,7 @@ namespace BallSortQuest
 
             //_bottomSpr.transform.localPosition = _defaultBasePivot + _data.bottomSpriteOffset;
             var size = _middleSpr.size;
-            size.y = _heightOfASlot * (_slot + 1);
+            size.y = _heightOfASlot * (_slot - 2);
             _middleSpr.size = size;
             //_middleSpr.transform.localPosition = _defaultMiddlePivot + _data.middleSpriteOffset;
             _topSpr.transform.localPosition = new Vector3(0, size.y);

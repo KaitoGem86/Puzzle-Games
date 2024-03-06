@@ -22,6 +22,13 @@
     public const string HINT = "HINT";
     #endregion
 
+    #region Firebase Remote Config
+    public const string KEY_BANNER_AD_LEVEL = "banner_ad_level";
+    public const string KEY_INTER_AD_LEVEL = "inter_ad_level";
+    public const string KEY_INTER_FREQUENCY_TIME = "inter_frequency_time";
+    public const string KEY_INTER_AD_CLOSE_POPUP_REMOVE_ADS = "inter_ad_close_popup_remove_ads";
+    #endregion
+
     #region Intro Game
     public const string SHOW_INTRO_GAME = "SHOW_INTRO_GAME";
     #endregion

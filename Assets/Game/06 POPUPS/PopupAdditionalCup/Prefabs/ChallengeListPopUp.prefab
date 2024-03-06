@@ -6426,6 +6426,14 @@ MonoBehaviour:
   _timerRoot: {fileID: 1816025809306149015}
   _moveRoot: {fileID: 8402025576215148975}
   _rewardAllButton: {fileID: 5056129640798904909}
+  _dailyQuestText1: {fileID: 7038060721258747193}
+  _dailyQuestText2: {fileID: 7674755326038300816}
+  _endlessQuestText1: {fileID: 5323325682545215742}
+  _endlessQuestText2: {fileID: 184900249638381824}
+  _hiddenQuestText: {fileID: 6477189227002185597}
+  _timeQuestText: {fileID: 1520790365312842934}
+  _moveQuestText: {fileID: 714881550138668306}
+  _rewardAllText: {fileID: 3394134943305790986}
 --- !u!1 &8653532706379224136
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,15 @@ namespace BallSortQuest
         [SerializeField] private Transform _timerRoot;
         [SerializeField] private Transform _moveRoot;
         [SerializeField] private AnimButton _rewardAllButton;
+        [Space, Header("Text Ref")]
+        [SerializeField] private TMP_Text _dailyQuestText1;
+        [SerializeField] private TMP_Text _dailyQuestText2;
+        [SerializeField] private TMP_Text _endlessQuestText1;
+        [SerializeField] private TMP_Text _endlessQuestText2;
+        [SerializeField] private TMP_Text _hiddenQuestText;
+        [SerializeField] private TMP_Text _timeQuestText;
+        [SerializeField] private TMP_Text _moveQuestText;
+        [SerializeField] private TMP_Text _rewardAllText;
 
         private TwoStateElement _dailyButton;
         private TwoStateElement _endlessButton;
@@ -41,6 +50,7 @@ namespace BallSortQuest
         public void Show(){
             base.Show();
             UpdateTextCoin();
+            SetText();
             OpenDailyChallengeSheet();
             UpdatePanelRewardCompleteAll();
             _dailySheet.InitChallengeElements();
@@ -83,6 +93,17 @@ namespace BallSortQuest
 
         private void UpdateTextCoin(){
             _coinText.text = PlayerData.UserData.CoinNumber.ToString();
+        }
+
+        private void SetText(){
+            _dailyQuestText1.text = "Nhiệm vụ hàng ngày";
+            _dailyQuestText2.text = "Nhiệm vụ hàng ngày";
+            _endlessQuestText1.text = "Chế độ cạnh tranh vô tận";
+            _endlessQuestText2.text = "Chế độ cạnh tranh vô tận";
+            _hiddenQuestText.text = "Nhiệm vụ Ẩn";
+            _timeQuestText.text = "Nhiệm vụ Thời Gian";
+            _moveQuestText.text = "Nhiệm vụ Di Chuyển";
+            _rewardAllText.text = "Phần thưởng hoàn thành tất cả";
         }
     }
 
