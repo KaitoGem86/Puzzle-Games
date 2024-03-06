@@ -14,14 +14,13 @@ namespace BallSortQuest
         [Space, Header("PopUp Elements")]
         [SerializeField] private GameObject _firstGroupButton;
         [SerializeField] private GameObject _secondGroupButton;
-        [SerializeField] private GameObject[] _stars = new GameObject[3];
         [SerializeField] private TMP_Text _textCoins;
         [SerializeField] private Image _processBar;
         [SerializeField] private Image _chest;
         [SerializeField] private GameObject _rewardCoin;
         [SerializeField] private TMP_Text _processText;
-        [SerializeField] private GameObject _completeProcessGroup;
-        [SerializeField] private GameObject _unCompleteProcessGroup;
+        //[SerializeField] private GameObject _completeProcessGroup;
+        //[SerializeField] private GameObject _unCompleteProcessGroup;
 
         //Will be replace by animation
         [Space, Header("Resource")]
@@ -33,25 +32,23 @@ namespace BallSortQuest
         public void Show()
         {
             base.Show();
-            
-            ActiveStar(3, 0.5f);
             UpdateTextCoin();
             // Delay after activate 3 stars
-            UpdateProcessBar(1.5f);
+            UpdateProcessBar(0.5f);
             // Set Chest's State
             SetChestState(false);
             _secondGroupButton.SetActive(false);
             _firstGroupButton.SetActive(false);
             if (_isCanCollectReward)
             {
-                _completeProcessGroup.SetActive(true);
-                _unCompleteProcessGroup.SetActive(false);
+                //_completeProcessGroup.SetActive(true);
+                //_unCompleteProcessGroup.SetActive(false);
                 _firstGroupButton.SetActive(true);
             }
             else
             {
-                _unCompleteProcessGroup.SetActive(true);
-                _completeProcessGroup.SetActive(false);
+                //_unCompleteProcessGroup.SetActive(true);
+                //_completeProcessGroup.SetActive(false);
                 _secondGroupButton.SetActive(true);
             }
         }
@@ -119,7 +116,7 @@ namespace BallSortQuest
                             .SetEase(Ease.OutBack)
                             .OnComplete(() =>
                             {
-                                StartCoroutine(CoroutineActiveRewardCoin(1.7f));
+                                StartCoroutine(CoroutineActiveRewardCoin(0.7f));
                             });
                     }
                 });
@@ -132,28 +129,7 @@ namespace BallSortQuest
             }
         }
 
-        private void ActiveStar(int star, float delay = 0)
-        {
-            var seq = DOTween.Sequence();
-            foreach (var item in _stars)
-            {
-                item.SetActive(false);
-                item.transform.localScale = Vector3.zero;
-            }
-            _stars[0].SetActive(true);
-            seq.Append(_stars[0].transform.DOScale(Vector3.one * 0.75f, 0.5f)
-                .SetDelay(delay)
-                .SetEase(Ease.OutBack)
-            );
-            for (int i = 1; i < _stars.Length; i++)
-            {
-                _stars[i].SetActive(i < star);
-                seq.Append(_stars[i].transform.DOScale(Vector3.one * 0.75f, 0.5f)
-                    .SetDelay(i * 0.3f)
-                    .SetEase(Ease.OutBack)
-                );
-            }
-        }
+
 
         private void SetChestState(bool isOpened)
         {
