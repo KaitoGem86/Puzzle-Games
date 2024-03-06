@@ -61,12 +61,14 @@ namespace BallSortQuest
 
         public void OnClickNextLevel()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             ActionEvent.OnResetGamePlay?.Invoke();
             Close();
         }
 
         public void OnClickAccept()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             _firstGroupButton.SetActive(false);
             _secondGroupButton.SetActive(true);
             if (_isCanCollectReward)
@@ -75,14 +77,17 @@ namespace BallSortQuest
             _multiRewardCoeff = 1;
         }
 
-        public void OnClickAdsButton(){
+        public void OnClickAdsButton()
+        {
             //Show Ads
+            global::SFXTapController.Instance.OnClickButtonUI();
             _multiRewardCoeff = 2;
             //If success, call OnClickAccept
             OnClickAccept();
         }
 
-        public void OnClickGotoShop(){
+        public void OnClickGotoShop()
+        {
             OnClickNextLevel();
             PopupSystem.PopupManager.CreateNewInstance<ShopPanel>().Show();
         }

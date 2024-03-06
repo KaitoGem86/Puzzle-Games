@@ -819,7 +819,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1971445255469456682}
         m_TargetAssemblyTypeName: BallSortQuest.ShopPanel1, Assembly-CSharp
         m_MethodName: OnTubeNavigateButtonClick
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

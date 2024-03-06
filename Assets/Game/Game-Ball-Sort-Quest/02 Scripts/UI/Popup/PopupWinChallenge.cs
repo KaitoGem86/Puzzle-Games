@@ -41,6 +41,7 @@ namespace BallSortQuest
 
         public void OnClickNextLevel()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             GameManager.Instance.GameModeController.CurrentGameMode = TypeChallenge.None;
             ActionEvent.OnResetGamePlay?.Invoke();
             Close();
@@ -48,6 +49,7 @@ namespace BallSortQuest
 
         public void OnClickAccept()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             _firstGroupButton.SetActive(false);
             _secondGroupButton.SetActive(true);
             if (_isCanCollectReward)
@@ -56,7 +58,8 @@ namespace BallSortQuest
             _multiRewardCoeff = 1;
         }
 
-        public void OnClickAdsButton(){
+        public void OnClickAdsButton()
+        {
             //Show Ads
             _multiRewardCoeff = 2;
             //If success, call OnClickAccept

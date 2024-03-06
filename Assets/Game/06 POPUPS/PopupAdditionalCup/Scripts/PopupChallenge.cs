@@ -47,7 +47,8 @@ namespace BallSortQuest
             UpdateTextCoin();
         }
 
-        public void Show(){
+        public void Show()
+        {
             base.Show();
             UpdateTextCoin();
             SetText();
@@ -56,25 +57,31 @@ namespace BallSortQuest
             _dailySheet.InitChallengeElements();
         }
 
-        public void Exit(){
+        public void Exit()
+        {
             base.Hide();
             GameManager.Instance.StateGameController.Playing();
         }
 
-        public void OpenDailyChallengeSheet(){
+        public void OpenDailyChallengeSheet()
+        {
+
             //_dailyButton.SetState(true);
             //_endlessButton.SetState(false);
             //_dailySheet.gameObject.SetActive(true);
         }
 
-        public void OpenEndlessChallengeSheet(){
+        public void OpenEndlessChallengeSheet()
+        {
             PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng này đang được phát triển");
             // _dailyButton.SetState(false);
             // _endlessButton.SetState(true);
             // _dailySheet.gameObject.SetActive(false);
         }
 
-        public void CollectRewardAll(){
+        public void CollectRewardAll()
+        {
+            global::SFXTapController.Instance.OnClickButtonUI();
             PlayerData.UserData.CoinNumber += 50;
             PlayerData.UserData.IsCanCollectAllReward = false;
             UpdateTextCoin();
@@ -91,11 +98,13 @@ namespace BallSortQuest
             _rewardAllButtonIcon.SetState(_rewardAllButton.Interactable);
         }
 
-        private void UpdateTextCoin(){
+        private void UpdateTextCoin()
+        {
             _coinText.text = PlayerData.UserData.CoinNumber.ToString();
         }
 
-        private void SetText(){
+        private void SetText()
+        {
             _dailyQuestText1.text = "Nhiệm vụ hàng ngày";
             _dailyQuestText2.text = "Nhiệm vụ hàng ngày";
             _endlessQuestText1.text = "Chế độ cạnh tranh vô tận";

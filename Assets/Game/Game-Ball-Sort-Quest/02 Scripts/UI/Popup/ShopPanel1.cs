@@ -41,19 +41,23 @@ namespace BallSortQuest
             _ballButton ??= new TwoStateAtMidElement(_ballNavigateButton);
             _listShopITemController ??= new ListShopITemController1(_backgroundDatas, _tubeDatas, _ballDatas, _listViewPort, _shopItemPrefab);
             //OnMarketNavigateButtonClick();
-            OnTubeNavigateButtonClick();
+            OnTubeNavigateButtonClick(true);
             UpdateCoinText();
         }
 
         public void Close()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             StopCoroutine(GetRandomPurchasedItem());
             base.Hide();
         }
 
-        public void OnTubeNavigateButtonClick()
+        public void OnTubeNavigateButtonClick(bool isAcitivate = false)
         {
             //_marketButton.SetState(false);
+            if (!isAcitivate)
+                global::SFXTapController.Instance.OnClickButtonUI();
+
             _backgroundButton.SetState(false);
             _tubeButton.SetState(true);
             _ballButton.SetState(false);
@@ -65,6 +69,7 @@ namespace BallSortQuest
         public void OnBallNavigateButtonClick()
         {
             //_marketButton.SetState(false);
+            global::SFXTapController.Instance.OnClickButtonUI();
             _backgroundButton.SetState(false);
             _tubeButton.SetState(false);
             _ballButton.SetState(true);
@@ -76,6 +81,7 @@ namespace BallSortQuest
         public void OnBackgroundNavigateButtonClick()
         {
             //_marketButton.SetState(false);
+            global::SFXTapController.Instance.OnClickButtonUI();
             _backgroundButton.SetState(true);
             _tubeButton.SetState(false);
             _ballButton.SetState(false);
@@ -94,6 +100,7 @@ namespace BallSortQuest
         {
             //DO SOMETHING
             Debug.Log("Purchase");
+            global::SFXTapController.Instance.OnClickButtonUI();
             if (PlayerData.UserData.CoinNumber < 800)
             {
                 PlayerData.UserData.CoinNumber += 800;

@@ -33,17 +33,20 @@ namespace BallSortQuest
         public void Close()
         {
             base.Hide();
+            global::SFXTapController.Instance.OnClickButtonUI();
             GameManager.Instance.StateGameController.Playing();
         }
 
         public void OnSoundSettingClick()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             _soundSetting.SetState(!PlayerData.UserData.IsSoundOn);
             PlayerData.UserData.IsSoundOn = !PlayerData.UserData.IsSoundOn;
         }
 
         public void OnVibrateSettingClick()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             _vibrateSetting.SetState(!PlayerData.UserData.IsVibrateOn);
             PlayerData.UserData.IsVibrateOn = !PlayerData.UserData.IsVibrateOn;
             if (PlayerData.UserData.IsVibrateOn)
@@ -52,22 +55,26 @@ namespace BallSortQuest
 
         public void OnLanguageSettingClick()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
         }
 
         public void OnOpenStageMenu()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
         }
 
         public void OnOpenShopButtonClick()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             PopupManager.CreateNewInstance<ShopPanel1>().Show();
         }
 
         public void OnRewardButtonClick()
         {
             //DO SOMETHING
+            global::SFXTapController.Instance.OnClickButtonUI();
             PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
 
         }
@@ -76,6 +83,7 @@ namespace BallSortQuest
         {
             //DO SOMETHING
             Debug.Log("Evaluate");
+            global::SFXTapController.Instance.OnClickButtonUI();
             PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
 
         }
@@ -123,6 +131,7 @@ namespace BallSortQuest
         {
             //DO SOMETHING
             Debug.Log("Shared");
+            global::SFXTapController.Instance.OnClickButtonUI();
             PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
 
         }
@@ -143,7 +152,8 @@ namespace BallSortQuest
 
         }
 
-        private void SetText(){
+        private void SetText()
+        {
             _shopText.text = "Cửa hàng";
             _rewardText.text = "Phần thưởng";
             _evaluateText.text = "Đánh giá";

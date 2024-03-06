@@ -48,11 +48,12 @@ namespace BallSortQuest
 
         public void OnClickPlayChallenge(TypeChallenge type)
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             switch (type)
             {
                 case TypeChallenge.Hidden:
                     _hiddenChallenge.OnSelectChallenge();
-                    if(!_hiddenChallenge.IsCanPlayNoNeedAds)
+                    if (!_hiddenChallenge.IsCanPlayNoNeedAds)
                     {
                         Debug.Log("Watch Ads");
                         //Do something with Ads
@@ -62,7 +63,7 @@ namespace BallSortQuest
                     break;
                 case TypeChallenge.Timer:
                     _timerChallenge.OnSelectChallenge();
-                    if(!_timerChallenge.IsCanPlayNoNeedAds)
+                    if (!_timerChallenge.IsCanPlayNoNeedAds)
                     {
                         Debug.Log("Watch Ads");
                         //Do something with Ads
@@ -72,7 +73,7 @@ namespace BallSortQuest
                     break;
                 case TypeChallenge.Move:
                     _moveChallenge.OnSelectChallenge();
-                    if(!_moveChallenge.IsCanPlayNoNeedAds)
+                    if (!_moveChallenge.IsCanPlayNoNeedAds)
                     {
                         Debug.Log("Watch Ads");
                         //Do something with Ads
