@@ -1,30 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b696d8531f1dc4bbd0378cf3206416, type: 3}
-  m_Name: Tube Datas
-  m_EditorClassIdentifier: 
-  tubeSpriteDatas:
-  - topSprite: {fileID: 21300000, guid: 2eb6a388b03a5154db4ee200ec36d30b, type: 3}
-    middleSprite: {fileID: 1544617517, guid: b98849e6912911f448af3209cf099834, type: 3}
-    bottomSprite: {fileID: 21300000, guid: 697ac292ae9858441bf54e1088e0677e, type: 3}
-  - topSprite: {fileID: 21300000, guid: c20d4d94c9931634f8eba716792d6c37, type: 3}
-    middleSprite: {fileID: -382089831, guid: 1d153fc5f6943954382b9818d5280000, type: 3}
-    bottomSprite: {fileID: 21300000, guid: 3453382895c50c04fa55bc8dfd926af2, type: 3}
-  - topSprite: {fileID: 21300000, guid: eb93eba7ae2e2e749b082ec38d75f368, type: 3}
-    middleSprite: {fileID: 21300000, guid: 73ea28acf9edb8c43a64c64b06fe6089, type: 3}
-    bottomSprite: {fileID: 21300000, guid: 0c66fd087dcd14140abfb7211ab96c9a, type: 3}
-  - topSprite: {fileID: 21300000, guid: 398edab949ad9174891e1636961bc906, type: 3}
-    middleSprite: {fileID: 21300000, guid: 96665b4e34cc56844ad38d4ecee0ceb8, type: 3}
-    bottomSprite: {fileID: 21300000, guid: b2011049766fc9443abb18eaab994a4f, type: 3}
-  - topSprite: {fileID: 21300000, guid: 279401419f1fcb6468e178f5c859b0e8, type: 3}
-    middleSprite: {fileID: 21300000, guid: 94537e9b0715c2e4a935cfebb202e3ed, type: 3}
-    bottomSprite: {fileID: 21300000, guid: 7de5856a2be1770419c26f4acf448055, type: 3}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e7ed0dd89f015ef5f76c51685d8645e03d81c41088ae96d3ff360f1b6d2f4cc0
+size 1727
