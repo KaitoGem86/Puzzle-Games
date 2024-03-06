@@ -92,13 +92,13 @@ namespace BallSortQuest{
         private void SetRewardBoard(){
             if(_isCanGetReward){
                 _rewardImage.SetActive(true);
-                _timerText.gameObject.SetActive(false);
+                _timerText.transform.parent.gameObject.SetActive(false);
                 _buttonLabel.text = "Nhận thưởng";
             }else{
                 _rewardImage.SetActive(false);
                 _chestImage.gameObject.SetActive(true);
                 _buttonLabel.text = "Xác nhận";
-                _timerText.gameObject.SetActive(true);
+                _timerText.transform.parent.gameObject.SetActive(true);
                 StartCoroutine(StartTimer());
             }
             _chestImage.sprite = _closeChestSprite;
