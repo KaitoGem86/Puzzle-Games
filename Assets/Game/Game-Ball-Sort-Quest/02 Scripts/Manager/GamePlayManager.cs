@@ -181,7 +181,7 @@ namespace BallSortQuest
 
         private void ActiveHandTutorial()
         {
-            if (_gameManager.Level.level == 1)
+            if (_gameManager.Level.level == 1 && _gameManager.GameModeController.CurrentGameMode == TypeChallenge.None)
             {
                 Debug.Log("Active Hand Tutorial");
                 _handController = SimplePool.Spawn(_handPrefab, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<HandController>();

@@ -183,7 +183,7 @@ public class AdsManager : SingletonMonoBehaviour<AdsManager>
         LoadInterstitial();
         lastTime = DateTime.Now;
 
-        // GlobalEventManager.Instance.OnCloseInterstitial();
+        GlobalEventManager.OnCloseInterstitial();
     }
 
     public void ShowInterstitial(Action Close_CallBack = null, float nextActionDelay = 0f)
@@ -202,14 +202,12 @@ public class AdsManager : SingletonMonoBehaviour<AdsManager>
             adCloseInterDelayTime = nextActionDelay;
             actionCloseBanner = Close_CallBack;
             MaxSdk.ShowInterstitial(interstitialID);
-
-            //  GlobalEventManager.Instance.AdIntertitialTimes();
         }
         else
         {
             Close_CallBack?.Invoke();
         }
-        //  GlobalEventManager.Instance.OnShowInterstitial();
+        GlobalEventManager.OnShowInterstitial();
     }
     #endregion
 
@@ -273,7 +271,7 @@ public class AdsManager : SingletonMonoBehaviour<AdsManager>
         actionClose = null;
         LoadRewardedAd();
         lastTime = DateTime.Now;
-        // GlobalEventManager.Instance.AdRewardedTimes();
+        GlobalEventManager.OnRewardedComplete(BallSortQuest.GameManager.Instance.Level.level);
     }
 
     private void OnRewardedAdReceivedRewardEvent(string adUnitId, MaxSdk.Reward reward, MaxSdkBase.AdInfo adInfo)
@@ -301,11 +299,12 @@ public class AdsManager : SingletonMonoBehaviour<AdsManager>
             actionClaim = onClaim;
             actionClose = onClose;
 
-            //  GlobalEventManager.Instance.OnShowRewarded();
+            GlobalEventManager.OnShowRewarded(BallSortQuest.GameManager.Instance.Level.level);
         }
         else
         {
             LoadRewardedAd();
+            Debug.Log("Rewarded ad is not ready");
         }
 
         // GlobalEventManager.Instance.OnShowRewarded();

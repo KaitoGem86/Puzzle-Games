@@ -60,13 +60,15 @@ namespace BallSortQuest
                 Debug.Log("Challenge Mode" + _userData.HighestChallengeLevel);
                 this.Level = Datamanager.ChallengeLevelDataSO.getLevel(_userData.HighestChallengeLevel);
             }
+            GlobalEventManager.OnLevelPlay(this.Level.level);
+            GlobalEventManager.OnLevelReplay(this.Level.level);
         }
 
         public void Win()
         {
             StateGameController.Win();
             _userData.UpdateWinGameUserDataValue();
-            if(PlayerData.UserData.IsSoundOn)
+            if (PlayerData.UserData.IsSoundOn)
                 SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("victory1"));
             //PopupWin.Instance.Show();
             if (GameModeController.CurrentGameMode == TypeChallenge.None)
@@ -77,6 +79,7 @@ namespace BallSortQuest
                 //Debug.Log("Win Challenge");
             }
             GameModeController.OnGameModeComplete();
+            GlobalEventManager.OnLevelComplete(this.Level.level);
         }
 
         public void OnClickReplay()

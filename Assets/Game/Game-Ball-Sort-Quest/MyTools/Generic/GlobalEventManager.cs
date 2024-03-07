@@ -4,83 +4,80 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlobalEventManager : SingletonMonoBehaviour<GlobalEventManager>
+public class GlobalEventManager
 {
 
-   public Action<string, Parameter[]> EvtSendEvent;
+   public static Action<string, Parameter[]> EvtSendEvent;
    //  public Action<string> EvtUpdateUserProperties;
 
    #region Tracking Ads
-   public static int interAdCount
-   {
-       get => PlayerPrefs.GetInt("INTER_AD_COUNT", 0);
-       set => PlayerPrefs.SetInt("INTER_AD_COUNT", value);
-   }
+       #region Tracking Ads
+    public static void OnShowInterstitial()
+    {
+        EvtSendEvent?.Invoke("inter_show", null);
+    }
 
-   public static int rewardedAdCount
-   {
-       get => PlayerPrefs.GetInt("REWARDED_AD_COUNT", 0);
-       set => PlayerPrefs.SetInt("REWARED_AD_COUNT", value);
-   }
+    public static void OnCloseInterstitial()
+    {
+        EvtSendEvent?.Invoke("inter_close", null);
+    }
 
-   #region tracking Banner
-   public int bannerAdCount
-   {
-       get => PlayerPrefs.GetInt("BANNER_AD_COUNT", 0);
-       set => PlayerPrefs.SetInt("BANNER_AD_COUNT", value);
-   }
+    public static void OnShowRewarded(int level)
+    {
+        Parameter[] parameter = new Parameter[]
+     {
+             new Parameter("level", level.ToString()),
+     };
+        EvtSendEvent?.Invoke("reward_show", parameter);
+    }
 
-   public void AdBannerTimes()
-   {
-       bannerAdCount += 1;
-       Parameter[] parameter = new Parameter[]
+    public static void OnRewardedComplete(int level)
+    {
+        Parameter[] parameter = new Parameter[]
+  {
+             new Parameter("level", level.ToString()),
+  };
+        EvtSendEvent?.Invoke("reward_complete", parameter);
+    }
+    #endregion
+
+    #region Tracking GamePlay
+    public static int FirstPlayLevelTracking
+    {
+        get => PlayerPrefs.GetInt("first_play_level", 0);
+        set => PlayerPrefs.SetInt("first_play_level", value);
+    }
+
+    public static void OnLevelPlay(int level)
+    {
+        if (FirstPlayLevelTracking == level) return;
+        Parameter[] parameter = new Parameter[]
        {
-            new Parameter("amount", bannerAdCount.ToString()),
+             new Parameter("level", level.ToString()),
        };
-       FirebaseAnalytics.LogEvent("ads_banner_times", parameter);
-   }
-   #endregion
+        FirstPlayLevelTracking = level;
+        EvtSendEvent?.Invoke($"level_play", parameter);
+    }
 
-   public void AdIntertitialTimes()
-   {
-       interAdCount += 1;
-       Parameter[] parameter = new Parameter[]
-       {
-            new Parameter("amount", interAdCount.ToString()),
-       };
-       FirebaseAnalytics.LogEvent("ads_interstitial_times", parameter);
-   }
+    public static void OnLevelComplete(int level)
+    {
+        Parameter[] parameter = new Parameter[]
+      {
+             new Parameter("level", level.ToString()),
+      };
+        EvtSendEvent?.Invoke($"level_Win", parameter);
+    }
 
-   public void AdRewardedTimes()
-   {
-       rewardedAdCount += 1;
-       Parameter[] parameter = new Parameter[]
-       {
-            new Parameter("amount", rewardedAdCount.ToString()),
-       };
-       FirebaseAnalytics.LogEvent("ads_rewarded_times", parameter);
-   }
-
-   public void OnShowInterstitial()
-   {
-       FirebaseAnalytics.LogEvent("ads_interstitial_show");
-   }
-
-   public void OnCloseInterstitial()
-   {
-       FirebaseAnalytics.LogEvent("ads_interstitial_closed");
-   }
-
-   public void OnShowRewarded()
-   {
-       FirebaseAnalytics.LogEvent("ads_rewarded_show");
-   }
-
-
-   public void OnRewardedComplete()
-   {
-       FirebaseAnalytics.LogEvent("ads_rewarded_completed");
-   }
+    public static void OnLevelReplay(int level)
+    {
+        if (FirstPlayLevelTracking == level) return;
+        Parameter[] parameter = new Parameter[]
+      {
+             new Parameter("level", level.ToString()),
+      };
+        EvtSendEvent?.Invoke($"level_replay", parameter);
+    }
+    #endregion
    #endregion
 
 //    #region Tracking GamePlay

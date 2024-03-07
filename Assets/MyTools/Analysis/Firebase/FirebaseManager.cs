@@ -17,7 +17,7 @@ public class FirebaseManager : SingletonMonoBehaviour<FirebaseManager>
     public override void Awake()
     {
     
-        GlobalEventManager.Instance.EvtSendEvent += SendEvent;
+        GlobalEventManager.EvtSendEvent += SendEvent;
         //GlobalEventManager.Instance.EvtUpdateUserProperties += SetUserPropeties;
     }
 
@@ -27,11 +27,7 @@ public class FirebaseManager : SingletonMonoBehaviour<FirebaseManager>
 
     private void OnDestroy()
     {
-        if (GlobalEventManager.Exists())
-        {
-            GlobalEventManager.Instance.EvtSendEvent -= SendEvent;
-            //  GlobalEventManager.Instance.EvtUpdateUserProperties -= SetUserPropeties;
-        }
+        GlobalEventManager.EvtSendEvent -= SendEvent;
     }
 
     public void Init()
