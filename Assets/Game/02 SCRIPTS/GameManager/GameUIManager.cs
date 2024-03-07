@@ -56,7 +56,10 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
 
     public void OpenCloseChallengeModePopup()
     {
-        PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Bạn có muốn bỏ cuộc không?", TypeChallenge.None);
+        PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show(
+            //"Bạn có muốn bỏ cuộc không?"
+            GameLanguage.Get("txt_give_up")
+            , TypeChallenge.None);
     }
 
     public void OpenRewardPopup()
@@ -66,12 +69,17 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
 
     public void OpenRankingPopup()
     {
-        PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+        PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            //"Chức năng đang phát triển"
+            GameLanguage.Get("txt_function_developing")
+        );
     }
 
     public void OpenResetGameModePopup()
     {
-        PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Dữ liệu game sẽ bị mất, bạn có muốn tiếp tục không?", BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode);
+        PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show(/*"Dữ liệu game sẽ bị mất, bạn có muốn tiếp tục không?"*/
+            GameLanguage.Get("txt_reset")
+            , BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode);
     }
 
     public void OpenMenuPopup()
@@ -79,10 +87,10 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         PopupSystem.PopupManager.CreateNewInstance<MenuPanel>().Show();
     }
 
-    public void UpdateLevelText()
+    private void UpdateLevelText()
     {
         if (BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None)
-            levelText.text = "Level " + BallSortQuest.GameManager.Instance.Level.level.ToString();
+            levelText.text +=BallSortQuest.GameManager.Instance.Level.level.ToString();
     }
 
 
@@ -121,14 +129,18 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
                 if (BallSortQuest.GameManager.Instance.Level.level == 1)
                 {
                     _safeAreaCanvas.SetActive(false);
-                    _tutorialText.text = "Vui lòng chọn nước để đổ vào chai thủy tinh";
+                    _tutorialText.text = 
+                        //"Vui lòng chọn nước để đổ vào chai thủy tinh";
+                        GameLanguage.Get("txt_tutorial1");
                     return;
                 }
                 _safeAreaCanvas.SetActive(true);
                 if (BallSortQuest.GameManager.Instance.Level.level == 2)
                 {
                     _safeAreaCanvas.SetActive(false);
-                    _tutorialText.text = "Bạn có thể đổ nước lên trên màu giống nhau";
+                    _tutorialText.text = 
+                        //"Bạn có thể đổ nước lên trên màu giống nhau";
+                        GameLanguage.Get("txt_tutorial2");
                 }
                 else
                 {

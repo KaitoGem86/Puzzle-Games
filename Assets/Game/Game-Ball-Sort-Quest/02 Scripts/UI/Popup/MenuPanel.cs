@@ -22,7 +22,6 @@ namespace BallSortQuest
         public void Show()
         {
             base.Show();
-            SetText();
             GameManager.Instance.StateGameController.OnMenu();
             _soundSetting ??= new TwoStateElement(_soundSettingButton);
             _vibrateSetting ??= new TwoStateElement(_vibrateSettingButton);
@@ -56,13 +55,19 @@ namespace BallSortQuest
         public void OnLanguageSettingClick()
         {
             global::SFXTapController.Instance.OnClickButtonUI();
-            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+            PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            //"Chức năng đang phát triển"
+                GameLanguage.Get("txt_function_developing")
+            );
         }
 
         public void OnOpenStageMenu()
         {
             global::SFXTapController.Instance.OnClickButtonUI();
-            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+            PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            //"Chức năng đang phát triển"
+                GameLanguage.Get("txt_function_developing")
+            );
         }
 
         public void OnOpenShopButtonClick()
@@ -75,7 +80,10 @@ namespace BallSortQuest
         {
             //DO SOMETHING
             global::SFXTapController.Instance.OnClickButtonUI();
-            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+            PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            //"Chức năng đang phát triển"
+                GameLanguage.Get("txt_function_developing")
+            );
 
         }
 
@@ -84,15 +92,20 @@ namespace BallSortQuest
             //DO SOMETHING
             Debug.Log("Evaluate");
             global::SFXTapController.Instance.OnClickButtonUI();
-            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
-
+            PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            //"Chức năng đang phát triển"
+                GameLanguage.Get("txt_function_developing")
+            );
         }
 
         public void OnHelpButtonClick()
         {
             //DO SOMETHING
             Debug.Log("Help");
-            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+            PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            //"Chức năng đang phát triển"
+                GameLanguage.Get("txt_function_developing")
+            );
 
         }
 
@@ -100,30 +113,40 @@ namespace BallSortQuest
         {
             //DO SOMETHING
             Debug.Log("GoToFaceBook");
-            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+            PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            //"Chức năng đang phát triển"
+                GameLanguage.Get("txt_function_developing")
+            );
         }
 
         public void OnAchivementButtonClick()
         {
             //DO SOMETHING
             Debug.Log("Achivement");
-            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
-
+            PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            //"Chức năng đang phát triển"
+                GameLanguage.Get("txt_function_developing")
+            );
         }
 
         public void OnInfoButtonClick()
         {
             //DO SOMETHING
             Debug.Log("Info");
-            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
-
+            PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            //"Chức năng đang phát triển"
+                GameLanguage.Get("txt_function_developing")
+            );
         }
 
         public void OnMoreGameButtonClick()
         {
             //DO SOMETHING
             Debug.Log("MoreGame");
-            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+            PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            //"Chức năng đang phát triển"
+                GameLanguage.Get("txt_function_developing")
+            );
 
         }
 
@@ -132,7 +155,10 @@ namespace BallSortQuest
             //DO SOMETHING
             Debug.Log("Shared");
             global::SFXTapController.Instance.OnClickButtonUI();
-            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+            PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            //"Chức năng đang phát triển"
+                GameLanguage.Get("txt_function_developing")
+            );
 
         }
 
@@ -140,7 +166,10 @@ namespace BallSortQuest
         {
             //DO SOMETHING
             Debug.Log("ColorBlindMode");
-            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+            PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            //"Chức năng đang phát triển"
+                GameLanguage.Get("txt_function_developing")
+            );
 
         }
 
@@ -148,7 +177,10 @@ namespace BallSortQuest
         {
             //DO SOMETHING
             Debug.Log("RemoveAds");
-            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+            PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            //"Chức năng đang phát triển"
+                GameLanguage.Get("txt_function_developing")
+            );
 
         }
 

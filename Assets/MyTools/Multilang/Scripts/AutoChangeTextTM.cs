@@ -13,8 +13,8 @@ public class AutoChangeTextTM : MonoBehaviour
     {
         text = GetComponent<TMP_Text>();
         df_font = text.font;
-     //   GameLanguage.Instance.evtChangeFont += ChangeFont;
-    //    ChangeFont();
+        GameLanguage.Instance.evtChangeFont += ChangeFont;
+        ChangeFont();
         text.text = GameLanguage.Get(id_text);
     }
 
