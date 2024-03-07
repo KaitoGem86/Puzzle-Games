@@ -14,7 +14,7 @@ namespace BallSortQuest
 
         [SerializeField] private TMP_Text _timerText;
         [SerializeField] private GameObject _rewardImage;
-        [SerializeField] private Image _chestImage;
+        [SerializeField] private ChestController _chestImage;
 
         [SerializeField] private TMP_Text _goldText;
 
@@ -80,7 +80,7 @@ namespace BallSortQuest
                 _isCanGetReward = false;
                 _timer = new TimeSpan(1, 0, 0);
                 SetRewardBoard();
-                _chestImage.sprite = _openChestSprite;
+                _chestImage.OpenChest(null);
             }
             else
             {
@@ -118,7 +118,7 @@ namespace BallSortQuest
                 _timerText.transform.parent.gameObject.SetActive(true);
                 StartCoroutine(StartTimer());
             }
-            _chestImage.sprite = _closeChestSprite;
+            _chestImage.DefaultChest();
             UpdateGoldText();
         }
 
