@@ -59,12 +59,12 @@ public class GameLanguage : MonoBehaviour
             {
                 case SystemLanguage.English:
                     //crr_lang_code = "EN";
-                    crr_lang_code = "JP";
+                    crr_lang_code = "EN";
                     SetLanguage(crr_lang_code);
                     break;
                 case SystemLanguage.Vietnamese:
                     //crr_lang_code = "VI";
-                    crr_lang_code = "JP";
+                    crr_lang_code = "VI";
                     SetLanguage(crr_lang_code);
                     break;
                 //case SystemLanguage.Indonesian:

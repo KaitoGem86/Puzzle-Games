@@ -79,10 +79,10 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         PopupSystem.PopupManager.CreateNewInstance<MenuPanel>().Show();
     }
 
-    public void UpdateLevelText()
+    private void UpdateLevelText()
     {
         if (BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None)
-            levelText.text = "Level " + BallSortQuest.GameManager.Instance.Level.level.ToString();
+            levelText.text +=BallSortQuest.GameManager.Instance.Level.level.ToString();
     }
 
 
