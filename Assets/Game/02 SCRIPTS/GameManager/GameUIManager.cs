@@ -56,7 +56,10 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
 
     public void OpenCloseChallengeModePopup()
     {
-        PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Bạn có muốn bỏ cuộc không?", TypeChallenge.None);
+        PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show(
+            //"Bạn có muốn bỏ cuộc không?"
+            GameLanguage.Get("txt_give_up")
+            , TypeChallenge.None);
     }
 
     public void OpenRewardPopup()
@@ -66,12 +69,17 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
 
     public void OpenRankingPopup()
     {
-        PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+        PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            //"Chức năng đang phát triển"
+            GameLanguage.Get("txt_function_developing")
+        );
     }
 
     public void OpenResetGameModePopup()
     {
-        PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Dữ liệu game sẽ bị mất, bạn có muốn tiếp tục không?", BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode);
+        PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show(/*"Dữ liệu game sẽ bị mất, bạn có muốn tiếp tục không?"*/
+            GameLanguage.Get("txt_reset")
+            , BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode);
     }
 
     public void OpenMenuPopup()

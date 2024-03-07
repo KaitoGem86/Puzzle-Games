@@ -2,15 +2,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BallSortQuest{
-    public enum TypeChallenge : byte{
+namespace BallSortQuest
+{
+    public enum TypeChallenge : byte
+    {
         None,
         Hidden,
         Timer,
         Move
     }
 
-    public class RewardElement{
+    public class RewardElement
+    {
         private TypeChallenge _type;
         private TMP_Text _titleText;
         private TMP_Text _rewardText;
@@ -19,7 +22,8 @@ namespace BallSortQuest{
         private AnimButton _playButton;
         private bool _isCanPlayNoNeedAds;
 
-        public RewardElement(Transform challengeRoot, TypeChallenge type){
+        public RewardElement(Transform challengeRoot, TypeChallenge type)
+        {
             _type = type;
             _titleText = challengeRoot.GetChild(0).GetComponent<TMP_Text>();
             //_iconChallenge = new TwoStateElement(challengeRoot.GetChild(1));
@@ -28,33 +32,39 @@ namespace BallSortQuest{
             _twoStateButton = new TwoStateElement(_playButton.transform);
         }
 
-        public void SetDisPlayElement(bool isCanPlayNoNeedAds = true){
-            switch (_type){
+        public void SetDisPlayElement(bool isCanPlayNoNeedAds = true)
+        {
+            switch (_type)
+            {
                 case TypeChallenge.Hidden:
-                    _titleText.text = "Nhiệm vụ Ẩn";
+                    _titleText.text = GameLanguage.Get("txt_hidden_challenge");
                     _rewardText.text = "20";
                     break;
                 case TypeChallenge.Timer:
-                    _titleText.text = "Nhiệm vụ Thời Gian";
+                    _titleText.text = GameLanguage.Get("txt_timer_challenge");
                     _rewardText.text = "20";
                     break;
                 case TypeChallenge.Move:
-                    _titleText.text = "Nhiệm vụ Di Chuyển";
+                    _titleText.text = GameLanguage.Get("txt_move_challenge");
                     _rewardText.text = "20";
                     break;
             }
             _isCanPlayNoNeedAds = isCanPlayNoNeedAds;
-            if(isCanPlayNoNeedAds){
+            if (isCanPlayNoNeedAds)
+            {
                 _twoStateButton.SetState(true);
+                _playButton.transform.GetChild(2).GetComponent<TMP_Text>().text = GameLanguage.Get("txt_play");
                 //_iconChallenge.SetState(true);
             }
-            else{
+            else
+            {
                 _twoStateButton.SetState(false);
                 //_iconChallenge.SetState(false);
             }
         }
 
-        public void OnSelectChallenge(){
+        public void OnSelectChallenge()
+        {
             //Do something with GamePlay as set the GamePlayMode enum ???
             GameManager.Instance.GameModeController.SetGameMode(_type);
         }

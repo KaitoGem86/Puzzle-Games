@@ -23,10 +23,8 @@ namespace BallSortQuest
         [SerializeField] private Sprite _closeChestSprite;
 
         [Space, Header("Text Elements")]
-        [SerializeField] private TMP_Text _labelText;
-        [SerializeField] private TMP_Text _timeLabelText;
+
         [SerializeField] private TMP_Text _buttonLabel;
-        [SerializeField] private TMP_Text _adsRewardText;
 
         private TimeSpan _timer;
         private bool _isCanGetReward;
@@ -42,7 +40,6 @@ namespace BallSortQuest
         public void Show(DateTime time)
         {
             base.Show();
-            SetDisplayText();
             GameManager.Instance.StateGameController.OnMenu();
             //_labelText.text = "Bạn đã hoàn thành màn chơi";
             _timer = time - DateTime.Parse(PlayerData.UserData.LastTimeGetReward);
@@ -111,13 +108,13 @@ namespace BallSortQuest
             {
                 _rewardImage.SetActive(true);
                 _timerText.transform.parent.gameObject.SetActive(false);
-                _buttonLabel.text = "Nhận thưởng";
+                _buttonLabel.text = GameLanguage.Get("txt_get_reward");
             }
             else
             {
                 _rewardImage.SetActive(false);
                 _chestImage.gameObject.SetActive(true);
-                _buttonLabel.text = "Xác nhận";
+                _buttonLabel.text = GameLanguage.Get("txt_accept");
                 _timerText.transform.parent.gameObject.SetActive(true);
                 StartCoroutine(StartTimer());
             }
@@ -144,13 +141,6 @@ namespace BallSortQuest
                 yield return new WaitForSeconds(1);
             }
 
-        }
-
-        private void SetDisplayText()
-        {
-            _labelText.text = "Phần thưởng vàng";
-            _timeLabelText.text = "Thời gian còn lại";
-            _adsRewardText.text = "Xem quảng cáo và nhận thưởng";
         }
     }
 }

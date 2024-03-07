@@ -151,7 +151,7 @@ public class GameLanguage : MonoBehaviour
         else
         {
             Debug.Log("[GameLanguage]: key(" + key + ") is empty value");
-            return "empty!!";
+            return key;
         }
     }
 

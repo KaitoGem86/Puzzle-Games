@@ -49,7 +49,10 @@ namespace BallSortQuest
             }
             //_timerText.text = ConvertToTime(_currentTimer);
             if (!_isModeComplete && _currentTimer <= 0)
-                PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show("Hết thời gian \n Thử lại?", TypeChallenge.Timer, true);
+                PopupSystem.PopupManager.CreateNewInstance<PopupCloseChallengeMode>().Show(
+                    //"Hết thời gian \n Thử lại?"
+                    GameLanguage.Get("txt_out_of_time")
+                    , TypeChallenge.Timer, true);
         }
 
         public bool IsInTimer { get => _isInTimer; }
