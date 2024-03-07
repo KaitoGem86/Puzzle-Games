@@ -129,14 +129,18 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
                 if (BallSortQuest.GameManager.Instance.Level.level == 1)
                 {
                     _safeAreaCanvas.SetActive(false);
-                    _tutorialText.text = "Vui lòng chọn nước để đổ vào chai thủy tinh";
+                    _tutorialText.text = 
+                        //"Vui lòng chọn nước để đổ vào chai thủy tinh";
+                        GameLanguage.Get("txt_tutorial1");
                     return;
                 }
                 _safeAreaCanvas.SetActive(true);
                 if (BallSortQuest.GameManager.Instance.Level.level == 2)
                 {
                     _safeAreaCanvas.SetActive(false);
-                    _tutorialText.text = "Bạn có thể đổ nước lên trên màu giống nhau";
+                    _tutorialText.text = 
+                        //"Bạn có thể đổ nước lên trên màu giống nhau";
+                        GameLanguage.Get("txt_tutorial2");
                 }
                 else
                 {
