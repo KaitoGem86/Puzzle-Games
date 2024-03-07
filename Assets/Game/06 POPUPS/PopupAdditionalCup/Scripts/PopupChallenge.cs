@@ -63,6 +63,12 @@ namespace BallSortQuest
             GameManager.Instance.StateGameController.Playing();
         }
 
+        public void Close()
+        {
+            global::SFXTapController.Instance.OnClickButtonUI();
+            Exit();
+        }
+
         public void OpenDailyChallengeSheet()
         {
 
