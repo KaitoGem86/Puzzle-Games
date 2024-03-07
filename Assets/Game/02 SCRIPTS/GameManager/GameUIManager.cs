@@ -90,7 +90,7 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
     private void UpdateLevelText()
     {
         if (BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None)
-            levelText.text +=BallSortQuest.GameManager.Instance.Level.level.ToString();
+            levelText.text = GameLanguage.Get("txt_level") + BallSortQuest.GameManager.Instance.Level.level.ToString();
     }
 
 

@@ -16,7 +16,7 @@ namespace BallSortQuest
         [SerializeField] private GameObject _secondGroupButton;
         [SerializeField] private TMP_Text _textCoins;
         [SerializeField] private Image _processBar;
-        [SerializeField] private Image _chest;
+        [SerializeField] private ChestController _chest;
         [SerializeField] private GameObject _rewardCoin;
         [SerializeField] private TMP_Text _processText;
         //[SerializeField] private GameObject _completeProcessGroup;
@@ -138,8 +138,12 @@ namespace BallSortQuest
 
         private void SetChestState(bool isOpened)
         {
-            _chest.sprite = isOpened ? _chestOpen : _chestClose;
-            _chest.SetNativeSize();
+            if(isOpened){
+                _chest.OpenChest(null);
+            }
+            else{
+                _chest.DefaultChest();
+            }
         }
 
         private void UpdateTextCoin()

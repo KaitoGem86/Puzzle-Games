@@ -1,0 +1,13 @@
+Chest.png
+size:2048,1024
+filter:Linear,Linear
+pma:true
+Building/RuongMo
+bounds:2,2,757,550
+rotate:90
+Building/RuongNap
+bounds:554,82,677,449
+rotate:90
+Building/RuongThan
+bounds:1005,161,598,386
+rotate:90
