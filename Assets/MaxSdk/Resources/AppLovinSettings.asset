@@ -1,34 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebc0ba1b5ef6b4a6b9dd53d7eadfea16, type: 3}
-  m_Name: AppLovinSettings
-  m_EditorClassIdentifier: 
-  qualityServiceEnabled: 1
-  sdkKey: 'frVQ9cwmt84W4RzgaKvsFrGNZk3Cm9DuSL0V18pT8r7QX-0D076J4IAixZQzpa4Gd_61BJ5aUl_7lLtxfTuN_6 '
-  setAttributionReportEndpoint: 0
-  addApsSkAdNetworkIds: 0
-  consentFlowEnabled: 0
-  consentFlowPlatform: 0
-  consentFlowPrivacyPolicyUrl: 
-  consentFlowTermsOfServiceUrl: 
-  userTrackingUsageDescriptionEn: 
-  userTrackingUsageLocalizationEnabled: 0
-  userTrackingUsageDescriptionDe: 
-  userTrackingUsageDescriptionEs: 
-  userTrackingUsageDescriptionFr: 
-  userTrackingUsageDescriptionJa: 
-  userTrackingUsageDescriptionKo: 
-  userTrackingUsageDescriptionZhHans: 
-  userTrackingUsageDescriptionZhHant: 
-  adMobAndroidAppId: 3940256099942544~3347511713
-  adMobIosAppId: 
-  showInternalSettingsInIntegrationManager: 0
+version https://git-lfs.github.com/spec/v1
+oid sha256:7afc770b184482723e2af2944dcbe42f69eb620d9e42586604792871b45badc1
+size 1183

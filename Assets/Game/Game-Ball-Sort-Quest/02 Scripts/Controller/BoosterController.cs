@@ -23,7 +23,7 @@ public class BoosterController : MonoBehaviour
         {
             _iconAds.SetActive(false);
             _iconFree.SetActive(true);
-            _quantityText.transform.parent.parent.gameObject.SetActive(false);
+            _quantityText.transform.parent.gameObject.SetActive(false);
             return;
         }
         //_quantityText.gameObject.SetActive(true);

@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: cae00412ed2c9a844b54794227c61049
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Plus Jakarta Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e9f6f98d0ce413f448dfc5cfc63e4794, type: 3}
+  - {fileID: 12800000, guid: 5734f0f2e8f9d8545b0789a2eef76dc8, type: 3}
+  - {fileID: 12800000, guid: 646c0120933dafa4a88a3311c8850544, type: 3}
+  - {fileID: 12800000, guid: c642166c37ef5bc4da0c09f4a23b9fa0, type: 3}
+  - {fileID: 12800000, guid: 504aadf118910e04ebccf87e21f45c2d, type: 3}
+  - {fileID: 12800000, guid: 4a8a4a662c963064d9826376db867762, type: 3}
+  - {fileID: 12800000, guid: 683e9aae5ada04949a01a7f419775b0d, type: 3}
+  - {fileID: 12800000, guid: d18ac6f7d126cbb4bb5548fcfd092889, type: 3}
+  - {fileID: 12800000, guid: aa60b108ef0add04aa5d78a7590587bb, type: 3}
+  - {fileID: 12800000, guid: 844d88e8fd0ea7046a6ec185a59a9ce4, type: 3}
+  - {fileID: 12800000, guid: d5bebb6f8510fda4c90c6c81835bdc85, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

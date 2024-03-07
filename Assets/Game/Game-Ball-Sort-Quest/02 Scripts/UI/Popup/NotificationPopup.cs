@@ -17,6 +17,7 @@ namespace BallSortQuest
         public void Close()
         {
             base.Hide();
+            global::SFXTapController.Instance.OnClickButtonUI();
         }
     }
 

@@ -65,7 +65,8 @@ namespace BallSortQuest
             _highlightBorder.SetActive(false);
         }
 
-        public void Purchased(){
+        public void Purchased()
+        {
             _isPurchase = true;
             _lockMask.SetActive(false);
             //_purchasedBackground.SetActive(_isPurchase);
@@ -73,6 +74,7 @@ namespace BallSortQuest
 
         public void OnSelect()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             if (!_isPurchase)
                 return;
             //_listShopITemController.SetSelected(this);

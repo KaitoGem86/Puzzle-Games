@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preInstantiate: 0
+  isOk: 0
 --- !u!1 &225814545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,8 +1049,8 @@ Transform:
   m_Children:
   - {fileID: 101035994}
   - {fileID: 5213603577341194421}
-  - {fileID: 1108950495}
   - {fileID: 1945951015}
+  - {fileID: 1108950495}
   - {fileID: 1101911229}
   - {fileID: 155088271}
   m_Father: {fileID: 0}
@@ -1397,7 +1398,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1552724372}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2035115675
 GameObject:
@@ -1603,7 +1604,7 @@ MonoBehaviour:
   transparentAmount: 0.85
   prefabs:
   - {fileID: 5365205842673966896, guid: bf135826e27a14b0fb1de59a4f4dcea7, type: 3}
-  - {fileID: 1305623092249353684, guid: 7391ac480685fe740a199031e1c7dfae, type: 3}
+  - {fileID: 268838067915912049, guid: de01db6ea725fd24ba87dcc2b35d17ea, type: 3}
   - {fileID: 8869427255094750610, guid: c213cab10e79a444bacb3ee92a3ccd39, type: 3}
   - {fileID: 4156869620540956894, guid: ce4cd68c01f09514c8b4940f2e8b3d06, type: 3}
   - {fileID: 8815945138112755855, guid: 3c3f07154603b634f950b25e05f2a256, type: 3}

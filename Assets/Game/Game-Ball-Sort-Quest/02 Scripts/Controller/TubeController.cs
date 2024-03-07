@@ -157,6 +157,7 @@ namespace BallSortQuest
             //_bottomSpr.transform.localPosition = _defaultBasePivot + _data.bottomSpriteOffset;
             var size = _middleSpr.size;
             size.y = _heightOfASlot * (_slot - 2);
+            _middleSpr.enabled = size.y > 0;
             _middleSpr.size = size;
             //_middleSpr.transform.localPosition = _defaultMiddlePivot + _data.middleSpriteOffset;
             _topSpr.transform.localPosition = new Vector3(0, size.y);

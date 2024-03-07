@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SFXTapController : MonoBehaviour
+public class SFXTapController : SingletonMonoBehaviour<SFXTapController>
 {
     public void OnClickButtonUI()
     {

@@ -2,7 +2,8 @@ using PopupSystem;
 using TMPro;
 using UnityEngine;
 
-namespace BallSortQuest{
+namespace BallSortQuest
+{
     public class PopupCloseChallengeMode : BasePopup
     {
         [Header("Popup Ref")]
@@ -12,7 +13,8 @@ namespace BallSortQuest{
         private TypeChallenge _typeChallengeToChangeTo;
         private bool _isGameModeEnd;
 
-        public void Show(string noti, TypeChallenge typeChallenge = TypeChallenge.None, bool isGameModeEnd = false){
+        public void Show(string noti, TypeChallenge typeChallenge = TypeChallenge.None, bool isGameModeEnd = false)
+        {
             base.Show();
             BallSortQuest.GameManager.Instance.StateGameController.OnMenu();
             SetText();
@@ -21,25 +23,31 @@ namespace BallSortQuest{
             _isGameModeEnd = isGameModeEnd;
         }
 
-        public void OnClickAccept(){
+        public void OnClickAccept()
+        {
             base.Hide();
+            global::SFXTapController.Instance.OnClickButtonUI();
             BallSortQuest.GameManager.Instance.GameModeController.OnCloseGameMode();
             BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode = _typeChallengeToChangeTo;
             BallSortQuest.ActionEvent.OnResetGamePlay?.Invoke();
             BallSortQuest.GameManager.Instance.StateGameController.Playing();
         }
 
-        public void OnClickCancel(){
+        public void OnClickCancel()
+        {
             base.Hide();
+            global::SFXTapController.Instance.OnClickButtonUI();
             BallSortQuest.GameManager.Instance.StateGameController.Playing();
-            if(_isGameModeEnd){
+            if (_isGameModeEnd)
+            {
                 BallSortQuest.GameManager.Instance.GameModeController.OnCloseGameMode();
                 BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode = TypeChallenge.None;
                 BallSortQuest.ActionEvent.OnResetGamePlay?.Invoke();
             }
         }
 
-        private void SetText(){
+        private void SetText()
+        {
             _acceptText.text = "Yes";
             _cancelText.text = "No";
         }

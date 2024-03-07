@@ -10,19 +10,10 @@ namespace BallSortQuest
         [SerializeField] private Transform _vibrateSettingButton;
 
         [Space, Header("Text Ref")]
-        [SerializeField] private TMPro.TMP_Text _stageText;
         [SerializeField] private TMPro.TMP_Text _shopText;
         [SerializeField] private TMPro.TMP_Text _rewardText;
         [SerializeField] private TMPro.TMP_Text _evaluateText;
-        [SerializeField] private TMPro.TMP_Text _helpText;
-        [SerializeField] private TMPro.TMP_Text _achivementText;
-        [SerializeField] private TMPro.TMP_Text _infoText;
         [SerializeField] private TMPro.TMP_Text _shareText;
-        [SerializeField] private TMPro.TMP_Text _colorBlindModeText;
-        [SerializeField] private TMPro.TMP_Text _removeAdsText;
-        [SerializeField] private TMPro.TMP_Text _soundText;
-        [SerializeField] private TMPro.TMP_Text _vibrateText;
-        [SerializeField] private TMPro.TMP_Text _languageText;
 
 
         private TwoStateElement _soundSetting;
@@ -42,17 +33,20 @@ namespace BallSortQuest
         public void Close()
         {
             base.Hide();
+            global::SFXTapController.Instance.OnClickButtonUI();
             GameManager.Instance.StateGameController.Playing();
         }
 
         public void OnSoundSettingClick()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             _soundSetting.SetState(!PlayerData.UserData.IsSoundOn);
             PlayerData.UserData.IsSoundOn = !PlayerData.UserData.IsSoundOn;
         }
 
         public void OnVibrateSettingClick()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             _vibrateSetting.SetState(!PlayerData.UserData.IsVibrateOn);
             PlayerData.UserData.IsVibrateOn = !PlayerData.UserData.IsVibrateOn;
             if (PlayerData.UserData.IsVibrateOn)
@@ -61,23 +55,35 @@ namespace BallSortQuest
 
         public void OnLanguageSettingClick()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
         }
 
         public void OnOpenStageMenu()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
         }
 
         public void OnOpenShopButtonClick()
         {
+            global::SFXTapController.Instance.OnClickButtonUI();
             PopupManager.CreateNewInstance<ShopPanel1>().Show();
+        }
+
+        public void OnRewardButtonClick()
+        {
+            //DO SOMETHING
+            global::SFXTapController.Instance.OnClickButtonUI();
+            PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
+
         }
 
         public void OnEvaluateButtonClick()
         {
             //DO SOMETHING
             Debug.Log("Evaluate");
+            global::SFXTapController.Instance.OnClickButtonUI();
             PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
 
         }
@@ -125,6 +131,7 @@ namespace BallSortQuest
         {
             //DO SOMETHING
             Debug.Log("Shared");
+            global::SFXTapController.Instance.OnClickButtonUI();
             PopupManager.CreateNewInstance<NotificationPopup>().Show("Chức năng đang phát triển");
 
         }
@@ -145,20 +152,12 @@ namespace BallSortQuest
 
         }
 
-        private void SetText(){
-            _stageText.text = "Stage";
+        private void SetText()
+        {
             _shopText.text = "Cửa hàng";
             _rewardText.text = "Phần thưởng";
             _evaluateText.text = "Đánh giá";
-            _helpText.text = "Trợ giúp";
-            _achivementText.text = "Thành tựu";
-            _infoText.text = "Thông tin";
             _shareText.text = "Chia sẻ";
-            _colorBlindModeText.text = "Chế độ mù màu";
-            _removeAdsText.text = "Loại bỏ quảng cáo";
-            _soundText.text = "Âm thanh";
-            _vibrateText.text = "Rung";
-            _languageText.text = "Ngôn ngữ";
         }
     }
 }
