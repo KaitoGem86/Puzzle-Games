@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mono.Cecil.Cil;
 using UnityEngine;
 
 
@@ -309,7 +310,7 @@ namespace BallSortQuest
                 // Debug.Log(newTube.name);
                 _hodingTube = newTube;
                 newTube.GetLastBall().StartMove(newTube, true);
-                if(_gameManager.Level.level == 1){
+                if(_gameManager.Level.level == 1 && GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None){
                     _handController.OnClickTube();   
                 }
             }
@@ -318,7 +319,7 @@ namespace BallSortQuest
                 if (_hodingTube.Equals(newTube)) // cành đang giữ == cành mới 
                 {
                     //   Debug.Log(newTube.name);
-                    if(_gameManager.Level.level == 1)
+                    if(_gameManager.Level.level == 1 && GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None)
                         return;
                     newTube.GetLastBall().StartMove(newTube, false, newTube.Balls.Count - 1);
                     // foreach (var ball in newTube.GetCanMoveBalls())
@@ -343,7 +344,7 @@ namespace BallSortQuest
 
                         SortBall(_hodingTube, newTube, OnMoveComplete);
                         _hodingTube = null;
-                        if(_gameManager.Level.level == 1){
+                        if(_gameManager.Level.level == 1 && GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None){
                             _handController.OnClickTube();
                         }
                     }
@@ -352,7 +353,14 @@ namespace BallSortQuest
             void OnMoveComplete()
             {
                 newTube.ChangeState(StateTube.Incomplete);
-
+                var lastball = newTube.GetLastBall();
+                Debug.Log($"Last ball: {lastball.Id}");
+                for(int j = newTube.Balls.Count - 2; j >= 0; j--)
+                {
+                    if(newTube.Balls[j].Id != lastball.Id)
+                        break;
+                    newTube.Balls[j].ShowItself();
+                }
                 if (newTube.isDone())
                 {
                     newTube.ChangeState(StateTube.Complete);
@@ -363,10 +371,7 @@ namespace BallSortQuest
                     if (PlayerData.UserData.IsSoundOn)
                         SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("complete1"));
                     Debug.LogError($"{newTube.name} is done");
-                    foreach (var ball in newTube.Balls)
-                    {
-                        ball.ShowItself();
-                    }
+                    
                     if (ConditionWin())
                     {
                         Debug.Log("you win");

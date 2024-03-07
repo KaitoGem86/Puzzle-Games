@@ -289,18 +289,24 @@ namespace BallSortQuest
         public bool isDone()
         {
             if (_slot < data.Slot) return false;
-            if (Balls.Count != data.Slot) return false;
+            if (Balls.Count != data.Slot) 
+            {
+                Debug.Log("Not Enough Ball " + Balls.Count);
+                return false;
+            }
             for (int i = Balls.Count - 1; i >= 0; i--)
             {
                 if (i > 0)
                 {
                     if (Balls[i].Id != Balls[i - 1].Id)
                     {
+                        Debug.Log("Not Same Color " + i);
                         return false;
                     }
                 }
                 if (Balls[i].IsHidden)
                 {
+                    Debug.Log("Has Hidden Ball " + i);
                     return false;
                 }
             }
