@@ -21,6 +21,7 @@ namespace BallSortQuest
 
         public void Init(ShopItemData data, ListShopITemController1 container, int id)
         {
+            this.transform.localScale = Vector3.one;
             _icon.sprite = data.Icon;
             _icon.SetNativeSize();
             _listShopITemController = container;

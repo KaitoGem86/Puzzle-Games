@@ -42,6 +42,15 @@ public class GameLanguage : MonoBehaviour
 
     #endregion
 
+    #region Properties
+    public static Dictionary<string, Hashtable> DictionaryLang
+    {
+        get
+        {
+            return dictionaryLang;
+        }
+    }
+    #endregion
     #region Unity Methods
 
     private void Awake()

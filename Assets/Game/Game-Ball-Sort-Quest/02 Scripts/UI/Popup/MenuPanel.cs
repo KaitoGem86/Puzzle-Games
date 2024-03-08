@@ -55,10 +55,11 @@ namespace BallSortQuest
         public void OnLanguageSettingClick()
         {
             global::SFXTapController.Instance.OnClickButtonUI();
-            PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
-            //"Chức năng đang phát triển"
-                GameLanguage.Get("txt_function_developing")
-            );
+            // PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
+            // //"Chức năng đang phát triển"
+            //     GameLanguage.Get("txt_function_developing")
+            // );
+            PopupSystem.PopupManager.CreateNewInstance<PopupLanguageSettings>().Show();
         }
 
         public void OnOpenStageMenu()
