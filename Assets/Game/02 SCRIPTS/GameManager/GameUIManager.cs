@@ -67,7 +67,7 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
     {
         PopupSystem.PopupManager.CreateNewInstance<NotificationPopup>().Show(
             //"Chức năng đang phát triển"
-            GameLanguage.Get("txt_function_developing")
+            GameLanguage.Get("txt_function_developing"), true
         );
     }
 

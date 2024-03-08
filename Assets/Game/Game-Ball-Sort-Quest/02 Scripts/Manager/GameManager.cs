@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace BallSortQuest
@@ -64,7 +63,7 @@ namespace BallSortQuest
             GlobalEventManager.OnLevelReplay(this.Level.level);
         }
 
-        public void Win()
+        public async void Win()
         {
             StateGameController.Win();
             _userData.UpdateWinGameUserDataValue();
@@ -72,9 +71,13 @@ namespace BallSortQuest
                 SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("victory1"));
             //PopupWin.Instance.Show();
             if (GameModeController.CurrentGameMode == TypeChallenge.None)
+            {
+                await Task.Delay(800);
                 PopupSystem.PopupManager.CreateNewInstance<PopupWin>().Show();
+            }
             else
             {
+                await Task.Delay(800);
                 PopupSystem.PopupManager.CreateNewInstance<PopupWinChallenge>().Show();
                 //Debug.Log("Win Challenge");
             }
