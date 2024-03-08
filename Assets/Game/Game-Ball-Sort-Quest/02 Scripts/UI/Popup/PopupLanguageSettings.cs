@@ -7,6 +7,7 @@ namespace BallSortQuest
     {
         [SerializeField] private GameObject _languageItemPrefab;
         [SerializeField] private Transform _containerList;
+        private LanguageItem _currentLanguageItem;
 
         public void Show()
         {
@@ -16,7 +17,7 @@ namespace BallSortQuest
             {
                 LanguageItem item = SimplePool.Spawn(_languageItemPrefab, Vector3.zero, Quaternion.identity).GetComponent<LanguageItem>();
                 item.transform.SetParent(_containerList);
-                item.Init(language.Key, count ++);
+                item.Init(this, language.Key, count ++);
             }
         }
 
@@ -30,7 +31,15 @@ namespace BallSortQuest
         {
             global::SFXTapController.Instance.OnClickButtonUI();
             //Do something
+            GameLanguage.Instance.SetLanguage(CurrentLanguageCode);
             base.Hide();
         }
+
+        public LanguageItem CurrentLanguageItem
+        {
+            get => _currentLanguageItem;
+            set => _currentLanguageItem = value;
+        }
+        public string CurrentLanguageCode {get; set;}
     }
 }

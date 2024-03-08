@@ -25,6 +25,7 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         BallSortQuest.ActionEvent.OnResetGamePlay += ResetGamePlayWithMode;
         BallSortQuest.ActionEvent.OnResetGamePlay += UpdateLevelText;
         BallSortQuest.ActionEvent.OnSelectShopBackground += InitBackground;
+        GameLanguage.Instance.evtChangeFont += UpdateLevelText;
     }
 
     public void OnDestroy()
@@ -32,6 +33,7 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         BallSortQuest.ActionEvent.OnResetGamePlay -= ResetGamePlayWithMode;
         BallSortQuest.ActionEvent.OnResetGamePlay -= UpdateLevelText;
         BallSortQuest.ActionEvent.OnSelectShopBackground -= InitBackground;
+        GameLanguage.Instance.evtChangeFont -= UpdateLevelText;
     }
 
     // Start is called before the first frame update
@@ -40,12 +42,6 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
         InitBackground();
         ResetGamePlayWithMode();
         UpdateLevelText();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void OpenChallengePopup()
@@ -89,8 +85,10 @@ public class GameUIManager : SingletonMonoBehaviour<GameUIManager>
 
     private void UpdateLevelText()
     {
-        if (BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None)
+        if (BallSortQuest.GameManager.Instance.GameModeController.CurrentGameMode == TypeChallenge.None){
             levelText.text = GameLanguage.Get("txt_level") + BallSortQuest.GameManager.Instance.Level.level.ToString();
+            levelText.font = GameLanguage.TMFont;
+        }
     }
 
 
