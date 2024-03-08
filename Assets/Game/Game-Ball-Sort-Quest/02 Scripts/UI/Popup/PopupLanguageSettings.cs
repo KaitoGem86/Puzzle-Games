@@ -19,5 +19,18 @@ namespace BallSortQuest
                 item.Init(language.Key, count ++);
             }
         }
+
+        public void Close()
+        {
+            global::SFXTapController.Instance.OnClickButtonUI();
+            base.Hide();
+        }
+
+        public void OnLanguageSettingClick()
+        {
+            global::SFXTapController.Instance.OnClickButtonUI();
+            //Do something
+            base.Hide();
+        }
     }
 }

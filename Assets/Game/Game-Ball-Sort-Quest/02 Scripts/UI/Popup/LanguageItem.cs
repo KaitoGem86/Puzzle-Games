@@ -23,6 +23,7 @@ namespace BallSortQuest
                     break;
             }
             this.GetComponent<Image>().color = index % 2 == 0 ? new Color(0,0,0,0) : new Color(36,108,245,70);
+            _checkButton.SetState(lang_code == GameLanguage.Instance.crr_lang_code);
         }
         public void SetLanguage(string language)
         {

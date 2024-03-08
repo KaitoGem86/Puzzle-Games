@@ -765,6 +765,7 @@ GameObject:
   - component: {fileID: 5298561761296688915}
   - component: {fileID: 5298561761296688913}
   - component: {fileID: 5298561761296688912}
+  - component: {fileID: 7567475712597467151}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -831,6 +832,46 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7567475712597467151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5298561761296688914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c640455ca373c5448c5e4517f1f7cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _typeButton: 0
+  _currenRect: {fileID: 5298561761296688915}
+  _duration: 0.1
+  _target: {x: 0.9, y: 0.9}
+  _onPointerDown:
+    m_PersistentCalls:
+      m_Calls: []
+  _onPointerUp:
+    m_PersistentCalls:
+      m_Calls: []
+  _onPointerClik:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1864127012700998049}
+        m_TargetAssemblyTypeName: BallSortQuest.PopupLanguageSettings, Assembly-CSharp
+        m_MethodName: OnLanguageSettingClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onPointerExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5298561761791808175
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,7 +973,19 @@ MonoBehaviour:
       m_Calls: []
   _onPointerClik:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1864127012700998049}
+        m_TargetAssemblyTypeName: BallSortQuest.PopupLanguageSettings, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onPointerExit:
     m_PersistentCalls:
       m_Calls: []
