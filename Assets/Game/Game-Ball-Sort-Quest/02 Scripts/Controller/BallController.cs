@@ -70,8 +70,9 @@ namespace BallSortQuest
             this.Data = data;
             this.transform.DOKill();
 
-            ShowInfor();
-
+            //ShowInfor();
+            SetSpriteTemplate();
+            
             SetPosition(originalPos, startMovePos, index);
             _isHidden = false;
             _hiddenMaskBall.gameObject.SetActive(false);
@@ -81,7 +82,8 @@ namespace BallSortQuest
         {
             this.Data = data;
 
-            ShowInfor();
+            //ShowInfor();
+            SetSpriteTemplate();
 
             SetPosition(originalPos, startMovePos, index);
             if(isHidden){
