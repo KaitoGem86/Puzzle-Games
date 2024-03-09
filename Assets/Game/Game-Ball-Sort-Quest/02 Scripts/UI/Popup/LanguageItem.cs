@@ -13,6 +13,7 @@ namespace BallSortQuest
         private PopupLanguageSettings _container;
         public void Init(PopupLanguageSettings container, string lang_code, int index)
         {
+            this.transform.localScale = Vector3.one;
             _checkButton ??= new TwoStateElement(_checkButtonRoot);
             _langCode = lang_code;
             _container = container;

@@ -97,6 +97,7 @@ namespace BallSortQuest
             Data = currentBallSpriteData.BallDataList[Id];
             ShowInfor();
             _hiddenMaskBall.sprite = currentBallSpriteData.BallDataList[12].avatarSpr;
+            _heighBall = _avarSpr.bounds.size.y;
         }
 
         private void ShowInfor()

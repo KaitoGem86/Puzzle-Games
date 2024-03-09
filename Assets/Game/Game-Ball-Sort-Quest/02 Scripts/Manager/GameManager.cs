@@ -47,10 +47,9 @@ namespace BallSortQuest
         }
         #endregion
 
-        public void
-
-        InitLevel()
+        public void InitLevel()
         {
+            AdsManager.Instance.ShowBanner();
             StateGameController.Playing();
             if (GameModeController.CurrentGameMode == TypeChallenge.None)
                 this.Level = Datamanager.LevelDataSO.getLevel(_userData.HighestLevel);

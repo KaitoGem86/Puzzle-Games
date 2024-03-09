@@ -72,7 +72,7 @@ public class AdsManager : SingletonMonoBehaviour<AdsManager>
     {
         // Banners are automatically sized to 320×50 on phones and 728×90 on tablets
         // You may call the utility method MaxSdkUtils.isTablet() to help with view sizing adjustments
-        MaxSdk.CreateBanner(bannerID, MaxSdkBase.BannerPosition.TopCenter);
+        MaxSdk.CreateBanner(bannerID, MaxSdkBase.BannerPosition.BottomCenter);
 
         // Set background or background color for banners to be fully functional
         //    MaxSdk.SetBannerBackgroundColor(bannerAdUnitId, Color.black);
@@ -112,7 +112,8 @@ public class AdsManager : SingletonMonoBehaviour<AdsManager>
 
     public void ShowBanner()
     {
-        if (!GlobalSetting.NetWorkRequirements()) return;
+        if (!GlobalSetting.NetWorkRequirements() || PlayerData.UserData.HighestLevel + 1 < AppConfig.Instance.BannerAdLevel) return;
+        //MaxSdk.CreateBanner(bannerID, MaxSdkBase.BannerPosition.BottomCenter);
         MaxSdk.ShowBanner(bannerID);
         isShowBanner = true;
         // GlobalEventManager.Instance.AdBannerTimes();
