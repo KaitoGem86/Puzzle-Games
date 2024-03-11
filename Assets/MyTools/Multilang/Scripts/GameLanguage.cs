@@ -57,9 +57,8 @@ public class GameLanguage : MonoBehaviour
     {
         _instance = this;
         PrepareLanguageData();
-
       
-        //crr_lang_code = PlayerPrefs.GetString("SETTING_LANG", "");
+        crr_lang_code = PlayerPrefs.GetString("SETTING_LANG", "");
         if (crr_lang_code == "")
         {
             // Check device language

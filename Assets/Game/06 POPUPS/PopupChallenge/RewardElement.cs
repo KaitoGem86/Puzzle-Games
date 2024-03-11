@@ -34,6 +34,8 @@ namespace BallSortQuest
 
         public void SetDisPlayElement(bool isCanPlayNoNeedAds = true)
         {
+            var font = GameLanguage.Instance.langs.Find(x => x.lang_code.Equals(GameLanguage.Instance.crr_lang_code)).tm_font;
+            _titleText.font = font;
             switch (_type)
             {
                 case TypeChallenge.Hidden:
@@ -54,6 +56,7 @@ namespace BallSortQuest
             {
                 _twoStateButton.SetState(true);
                 _playButton.transform.GetChild(2).GetComponent<TMP_Text>().text = GameLanguage.Get("txt_play");
+                _playButton.transform.GetChild(2).GetComponent<TMP_Text>().font = font;
                 //_iconChallenge.SetState(true);
             }
             else

@@ -18,7 +18,7 @@ public class AdsManager : SingletonMonoBehaviour<AdsManager>
     private float adCloseInterDelayTime = 0f;
 
     private DateTime? lastTime = null;
-    bool timeShowAds => lastTime == null ? true : (DateTime.Now - lastTime)?.TotalSeconds > 45 /* inter ad tần suất (s)*/;
+    bool timeShowAds => lastTime == null ? true : (DateTime.Now - lastTime)?.TotalSeconds > AppConfig.Instance.InterFrequencyTime /* inter ad tần suất (s)*/;
     public bool isShowBanner;
 
     public override void Awake()
@@ -192,9 +192,9 @@ public class AdsManager : SingletonMonoBehaviour<AdsManager>
         // Debug.LogError($"FirtTime: {lastTime}");
         // Debug.LogError((DateTime.Now - lastTime)?.TotalSeconds);
         //  Debug.LogError($"{ PlayerData.Instance.HighestLevel <= AppConfig.Instance.INITIAL_INTER_AD_LEVEL }, {timeShowAds}");
-        if (!NetworkRequirement() /*|| !timeShowAds*/)
+        if (!NetworkRequirement() || !timeShowAds || BallSortQuest.PlayerData.UserData.HighestLevel + 1 < AppConfig.Instance.InterAdLevel)
         {
-            // Debug.LogError("Dont show ads");
+            Debug.LogError("Dont show ads " + timeShowAds + " " + PlayerData.UserData.HighestLevel + 1 + " " + AppConfig.Instance.InterAdLevel + " " + NetworkRequirement());
             Close_CallBack?.Invoke();
             return;
         }

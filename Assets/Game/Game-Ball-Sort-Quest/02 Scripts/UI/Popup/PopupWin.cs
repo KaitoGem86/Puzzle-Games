@@ -69,21 +69,29 @@ namespace BallSortQuest
         public void OnClickAccept()
         {
             global::SFXTapController.Instance.OnClickButtonUI();
+            Accept();
+        }
+
+        public void OnClickAdsButton()
+        {
+            global::SFXTapController.Instance.OnClickButtonUI();
+            _multiRewardCoeff = 2;
+            //If success, call OnClickAccept
+            bool isShowBanner = false;
+            AdsManager.Instance.ShowRewardedAd(
+                () => { isShowBanner = true; },
+                () => { if (isShowBanner) Accept(); }
+            );
+        }
+
+        private void Accept()
+        {
             _firstGroupButton.SetActive(false);
             _secondGroupButton.SetActive(true);
             if (_isCanCollectReward)
                 PlayerData.UserData.CoinNumber += 100 * _multiRewardCoeff; // hard code, need to improve
             UpdateTextCoin();
             _multiRewardCoeff = 1;
-        }
-
-        public void OnClickAdsButton()
-        {
-            //Show Ads
-            global::SFXTapController.Instance.OnClickButtonUI();
-            _multiRewardCoeff = 2;
-            //If success, call OnClickAccept
-            OnClickAccept();
         }
 
         public void OnClickGotoShop()
@@ -138,10 +146,12 @@ namespace BallSortQuest
 
         private void SetChestState(bool isOpened)
         {
-            if(isOpened){
+            if (isOpened)
+            {
                 _chest.OpenChest(null);
             }
-            else{
+            else
+            {
                 _chest.DefaultChest();
             }
         }

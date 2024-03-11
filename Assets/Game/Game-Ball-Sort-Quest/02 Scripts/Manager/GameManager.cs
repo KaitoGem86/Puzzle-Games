@@ -55,7 +55,6 @@ namespace BallSortQuest
                 this.Level = Datamanager.LevelDataSO.getLevel(_userData.HighestLevel);
             else
             {
-                Debug.Log("Challenge Mode" + _userData.HighestChallengeLevel);
                 this.Level = Datamanager.ChallengeLevelDataSO.getLevel(_userData.HighestChallengeLevel);
             }
             GlobalEventManager.OnLevelPlay(this.Level.level);
@@ -68,20 +67,22 @@ namespace BallSortQuest
             _userData.UpdateWinGameUserDataValue();
             if (PlayerData.UserData.IsSoundOn)
                 SoundManager.Instance.PlaySfxRewind(GlobalSetting.GetSFX("victory1"));
-            //PopupWin.Instance.Show();
-            if (GameModeController.CurrentGameMode == TypeChallenge.None)
-            {
-                await Task.Delay(800);
-                PopupSystem.PopupManager.CreateNewInstance<PopupWin>().Show();
-            }
-            else
-            {
-                await Task.Delay(800);
-                PopupSystem.PopupManager.CreateNewInstance<PopupWinChallenge>().Show();
-                //Debug.Log("Win Challenge");
-            }
             GameModeController.OnGameModeComplete();
             GlobalEventManager.OnLevelComplete(this.Level.level);
+            //PopupWin.Instance.Show();
+            await Task.Delay(800);
+            AdsManager.Instance.ShowInterstitial(() =>
+            {
+                if (GameModeController.CurrentGameMode == TypeChallenge.None)
+                {
+                    PopupSystem.PopupManager.CreateNewInstance<PopupWin>().Show();
+                }
+                else
+                {
+                    PopupSystem.PopupManager.CreateNewInstance<PopupWinChallenge>().Show();
+                    //Debug.Log("Win Challenge");
+                }
+            });
         }
 
         public void OnClickReplay()

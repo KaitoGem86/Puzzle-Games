@@ -156,7 +156,7 @@ namespace BallSortQuest
 
             //_bottomSpr.transform.localPosition = _defaultBasePivot + _data.bottomSpriteOffset;
             var size = _middleSpr.size;
-            size.y = _heightOfASlot * (_slot - 2);
+            size.y = _heightOfASlot * (_slot-1);
             _middleSpr.enabled = size.y > 0;
             _middleSpr.size = size;
             //_middleSpr.transform.localPosition = _defaultMiddlePivot + _data.middleSpriteOffset;
@@ -291,7 +291,6 @@ namespace BallSortQuest
             if (_slot < data.Slot) return false;
             if (Balls.Count != data.Slot) 
             {
-                Debug.Log("Not Enough Ball " + Balls.Count);
                 return false;
             }
             for (int i = Balls.Count - 1; i >= 0; i--)
@@ -300,13 +299,11 @@ namespace BallSortQuest
                 {
                     if (Balls[i].Id != Balls[i - 1].Id)
                     {
-                        Debug.Log("Not Same Color " + i);
                         return false;
                     }
                 }
                 if (Balls[i].IsHidden)
                 {
-                    Debug.Log("Has Hidden Ball " + i);
                     return false;
                 }
             }

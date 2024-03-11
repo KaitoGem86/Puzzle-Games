@@ -93,8 +93,21 @@ namespace BallSortQuest
             Debug.Log("Watch Ads");
             //Do something with Ads
             global::SFXTapController.Instance.OnClickButtonUI();
-            PlayerData.UserData.CoinNumber += 10;
-            UpdateGoldText();
+            bool isShowBanner = false;
+            AdsManager.Instance.ShowRewardedAd(
+                () =>
+                {
+                    isShowBanner = true;
+                },
+                () =>
+                {
+                    if (isShowBanner)
+                    {
+                        PlayerData.UserData.CoinNumber += 10;
+                        UpdateGoldText();
+                    }
+                }
+            );
         }
 
         private void UpdateGoldText()
