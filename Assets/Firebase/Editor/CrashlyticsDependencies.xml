@@ -11,7 +11,7 @@ FirebaseCrashlytics iOS and Android Dependencies.
   <androidPackages>
     <androidPackage spec="com.google.firebase:firebase-crashlytics-ndk:18.2.7">
     </androidPackage>
-    <androidPackage spec="com.google.firebase:firebase-analytics:20.0.0">
+    <androidPackage spec="com.google.firebase:firebase-analytics:20.1.2">
     </androidPackage>
     <androidPackage spec="com.google.firebase:firebase-crashlytics-unity:8.8.0">
       <repositories>

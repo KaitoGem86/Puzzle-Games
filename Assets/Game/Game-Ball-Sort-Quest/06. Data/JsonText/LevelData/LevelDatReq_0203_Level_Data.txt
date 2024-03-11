@@ -11,7 +11,7 @@
     "level": "2",
     "branch": "3",
     "branchSlot": "4",
-    "data": "2,3,2,3,3,2,3,2",
+    "data": "0,1,0,1,1,0,1,0",
     "move": "8",
     "difficulty": "0"
   },

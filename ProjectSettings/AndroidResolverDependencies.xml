@@ -2,10 +2,13 @@
   <packages>
     <package>androidx.recyclerview:recyclerview:1.2.1</package>
     <package>com.applovin.mediation:facebook-adapter:[6.11.0.5]</package>
+    <package>com.applovin.mediation:google-adapter:[22.6.0.1]</package>
     <package>com.applovin.mediation:mintegral-adapter:16.2.11.2</package>
+    <package>com.applovin.mediation:unityads-adapter:4.9.3.0</package>
     <package>com.applovin:applovin-sdk:12.1.0</package>
     <package>com.google.android.gms:play-services-base:17.6.0</package>
-    <package>com.google.firebase:firebase-analytics:20.0.0</package>
+    <package>com.google.android.ump:user-messaging-platform:2.1.0</package>
+    <package>com.google.firebase:firebase-analytics:20.1.2</package>
     <package>com.google.firebase:firebase-analytics-unity:8.8.0</package>
     <package>com.google.firebase:firebase-app-unity:8.8.0</package>
     <package>com.google.firebase:firebase-common:20.0.0</package>
@@ -27,7 +30,7 @@
     <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-crashlytics-unity/8.8.0/firebase-crashlytics-unity-8.8.0.pom</file>
   </files>
   <settings>
-    <setting name="androidAbis" value="armeabi-v7a" />
+    <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
     <setting name="bundleId" value="com.percas.ball_sort_quest" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />

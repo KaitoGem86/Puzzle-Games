@@ -13,8 +13,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/build/output/unity/unity/Runtime/Mono",
-      "program": "c:/build/output/unity/unity/Runtime/Mono/build/Debug/outDebug",
+      "cwd": "d:/Unity Game/Git Puzzle Game/Puzzle-Games/Assets",
+      "program": "d:/Unity Game/Git Puzzle Game/Puzzle-Games/Assets/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
