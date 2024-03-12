@@ -14,6 +14,7 @@ namespace BallSortQuest
         {
             base.Show();
             _title.text = title;
+            _title.font = GameLanguage.Instance.langs.Find(x => x.lang_code.Equals(GameLanguage.Instance.crr_lang_code)).tm_font;
             _isFirstLayerPopup = isFirsLayerPopup;
             if (isFirsLayerPopup)
             {

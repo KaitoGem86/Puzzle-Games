@@ -122,12 +122,14 @@ namespace BallSortQuest
                 _rewardImage.SetActive(true);
                 _timerText.transform.parent.gameObject.SetActive(false);
                 _buttonLabel.text = GameLanguage.Get("txt_get_reward");
+                _buttonLabel.font = GameLanguage.Instance.langs.Find(x => x.lang_code.Equals(GameLanguage.Instance.crr_lang_code)).tm_font;
             }
             else
             {
                 _rewardImage.SetActive(false);
                 _chestImage.gameObject.SetActive(true);
                 _buttonLabel.text = GameLanguage.Get("txt_accept");
+                _buttonLabel.font = GameLanguage.Instance.langs.Find(x => x.lang_code.Equals(GameLanguage.Instance.crr_lang_code)).tm_font;
                 _timerText.transform.parent.gameObject.SetActive(true);
                 StartCoroutine(StartTimer());
             }
