@@ -18,6 +18,7 @@ namespace BallSortQuest
         [SerializeField] private Image _processBar;
         [SerializeField] private ChestController _chest;
         [SerializeField] private GameObject _rewardCoin;
+        [SerializeField] private TMP_Text _rewardText;
         [SerializeField] private TMP_Text _processText;
         //[SerializeField] private GameObject _completeProcessGroup;
         //[SerializeField] private GameObject _unCompleteProcessGroup;
@@ -90,6 +91,7 @@ namespace BallSortQuest
             _secondGroupButton.SetActive(true);
             if (_isCanCollectReward)
                 PlayerData.UserData.CoinNumber += 100 * _multiRewardCoeff; // hard code, need to improve
+            _rewardText.text = (100 * _multiRewardCoeff).ToString();
             UpdateTextCoin();
             _multiRewardCoeff = 1;
         }

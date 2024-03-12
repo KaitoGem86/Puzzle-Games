@@ -692,6 +692,7 @@ MonoBehaviour:
   _textCoins: {fileID: 3036490781431330216}
   _chest: {fileID: 996840041343851367}
   _rewardCoin: {fileID: 6356252509241024332}
+  _rewardText: {fileID: 9062516238814037111}
   _chestClose: {fileID: 21300000, guid: 138887a95811c5c419249bf82cc481fb, type: 3}
   _chestOpen: {fileID: 21300000, guid: 53722e53ff3592f4bab9f266a05c8dfc, type: 3}
 --- !u!1 &4074837749318289114

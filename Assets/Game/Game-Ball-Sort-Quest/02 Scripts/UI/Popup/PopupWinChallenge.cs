@@ -15,6 +15,7 @@ namespace BallSortQuest
         [SerializeField] private TMP_Text _textCoins;
         [SerializeField] private ChestController _chest;
         [SerializeField] private GameObject _rewardCoin;
+        [SerializeField] private TMP_Text _rewardText;
 
         //Will be replace by animation
         [Space, Header("Resource")]
@@ -54,16 +55,26 @@ namespace BallSortQuest
             _secondGroupButton.SetActive(true);
             if (_isCanCollectReward)
                 PlayerData.UserData.CoinNumber += 20 * _multiRewardCoeff; // hard code, need to improve
+            _rewardText.text = (20 * _multiRewardCoeff).ToString();
             UpdateTextCoin();
             _multiRewardCoeff = 1;
         }
 
         public void OnClickAdsButton()
         {
-            //Show Ads
+            global::SFXTapController.Instance.OnClickButtonUI();
             _multiRewardCoeff = 2;
             //If success, call OnClickAccept
-            OnClickAccept();
+            bool isShowBanner = false;
+            AdsManager.Instance.ShowRewardedAd(
+                () => { isShowBanner = true; },
+                () => { if (isShowBanner) OnClickAccept(); }
+            );
+
+            //Show Ads
+            //_multiRewardCoeff = 2;
+            //If success, call OnClickAccept
+            //OnClickAccept();
         }
 
         IEnumerator CoroutineActiveChest(float timeDelay)
@@ -77,10 +88,12 @@ namespace BallSortQuest
 
         private void SetChestState(bool isOpened)
         {
-            if(isOpened){
+            if (isOpened)
+            {
                 _chest.OpenChest(null);
             }
-            else{
+            else
+            {
                 _chest.DefaultChest();
             }
         }
