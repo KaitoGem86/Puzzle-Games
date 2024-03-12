@@ -57,16 +57,38 @@ namespace BallSortQuest
                     {
                         Debug.Log("Watch Ads");
                         //Do something with Ads
+                        bool isShowBanner = false;
+                        AdsManager.Instance.ShowRewardedAd(
+                            () => { isShowBanner = true; },
+                            () => { if (isShowBanner) 
+                                    { 
+                                        ActionEvent.OnResetGamePlay?.Invoke();
+                                        _container.Exit();
+                                    }
+                                }
+                        );
                     }
-                    ActionEvent.OnResetGamePlay?.Invoke();
-                    _container.Exit();
+                    else
+                    {
+                        ActionEvent.OnResetGamePlay?.Invoke();
+                        _container.Exit();
+                    }
                     break;
                 case TypeChallenge.Timer:
                     _timerChallenge.OnSelectChallenge();
                     if (!_timerChallenge.IsCanPlayNoNeedAds)
                     {
                         Debug.Log("Watch Ads");
-                        //Do something with Ads
+                        bool isShowBanner = false;
+                        AdsManager.Instance.ShowRewardedAd(
+                            () => { isShowBanner = true; },
+                            () => { if (isShowBanner) 
+                                    { 
+                                        ActionEvent.OnResetGamePlay?.Invoke();
+                                        _container.Exit();
+                                    }
+                                }
+                        );
                     }
                     ActionEvent.OnResetGamePlay?.Invoke();
                     _container.Exit();
@@ -76,7 +98,16 @@ namespace BallSortQuest
                     if (!_moveChallenge.IsCanPlayNoNeedAds)
                     {
                         Debug.Log("Watch Ads");
-                        //Do something with Ads
+                        bool isShowBanner = false;
+                        AdsManager.Instance.ShowRewardedAd(
+                            () => { isShowBanner = true; },
+                            () => { if (isShowBanner) 
+                                    { 
+                                        ActionEvent.OnResetGamePlay?.Invoke();
+                                        _container.Exit();
+                                    }
+                                }
+                        );
                     }
                     ActionEvent.OnResetGamePlay?.Invoke();
                     _container.Exit();
